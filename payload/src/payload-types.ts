@@ -52,21 +52,28 @@ export interface UserAuthOperations {
 export interface Page {
   id: number;
   title?: string | null;
-  content?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
+  content?:
+    | {
+        Title: string;
+        body?: string | null;
+        Buttons?:
+          | {
+              button?: {
+                Label?: string | null;
+                link?: string | null;
+              };
+              id?: string | null;
+            }[]
+          | null;
+        image?: {
+          src?: string | null;
+          alt?: string | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'hero';
+      }[]
+    | null;
   meta?: {
     title?: string | null;
     description?: string | null;

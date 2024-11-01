@@ -5,12 +5,9 @@ export const ImageField: Field = {
   name: 'image',
   fields: [
     {
-      type: 'text',
+      type: 'upload',
       name: 'src',
+      relationTo: 'media',
     },
-    {
-      type: 'text',
-      name: 'alt'
-    }
   ]
 }

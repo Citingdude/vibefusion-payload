@@ -66,8 +66,7 @@ export interface Page {
             }[]
           | null;
         image?: {
-          src?: string | null;
-          alt?: string | null;
+          src?: (number | null) | Media;
         };
         id?: string | null;
         blockName?: string | null;

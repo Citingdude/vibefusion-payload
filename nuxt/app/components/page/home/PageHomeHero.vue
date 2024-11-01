@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { animate, stagger } from 'motion'
 import type { PageHome } from '~~/types/pages/home.type'
+import { animate, stagger } from 'motion'
 
 defineProps<{
   page: Pick<PageHome['data']['attributes'], 'hero'>

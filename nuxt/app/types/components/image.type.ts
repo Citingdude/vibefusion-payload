@@ -19,7 +19,7 @@ export default interface Image {
           width: 1000
           height: 667
         }
-        'small': {
+        small: {
           ext: '.jpg'
           url: '/uploads/small_Explauradise_Mockup_1_v4_f3f8083130.jpg'
           hash: 'small_Explauradise_Mockup_1_v4_f3f8083130'
@@ -30,7 +30,7 @@ export default interface Image {
           width: 500
           height: 333
         }
-        'medium': {
+        medium: {
           ext: '.jpg'
           url: '/uploads/medium_Explauradise_Mockup_1_v4_f3f8083130.jpg'
           hash: 'medium_Explauradise_Mockup_1_v4_f3f8083130'
@@ -41,7 +41,7 @@ export default interface Image {
           width: 750
           height: 500
         }
-        'thumbnail': {
+        thumbnail: {
           ext: '.jpg'
           url: '/uploads/thumbnail_Explauradise_Mockup_1_v4_f3f8083130.jpg'
           hash: 'thumbnail_Explauradise_Mockup_1_v4_f3f8083130'

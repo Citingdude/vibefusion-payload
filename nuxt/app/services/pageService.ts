@@ -1,5 +1,5 @@
-import type WebdesignPage from '~/types/pages/webdesign.type'
 import { type PageHome, PageHomeSchema } from '~/types/pages/home.type'
+import type WebdesignPage from '~/types/pages/webdesign.type'
 
 export function fetchPageHome() {
   return useApiFetch('homepage', {

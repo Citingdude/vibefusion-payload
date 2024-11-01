@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     public: {
       apiBase: process.env.API_BASE,
       baseUrl: process.env.BASE_URL,
+      payloadApiBaseUrl: '',
     },
   },
   modules: [

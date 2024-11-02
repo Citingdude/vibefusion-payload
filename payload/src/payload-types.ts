@@ -14,6 +14,7 @@ export interface Config {
     pages: Page;
     users: User;
     media: Media;
+    cases: Case;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -91,6 +92,17 @@ export interface Page {
             blockName?: string | null;
             blockType: 'service-cards-block';
           }
+        | {
+            'case-cards'?:
+              | {
+                  'case-card'?: (number | null) | Case;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'case-cards-block';
+          }
       )[]
     | null;
   meta?: {
@@ -119,6 +131,18 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "cases".
+ */
+export interface Case {
+  id: number;
+  title?: string | null;
+  image?: (number | null) | Media;
+  description?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -155,6 +179,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'cases';
+        value: number | Case;
       } | null);
   globalSlug?: string | null;
   user: {

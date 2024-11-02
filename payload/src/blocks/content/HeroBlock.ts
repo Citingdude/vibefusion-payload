@@ -1,5 +1,4 @@
 import { Block } from "payload";
-import { ButtonBlock } from "../button/ButtonBlock";
 import { ButtonField } from "@/fields/ButtonField";
 import { ImageField } from "@/fields/ImageField";
 

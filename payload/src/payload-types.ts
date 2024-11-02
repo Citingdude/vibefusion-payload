@@ -53,25 +53,45 @@ export interface Page {
   id: number;
   title?: string | null;
   content?:
-    | {
-        Title: string;
-        body?: string | null;
-        Buttons?:
-          | {
-              button?: {
-                Label?: string | null;
-                link?: string | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        image?: {
-          src?: (number | null) | Media;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'hero';
-      }[]
+    | (
+        | {
+            Title: string;
+            body?: string | null;
+            Buttons?:
+              | {
+                  button?: {
+                    Label?: string | null;
+                    link?: string | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            image?: {
+              src?: (number | null) | Media;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero';
+          }
+        | {
+            'service-cards'?:
+              | {
+                  'service-card'?: {
+                    image?: (number | null) | Media;
+                    title?: string | null;
+                    button?: {
+                      Label?: string | null;
+                      link?: string | null;
+                    };
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'service-cards-block';
+          }
+      )[]
     | null;
   meta?: {
     title?: string | null;

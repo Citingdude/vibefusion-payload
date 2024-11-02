@@ -1,4 +1,5 @@
 import { HeroBlock } from '@/blocks/content/HeroBlock'
+import { ServiceCardsBlock } from '@/blocks/service/ServiceCardsBlock'
 import type { CollectionConfig } from 'payload'
 
 export const Pages: CollectionConfig = {
@@ -14,7 +15,10 @@ export const Pages: CollectionConfig = {
     {
       name: 'content',
       type: 'blocks',
-      blocks: [HeroBlock],
+      blocks: [
+        HeroBlock,
+        ServiceCardsBlock
+      ],
     }
   ],
 }

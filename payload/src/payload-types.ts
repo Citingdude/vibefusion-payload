@@ -68,9 +68,7 @@ export interface Page {
                   id?: string | null;
                 }[]
               | null;
-            image?: {
-              src?: (number | null) | Media;
-            };
+            image?: (number | null) | Media;
             id?: string | null;
             blockName?: string | null;
             blockType: 'hero';

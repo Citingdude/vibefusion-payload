@@ -7,13 +7,6 @@ const [
   fetchCases(),
 ])
 
-const baseURL = useRuntimeConfig().public.payloadApiBaseUrl
-
-const { data } = useFetch('/pages', {
-  baseURL,
-  server: false,
-})
-
 const facebookMeta = computed(() => {
   return page.value?.seo?.metaSocial?.find(social => social.socialNetwork === 'Facebook')
 })
@@ -35,9 +28,6 @@ useCanonicalURL(page.value?.seo?.canonicalURL)
 
 <template>
   <main v-if="page">
-    <pre>
-      {{ data }}
-    </pre>
     <PageHomeHero :page="page" />
     <PageHomeServices :page="page" />
     <PageHomeCases v-if="cases" :cases="cases" />

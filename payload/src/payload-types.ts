@@ -57,9 +57,9 @@ export interface Page {
   content?:
     | (
         | {
-            Title: string;
+            title: string;
             body?: string | null;
-            Buttons?:
+            buttons?:
               | {
                   button?: {
                     Label?: string | null;

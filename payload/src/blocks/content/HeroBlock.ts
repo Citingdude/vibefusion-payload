@@ -7,7 +7,7 @@ export const HeroBlock: Block = {
   fields: [
     {
       type: 'text',
-      name: 'Title',
+      name: 'title',
       required: true,
     },
     {
@@ -16,7 +16,7 @@ export const HeroBlock: Block = {
     },
     {
       type: 'array',
-      name: 'Buttons',
+      name: 'buttons',
       fields: [ButtonField],
       maxRows: 2
     },

@@ -13,6 +13,15 @@ export const Pages: CollectionConfig = {
   },
   fields: [
     {
+      name: 'slug',
+      type: 'text',
+      unique: true,
+      required: true,
+      admin: {
+        position: 'sidebar'
+      }
+    },
+    {
       name: 'title',
       type: 'text',
     },

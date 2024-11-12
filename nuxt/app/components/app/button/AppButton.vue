@@ -1,41 +1,39 @@
 <script setup lang="ts">
 import type { RouteLocationRaw } from '#vue-router'
-import type { Color, Size } from '~~/types/components/button.type'
+import type { VariantProps } from 'tailwind-variants'
+import { tv } from 'tailwind-variants'
 
-const props = defineProps<{
-  color: Color
-  size: Size
+const props = defineProps<ButtonProps>()
+
+interface ButtonProps {
+  color: ButtonStyle['color']
+  size: ButtonStyle['size']
 
   to?: RouteLocationRaw
   href?: string
   target?: '_blank' | '_parent' | '_self' | '_top'
   rel?: string
   button?: boolean
-}>()
+}
 
-const sizeClasses = computed(() => {
-  switch (props.size) {
-    case 'small':
-      return 'py-2 px-4 border text-base'
-    case 'medium':
-      return 'py-3 px-5 border-2 text-lg'
-    case 'large':
-      return 'py-4 px-6 border-2 text-xl'
-  }
+const buttonStyle = tv({
+  base: 'w-full rounded-br-xl rounded-tl-xl text-center font-display font-bold transition hover:-translate-y-1 hover:shadow-xl sm:w-fit',
+  variants: {
+    size: {
+      sm: 'py-2 px-4 border text-base',
+      md: 'py-3 px-5 border-2 text-lg',
+      lg: 'py-4 px-6 border-2 text-xl',
+    },
+    color: {
+      purple: 'border-accent bg-accent text-light-main',
+      white: 'bg-light-alt text-accent border-light-main hover:border-accent',
+      transparent: 'border-accent',
+      transparentWhite: 'border-accent text-light-main',
+    },
+  },
 })
 
-const colorClasses = computed(() => {
-  switch (props.color) {
-    case 'purple':
-      return 'border-accent bg-accent text-light-main'
-    case 'white':
-      return 'bg-light-alt text-accent border-light-main hover:border-accent'
-    case 'transparent':
-      return 'border-accent'
-    case 'transparent-white':
-      return 'border-accent text-light-main'
-  }
-})
+type ButtonStyle = VariantProps<typeof buttonStyle>
 
 const buttonComponent = computed(() => {
   return props.button ? 'button' : resolveComponent('NuxtLink')
@@ -49,11 +47,10 @@ const buttonComponent = computed(() => {
     :href="href"
     :target="target"
     :rel="rel"
-    class="w-full rounded-br-xl rounded-tl-xl text-center font-display font-bold transition hover:-translate-y-1 hover:shadow-xl sm:w-fit"
-    :class="[
-      colorClasses,
-      sizeClasses,
-    ]"
+    :class="buttonStyle({
+      color: props.color,
+      size: props.size,
+    })"
   >
     <slot />
   </component>

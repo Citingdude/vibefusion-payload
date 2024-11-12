@@ -15,3 +15,11 @@ export const imageDtoSchema = z.object({
   focalX: z.number(),
   focalY: z.number(),
 })
+
+export const imageSchema = z.object({
+  alt: z.string(),
+  src: z.string(),
+})
+
+export type ImageDto = z.infer<typeof imageDtoSchema>
+export type Image = z.infer<typeof imageSchema>

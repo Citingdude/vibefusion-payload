@@ -1,38 +1,30 @@
 <script setup lang="ts">
-const [
-  { data: page },
-  { data: cases },
-] = await Promise.all([
-  fetchPageHome(),
-  fetchCases(),
-])
-
-const facebookMeta = computed(() => {
-  return page.value?.seo?.metaSocial?.find(social => social.socialNetwork === 'Facebook')
-})
-const twitterMeta = computed(() => {
-  return page.value?.seo?.metaSocial?.find(social => social.socialNetwork === 'Twitter')
-})
-
-useSeoMeta({
-  title: page.value?.seo?.metaTitle ?? 'VibeFusion',
-  description: page.value?.seo?.metaDescription ?? 'Versterk je merk met de juiste Vibe.',
-  ogTitle: facebookMeta.value?.title ?? 'VibeFusion',
-  ogDescription: facebookMeta.value?.description ?? 'Versterk je merk met de juiste Vibe.',
-  twitterTitle: twitterMeta.value?.title ?? 'VibeFusion',
-  twitterDescription: twitterMeta.value?.description ?? 'Versterk je merk met de juiste Vibe.',
-})
-
-useCanonicalURL(page.value?.seo?.canonicalURL)
+import BlockHero from '~/features/block/components/BlockHero.vue'
 </script>
 
 <template>
-  <main v-if="page">
-    <PageHomeHero :page="page" />
-    <PageHomeServices :page="page" />
-    <PageHomeCases v-if="cases" :cases="cases" />
-    <PageHomeCta :page="page" />
+  <main>
+    <BlockHero
+      :block="{
+        blockName: 'hero',
+        blockType: 'hero',
+        body: '',
+        buttons: [
+          {
+            id: '',
+            button: {
+              label: 'Test',
+              link: 'test',
+            },
+          },
+        ],
+        id: '',
+        image: {
+          alt: '',
+          src: '',
+        },
+        title: 'Titel',
+      }"
+    />
   </main>
-
-  <AppError v-else />
 </template>

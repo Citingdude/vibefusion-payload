@@ -11,10 +11,19 @@ import BlockHero from '~/features/block/components/BlockHero.vue'
         body: '',
         buttons: [
           {
-            id: '',
+            id: 'services',
             button: {
-              label: 'Test',
-              link: 'test',
+              label: 'Onze diensten',
+              link: '#diensten',
+              color: 'purple',
+            },
+          },
+          {
+            id: 'cases',
+            button: {
+              label: 'Onze cases',
+              link: '#cases',
+              color: 'transparent',
             },
           },
         ],
@@ -23,7 +32,7 @@ import BlockHero from '~/features/block/components/BlockHero.vue'
           alt: '',
           src: '',
         },
-        title: 'Titel',
+        title: 'Versterk je merk met de juiste Vibe.',
       }"
     />
   </main>

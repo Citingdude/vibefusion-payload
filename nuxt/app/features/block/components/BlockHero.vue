@@ -47,7 +47,7 @@ function useAnimation() {
             :key="button.id"
             :to="button.button.link"
             size="lg"
-            color="purple"
+            :color="button.button.color"
           >
             {{ button.button.label }}
           </AppButton>

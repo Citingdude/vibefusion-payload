@@ -5,6 +5,7 @@ export class ButtonTransformer {
     return {
       label: dto.Label,
       link: dto.link,
+      color: dto.color,
     }
   }
 }

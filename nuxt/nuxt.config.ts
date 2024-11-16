@@ -38,12 +38,4 @@ export default defineNuxtConfig({
       scrollBehaviorType: 'smooth',
     },
   },
-  routeRules: {
-    '/': {
-      swr: true,
-    },
-    '/**': {
-      swr: true,
-    },
-  },
 })

@@ -61,9 +61,10 @@ export interface Page {
             body?: string | null;
             buttons?:
               | {
-                  button?: {
+                  button: {
                     Label?: string | null;
                     link?: string | null;
+                    color: 'purple' | 'white' | 'transparent' | 'transparentWhite';
                   };
                   id?: string | null;
                 }[]
@@ -76,12 +77,13 @@ export interface Page {
         | {
             'service-cards'?:
               | {
-                  'service-card'?: {
+                  'service-card': {
                     image?: (number | null) | Media;
                     title?: string | null;
-                    button?: {
+                    button: {
                       Label?: string | null;
                       link?: string | null;
+                      color: 'purple' | 'white' | 'transparent' | 'transparentWhite';
                     };
                   };
                   id?: string | null;

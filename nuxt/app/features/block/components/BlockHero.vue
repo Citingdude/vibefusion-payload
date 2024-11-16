@@ -55,7 +55,11 @@ function useAnimation() {
       </div>
 
       <div class="anim-fade-in-right col-span-2 lg:col-span-6">
-        <IllustrationHomeHero />
+        <img
+          :src="props.block.image.src"
+          :alt="props.block.image.alt"
+          class="aspect-[140/53] w-full h-auto"
+        >
       </div>
     </div>
   </AppLayoutSection>

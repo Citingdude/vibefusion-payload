@@ -13,7 +13,7 @@ const heroBlock: HeroBlock = {
       id: 'services',
       button: {
         label: 'Onze diensten',
-        link: '#diensten',
+        link: '#onze-diensten',
         color: 'purple',
       },
     },

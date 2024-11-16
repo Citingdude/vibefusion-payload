@@ -1,14 +1,16 @@
 <script setup lang="ts">
+import type { Button } from '~/features/button/button.model'
+import type { Image } from '~/features/image/image.model'
+
 const props = defineProps<{
   id: number
-  icon?: 'webdesign' | 'webshop' | 'branding' | null
+  image?: Image
   title: string
-  ctaTitle: string
-  ctaUrl: string
-  color: string
+  button?: Button
+  color: 'light' | 'dark'
 }>()
 
-const getBorders = computed(() => {
+const getBorders = computed<string>(() => {
   switch (props.id) {
     case 1:
       return 'rounded-tl-3xl rounded-br-3xl'
@@ -21,29 +23,22 @@ const getBorders = computed(() => {
 
     case 4:
       return 'rounded-tl-3xl rounded-br-3xl'
+
+    default:
+      return ''
   }
 })
 
-const getColor = computed(() => {
+const getColor = computed<string>(() => {
   switch (props.color) {
     case 'light':
       return 'bg-light-main'
 
     case 'dark':
       return 'bg-dark-200 text-light-main'
-  }
-})
 
-const iconComponent = computed(() => {
-  switch (props.icon) {
-    case 'branding':
-      return resolveComponent('IconsBranding')
-
-    case 'webdesign':
-      return resolveComponent('IconsWebdesign')
-
-    case 'webshop':
-      return resolveComponent('IconsWebshop')
+    default:
+      return ''
   }
 })
 </script>
@@ -54,7 +49,12 @@ const iconComponent = computed(() => {
     :class="[getBorders, getColor]"
   >
     <!-- Icon -->
-    <component :is="iconComponent" v-if="icon" />
+    <img
+      v-if="props.image"
+      :src="props.image.src"
+      :alt="props.image.alt"
+      class="aspect-square"
+    >
 
     <!-- Title -->
     <h3 class="my-8 font-display text-3xl font-bold" :class="`${getColor}`">
@@ -62,8 +62,13 @@ const iconComponent = computed(() => {
     </h3>
 
     <!-- Button -->
-    <AppButton type="internal" color="transparent" :to="props.ctaUrl" size="medium">
-      {{ props.ctaTitle }}
+    <AppButton
+      v-if="props.button"
+      :color="props.button.color"
+      :to="props.button.link"
+      size="md"
+    >
+      {{ props.button.label }}
     </AppButton>
   </div>
 </template>

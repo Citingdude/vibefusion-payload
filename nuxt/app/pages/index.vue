@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import BlockCases from '~/features/block/components/BlockCases.vue'
+import BlockCta from '~/features/block/components/BlockCta.vue'
 import BlockHero from '~/features/block/components/BlockHero.vue'
 import BlockServices from '~/features/block/components/BlockServices.vue'
 import type { CasesBlock } from '~/features/block/models/casesBlock.model'
+import type { CtaBlock } from '~/features/block/models/ctaBlock.model'
 import type { HeroBlock } from '~/features/block/models/heroBlock.model'
 import type { ServicesBlock } from '~/features/block/models/servicesBlock.model'
 
@@ -109,6 +111,17 @@ const casesBlock: CasesBlock = {
     },
   ],
 }
+
+const ctaBlock: CtaBlock = {
+  id: 'cta',
+  title: 'Samenwerken voor jouw volgend project?',
+  description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita ',
+  button: {
+    color: 'transparentWhite',
+    label: 'Vraag een gesprek aan',
+    link: '/contact',
+  },
+}
 </script>
 
 <template>
@@ -116,5 +129,6 @@ const casesBlock: CasesBlock = {
     <BlockHero :block="heroBlock" />
     <BlockServices :block="servicesBlock" />
     <BlockCases :block="casesBlock" />
+    <BlockCta :block="ctaBlock" />
   </main>
 </template>

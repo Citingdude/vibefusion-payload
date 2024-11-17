@@ -28,7 +28,7 @@ function useAnimation() {
   }, {
     delay: stagger(0.4),
     duration: 0.6,
-    easing: 'ease-in-out',
+    ease: 'easeInOut',
   })
 }
 </script>

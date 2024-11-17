@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import BlockCases from '~/features/block/components/BlockCases.vue'
 import BlockHero from '~/features/block/components/BlockHero.vue'
 import BlockServices from '~/features/block/components/BlockServices.vue'
+import type { CasesBlock } from '~/features/block/models/casesBlock.model'
 import type { HeroBlock } from '~/features/block/models/heroBlock.model'
 import type { ServicesBlock } from '~/features/block/models/servicesBlock.model'
 
@@ -78,11 +80,41 @@ const servicesBlock: ServicesBlock = {
     },
   ],
 }
+
+const casesBlock: CasesBlock = {
+  id: 'cases',
+  title: 'Cases',
+  cases: [
+    {
+      category: 'Blog',
+      title: 'Explauradise',
+      description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum',
+      id: 'explauradise',
+      image: {
+        src: '/images/cases/explauradise.jpg',
+        alt: 'Exaplauradise',
+      },
+      slug: 'explauradise',
+    },
+    {
+      category: 'Business',
+      title: 'VDR Chemtech',
+      description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum',
+      id: 'vdr-checmtech',
+      image: {
+        src: '/images/cases/explauradise.jpg',
+        alt: 'VDR Chemtech',
+      },
+      slug: 'vdr-chemtech',
+    },
+  ],
+}
 </script>
 
 <template>
   <main>
     <BlockHero :block="heroBlock" />
     <BlockServices :block="servicesBlock" />
+    <BlockCases :block="casesBlock" />
   </main>
 </template>

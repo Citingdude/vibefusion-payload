@@ -5,11 +5,15 @@ export const ServiceCardsBlock: Block = {
   slug: 'service-cards-block',
   fields: [
     {
+      type: 'text',
+      name: 'title',
+    },
+    {
       type: 'array',
       fields: [
         ServiceCardField
       ],
-      name: 'service-cards'
+      name: 'serviceCards'
     }
   ]
 }

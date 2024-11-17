@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { buttonColorDtoSchema, buttonColorSchema } from './buttonColor.model'
 
 export const buttonDtoSchema = z.object({
-  Label: z.string(),
+  label: z.string(),
   link: z.string(),
   color: buttonColorDtoSchema,
 })

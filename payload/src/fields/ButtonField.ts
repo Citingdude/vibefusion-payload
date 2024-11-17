@@ -25,7 +25,7 @@ export const ButtonField: Field = {
   fields: [
     {
       type: 'text',
-      name: 'Label'
+      name: 'label'
     },
     {
       type: 'text',

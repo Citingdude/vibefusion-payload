@@ -62,7 +62,7 @@ export interface Page {
             buttons?:
               | {
                   button: {
-                    Label?: string | null;
+                    label?: string | null;
                     link?: string | null;
                     color: 'purple' | 'white' | 'transparent' | 'transparentWhite';
                   };
@@ -75,13 +75,14 @@ export interface Page {
             blockType: 'hero';
           }
         | {
-            'service-cards'?:
+            title?: string | null;
+            serviceCards?:
               | {
-                  'service-card': {
+                  serviceCard: {
                     image?: (number | null) | Media;
                     title?: string | null;
                     button: {
-                      Label?: string | null;
+                      label?: string | null;
                       link?: string | null;
                       color: 'purple' | 'white' | 'transparent' | 'transparentWhite';
                     };

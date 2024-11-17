@@ -3,7 +3,7 @@ import { ButtonField } from "../ButtonField";
 
 export const ServiceCardField: Field = {
   type: 'group',
-  name: 'service-card',
+  name: 'serviceCard',
   fields: [
     {
       type: 'upload',

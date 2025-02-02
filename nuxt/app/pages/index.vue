@@ -126,7 +126,7 @@ const ctaBlock: CtaBlock = {
 
 <template>
   <main>
-    <BlockHero :block="heroBlock" />
+    <BlockHero v-if="heroBlock" :block="heroBlock" />
     <BlockServices :block="servicesBlock" />
     <BlockCases :block="casesBlock" />
     <BlockCta :block="ctaBlock" />

@@ -40,6 +40,10 @@ function useAnimation() {
         <!-- Heading -->
         <TextH1 id="hero-title" :html="props.block.title" />
 
+        <p>
+          {{ props.block.body }}
+        </p>
+
         <!-- Buttons -->
         <AppButtonGroup id="hero-buttons">
           <AppButton

@@ -4,6 +4,7 @@ import { ImageField } from "@/fields/ImageField";
 
 export const HeroBlock: Block = {
   slug: 'hero',
+  interfaceName: 'HeroBlock',
   fields: [
     {
       type: 'text',

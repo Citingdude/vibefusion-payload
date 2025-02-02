@@ -71,24 +71,7 @@ export interface Page {
   title?: string | null;
   content?:
     | (
-        | {
-            title: string;
-            body?: string | null;
-            buttons?:
-              | {
-                  button: {
-                    label?: string | null;
-                    link?: string | null;
-                    color: 'purple' | 'white' | 'transparent' | 'transparentWhite';
-                  };
-                  id?: string | null;
-                }[]
-              | null;
-            image?: (number | null) | Media;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'hero';
-          }
+        | HeroBlock
         | {
             title?: string | null;
             serviceCards?:
@@ -132,6 +115,28 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBlock".
+ */
+export interface HeroBlock {
+  title: string;
+  body?: string | null;
+  buttons?:
+    | {
+        button: {
+          label?: string | null;
+          link?: string | null;
+          color: 'purple' | 'white' | 'transparent' | 'transparentWhite';
+        };
+        id?: string | null;
+      }[]
+    | null;
+  image?: (number | null) | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */
 export interface Media {
@@ -155,7 +160,7 @@ export interface Media {
  */
 export interface Case {
   id: number;
-  title?: string | null;
+  title: string;
   image?: (number | null) | Media;
   description?: string | null;
   updatedAt: string;

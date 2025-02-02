@@ -1,4 +1,4 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig, Where } from 'payload'
 
 export const Cases: CollectionConfig = {
   slug: 'cases',
@@ -12,6 +12,7 @@ export const Cases: CollectionConfig = {
     {
       name: 'title',
       type: 'text',
+      required: true,
     },
     {
       name: 'image',
@@ -24,6 +25,6 @@ export const Cases: CollectionConfig = {
     {
       name: 'description',
       type: 'textarea',
-    }
+    },
   ],
 }

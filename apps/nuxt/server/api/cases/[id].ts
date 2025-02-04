@@ -1,4 +1,5 @@
 import type { Case as CaseDto } from '@payload-types'
+import { getPayloadFetch } from '~~/server/utils/payload/getPayloadFetch'
 import { CaseTransformer } from '~/features/case/transformers/case.transformer'
 
 export default defineEventHandler(async (event) => {

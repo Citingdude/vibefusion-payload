@@ -11,7 +11,7 @@ module.exports = {
       padding: '2rem',
     },
     fontFamily: {
-      display: ['Alegreya'],
+      display: ['Alegreya Variable'],
       body: ['Alegreya Sans'],
     },
     colors: {

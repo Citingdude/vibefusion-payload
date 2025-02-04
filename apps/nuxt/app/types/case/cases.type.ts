@@ -1,4 +1,4 @@
-import type Case from './case.type'
+import type { Case } from '~/features/case/types/case.type'
 
 export default interface Cases {
   data: Case[]

@@ -14,8 +14,8 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@fontsource/alegreya": "5.1.1",
-    "@fontsource/alegreya-sans": "5.1.1",
+    "@fontsource-variable/alegreya": "5.1.2",
+    "@fontsource/alegreya-sans": "5.1.2",
     "motion": "11.11.17",
     "nuxt": "3.14.159 ",
     "qs": "6.13.0",

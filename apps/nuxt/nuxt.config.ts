@@ -15,8 +15,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      apiBase: process.env.API_BASE,
-      baseUrl: process.env.BASE_URL,
+      apiBase: '',
+      baseUrl: '',
       payloadApiBaseUrl: '',
     },
   },
@@ -29,11 +29,6 @@ export default defineNuxtConfig({
     dirs: [
       'services',
     ],
-  },
-  image: {
-    strapi: {
-      baseURL: 'https://strapi.vibefusion.be',
-    },
   },
   experimental: {
     typedPages: true,

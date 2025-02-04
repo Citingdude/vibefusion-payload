@@ -12,30 +12,31 @@
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
-    "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@payloadcms/db-postgres": "^3.2.2",
-    "@payloadcms/next": "^3.2.2",
-    "@payloadcms/payload-cloud": "^3.2.2",
-    "@payloadcms/plugin-seo": "^3.2.2",
-    "@payloadcms/richtext-lexical": "^3.2.2",
-    "cross-env": "^7.0.3",
-    "defu": "^6.1.4",
-    "graphql": "^16.8.1",
-    "next": "15.0.0",
-    "payload": "^3.2.2",
-    "react": "19.0.0-rc-65a56d0e-20241020",
-    "react-dom": "19.0.0-rc-65a56d0e-20241020",
-    "sharp": "0.32.6"
+    "@payloadcms/db-postgres": "3.20.0",
+    "@payloadcms/next": "3.20.0",
+    "@payloadcms/payload-cloud": "3.20.0",
+    "@payloadcms/plugin-seo": "3.20.0",
+    "@payloadcms/richtext-lexical": "3.20.0",
+    "cross-env": "7.0.3",
+    "defu": "6.1.4",
+    "graphql": "16.10.0",
+    "next": "15.1.6",
+    "payload": "3.20.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "sharp": "0.33.5"
   },
   "devDependencies": {
-    "@types/node": "^22.5.4",
+    "@types/node": "22.13.1",
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
-    "eslint": "^8",
-    "eslint-config-next": "15.0.0",
-    "typescript": "5.6.3"
+    "eslint": "9.19.0",
+    "eslint-config-next": "15.1.6",
+    "typescript": "5.7.3"
   },
   "engines": {
     "node": "^18.20.2 || >=20.9.0"

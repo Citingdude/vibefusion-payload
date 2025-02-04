@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "devDependencies": {
+    "turbo": "2.4.0"
+  },
+  "packageManager": "pnpm@10.1.0"
+}

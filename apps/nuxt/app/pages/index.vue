@@ -5,38 +5,39 @@ import BlockHero from '~/features/block/components/BlockHero.vue'
 import BlockServices from '~/features/block/components/BlockServices.vue'
 import type { CasesBlock } from '~/features/block/models/casesBlock.model'
 import type { CtaBlock } from '~/features/block/models/ctaBlock.model'
-import type { HeroBlock } from '~/features/block/models/heroBlock.model'
 import type { ServicesBlock } from '~/features/block/models/servicesBlock.model'
+import { HeroBlockTransformer } from '~/features/block/transformers/heroBlock.transformer'
+import type { HeroBlock } from '~/features/block/types/heroBlock.type'
 
-const heroBlock: HeroBlock = {
-  blockName: 'hero',
-  blockType: 'hero',
-  body: '',
-  buttons: [
-    {
-      id: 'services',
-      button: {
-        label: 'Onze diensten',
-        link: '#onze-diensten',
-        color: 'purple',
-      },
-    },
-    {
-      id: 'cases',
-      button: {
-        label: 'Onze cases',
-        link: '#cases',
-        color: 'transparent',
-      },
-    },
-  ],
-  id: 'hero',
-  image: {
-    alt: '',
-    src: '/images/home/home_hero_illustration.svg',
-  },
-  title: 'Versterk je merk met de juiste Vibe.',
-}
+// const heroBlock: HeroBlock = {
+//   blockName: 'hero',
+//   blockType: 'hero',
+//   body: '',
+//   buttons: [
+//     {
+//       id: 'services',
+//       button: {
+//         label: 'Onze diensten',
+//         link: '#onze-diensten',
+//         color: 'purple',
+//       },
+//     },
+//     {
+//       id: 'cases',
+//       button: {
+//         label: 'Onze cases',
+//         link: '#cases',
+//         color: 'transparent',
+//       },
+//     },
+//   ],
+//   id: 'hero',
+//   image: {
+//     alt: '',
+//     src: '/images/home/home_hero_illustration.svg',
+//   },
+//   title: 'Versterk je merk met de juiste Vibe.',
+// }
 
 const servicesBlock: ServicesBlock = {
   title: 'Onze diensten',
@@ -122,6 +123,18 @@ const ctaBlock: CtaBlock = {
     link: '/contact',
   },
 }
+
+const { data } = useFetch('/api/pages/home')
+
+const heroBlock = computed<HeroBlock | null>(() => {
+  const block = data.value?.content?.find(block => block.blockType === 'hero')
+
+  if (!block) {
+    return null
+  }
+
+  return HeroBlockTransformer.fromDto(block)
+})
 </script>
 
 <template>

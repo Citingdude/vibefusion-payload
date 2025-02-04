@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 const ButtonTypeSchema = z.enum(['hash', 'internal', 'external', 'event'])
-const ButtonColorSchema = z.enum(['purple', 'white', 'transparent', 'transparent-white'])
+const ButtonColorSchema = z.enum(['purple', 'white', 'transparent', 'transparentWhite'])
 
 export const ButtonSchema = z.object({
   id: z.number(),

@@ -79,11 +79,7 @@ export interface Page {
                   serviceCard: {
                     image?: (number | null) | Media;
                     title?: string | null;
-                    button: {
-                      label?: string | null;
-                      link?: string | null;
-                      color: 'purple' | 'white' | 'transparent' | 'transparentWhite';
-                    };
+                    button: ButtonField;
                   };
                   id?: string | null;
                 }[]
@@ -125,11 +121,7 @@ export interface HeroBlock {
   body?: string | null;
   buttons?:
     | {
-        button: {
-          label?: string | null;
-          link?: string | null;
-          color: 'purple' | 'white' | 'transparent' | 'transparentWhite';
-        };
+        button: ButtonField;
         id?: string | null;
       }[]
     | null;
@@ -137,6 +129,15 @@ export interface HeroBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'hero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ButtonField".
+ */
+export interface ButtonField {
+  label?: string | null;
+  link?: string | null;
+  color: 'purple' | 'white' | 'transparent' | 'transparentWhite';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -274,13 +275,7 @@ export interface PagesSelect<T extends boolean = true> {
                       | {
                           image?: T;
                           title?: T;
-                          button?:
-                            | T
-                            | {
-                                label?: T;
-                                link?: T;
-                                color?: T;
-                              };
+                          button?: T | ButtonFieldSelect<T>;
                         };
                     id?: T;
                   };
@@ -320,18 +315,21 @@ export interface HeroBlockSelect<T extends boolean = true> {
   buttons?:
     | T
     | {
-        button?:
-          | T
-          | {
-              label?: T;
-              link?: T;
-              color?: T;
-            };
+        button?: T | ButtonFieldSelect<T>;
         id?: T;
       };
   image?: T;
   id?: T;
   blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ButtonField_select".
+ */
+export interface ButtonFieldSelect<T extends boolean = true> {
+  label?: T;
+  link?: T;
+  color?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

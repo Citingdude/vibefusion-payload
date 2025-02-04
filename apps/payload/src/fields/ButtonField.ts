@@ -39,5 +39,6 @@ export const ButtonField: Field = {
       defaultValue: buttonColorOptions[0].value,
       enumName: 'button-field-color'
     }
-  ]
+  ],
+  interfaceName: 'ButtonField'
 }

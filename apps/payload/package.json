@@ -16,16 +16,15 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@payloadcms/db-postgres": "3.20.0",
-    "@payloadcms/next": "3.20.0",
-    "@payloadcms/payload-cloud": "3.20.0",
-    "@payloadcms/plugin-seo": "3.20.0",
-    "@payloadcms/richtext-lexical": "3.20.0",
+    "@payloadcms/db-postgres": "3.22.0",
+    "@payloadcms/next": "3.22.0",
+    "@payloadcms/payload-cloud": "3.22.0",
+    "@payloadcms/plugin-seo": "3.22.0",
+    "@payloadcms/richtext-lexical": "3.22.0",
     "cross-env": "7.0.3",
     "defu": "6.1.4",
-    "graphql": "16.10.0",
     "next": "15.1.6",
-    "payload": "3.20.0",
+    "payload": "3.22.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "sharp": "0.33.5"
@@ -40,15 +39,5 @@
   },
   "engines": {
     "node": "^18.20.2 || >=20.9.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "npm:types-react@19.0.0-rc.1",
-      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
-    }
-  },
-  "overrides": {
-    "@types/react": "npm:types-react@19.0.0-rc.1",
-    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
   }
 }

@@ -45,7 +45,7 @@ defineProps<Props>()
         <div v-html="summary" />
       </div>
 
-      <AppButton type="internal" color="transparent" :to="link" size="medium">
+      <AppButton type="internal" color="transparent" :to="link" size="md">
         Lees de volledige case
       </AppButton>
     </div>

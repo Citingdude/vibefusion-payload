@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Button } from '~~/types/components/button.type'
+import type { Button } from '~/features/button/types/button.type'
 
 interface Props {
   type: 'feature' | 'cta'
@@ -19,6 +19,8 @@ const getColor = computed(() => {
     case 'dark':
       return 'bg-dark-300 text-light-main'
     case 'transparent':
+      return ''
+    default:
       return ''
   }
 })
@@ -67,7 +69,7 @@ const getBorders = computed(() => {
       <AppButton
         v-if="props.button"
         :type="props.button.type"
-        size="medium"
+        size="md"
         :color="props.button.color"
         :link="props.button.url"
         :to="props.button.url"

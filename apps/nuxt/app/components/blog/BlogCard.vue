@@ -27,8 +27,8 @@ defineProps<{
         <div class="flex">
           <AppButton
             type="event"
-            color="transparent-white"
-            size="medium"
+            color="transparentWhite"
+            size="md"
             button
           >
             Lees de blog

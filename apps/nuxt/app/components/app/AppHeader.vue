@@ -31,7 +31,7 @@ watch(() => route.path, () => {
       <AppNavigation />
 
       <div class="hidden justify-end lg:col-span-3 lg:flex">
-        <AppButton type="internal" color="white" size="small" to="/contact">
+        <AppButton type="internal" color="white" size="sm" to="/contact">
           Contact
         </AppButton>
       </div>

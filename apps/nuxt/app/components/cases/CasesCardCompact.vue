@@ -31,7 +31,7 @@ defineProps({
       </h3>
 
       <div class="flex text-light-main">
-        <AppButton type="internal" :to="`/cases/${link}`" color="transparent" size="medium">
+        <AppButton type="internal" :to="`/cases/${link}`" color="transparent" size="md">
           Lees de case
         </AppButton>
       </div>

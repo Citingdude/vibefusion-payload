@@ -1,14 +1,20 @@
 import { CaseCardField } from "@/fields/service/CaseCardField";
-import { ServiceCardField } from "@/fields/service/ServiceCardField";
 import { Block } from "payload";
 
 export const CaseCardsBlock: Block = {
-  slug: 'case-cards-block',
+  slug: 'caseCardsBlock',
+  interfaceName: 'CaseCardsBlock',
   fields: [
     {
+      type: 'text',
+      name: 'title'
+    },
+    {
       type: 'array',
-      name: 'case-cards',
-      fields: [CaseCardField]
+      name: 'caseCards',
+      fields: [
+        CaseCardField
+      ]
     }
   ]
 }

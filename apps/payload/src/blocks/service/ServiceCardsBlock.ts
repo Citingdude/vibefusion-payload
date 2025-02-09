@@ -3,6 +3,7 @@ import { Block } from "payload";
 
 export const ServiceCardsBlock: Block = {
   slug: 'service-cards-block',
+  interfaceName: 'ServiceCardsBlock',
   fields: [
     {
       type: 'text',

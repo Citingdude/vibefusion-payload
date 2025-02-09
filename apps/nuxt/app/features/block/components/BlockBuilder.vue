@@ -1,24 +1,24 @@
 <script setup lang="ts">
-import type { BlockDto } from '../models/block.model'
-import { HeroBlockTransformer } from '../transformers/heroBlock.transformer'
-import { ServicesBlockTransformer } from '../transformers/servicesBlock.transformer'
-import BlockHero from './BlockHero.vue'
-import BlockServices from './BlockServices.vue'
+import BlockCases from '~/features/block/components/BlockCases.vue'
+import BlockHero from '~/features/block/components/BlockHero.vue'
+import BlockUnsupported from '~/features/block/components/BlockUnsupported.vue'
+import type { Block } from '~/features/block/types/block.type'
 
 const props = defineProps<{
-  blocks: BlockDto[]
+  blocks: Block[]
 }>()
 </script>
 
 <template>
-  <template v-for="block in props.blocks" :key="block.id">
+  <template v-for="(block, index) in props.blocks" :key="index">
     <BlockHero
       v-if="block.blockType === 'hero'"
-      :block="HeroBlockTransformer.fromDto(block)"
+      :block="block"
     />
-    <BlockServices
-      v-else-if="block.blockType === 'service-cards-block'"
-      :block="ServicesBlockTransformer.fromDto(block)"
+    <BlockCases
+      v-else-if="block.blockType === 'casesBlock'"
+      :block="block"
     />
+    <BlockUnsupported v-else />
   </template>
 </template>

@@ -1,5 +1,5 @@
 import type { ButtonField as ButtonDto } from '@payload-types'
-import type { Button } from '~/types/components/button.type'
+import type { Button } from '~/features/button/types/button.type'
 
 export class ButtonTransformer {
   static fromDto(dto: ButtonDto): Button {

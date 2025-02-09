@@ -69,38 +69,7 @@ export interface Page {
   id: number;
   slug: string;
   title?: string | null;
-  content?:
-    | (
-        | HeroBlock
-        | {
-            title?: string | null;
-            serviceCards?:
-              | {
-                  serviceCard: {
-                    image?: (number | null) | Media;
-                    title?: string | null;
-                    button: ButtonField;
-                  };
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'service-cards-block';
-          }
-        | {
-            'case-cards'?:
-              | {
-                  'case-card'?: (number | null) | Case;
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'case-cards-block';
-          }
-      )[]
-    | null;
+  content?: (HeroBlock | ServiceCardsBlock | CaseCardsBlock)[] | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -157,6 +126,42 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ServiceCardsBlock".
+ */
+export interface ServiceCardsBlock {
+  title?: string | null;
+  serviceCards?:
+    | {
+        serviceCard: {
+          image?: (number | null) | Media;
+          title?: string | null;
+          button: ButtonField;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'service-cards-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CaseCardsBlock".
+ */
+export interface CaseCardsBlock {
+  title?: string | null;
+  caseCards?:
+    | {
+        case: number | Case;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'caseCardsBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -263,37 +268,8 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         hero?: T | HeroBlockSelect<T>;
-        'service-cards-block'?:
-          | T
-          | {
-              title?: T;
-              serviceCards?:
-                | T
-                | {
-                    serviceCard?:
-                      | T
-                      | {
-                          image?: T;
-                          title?: T;
-                          button?: T | ButtonFieldSelect<T>;
-                        };
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        'case-cards-block'?:
-          | T
-          | {
-              'case-cards'?:
-                | T
-                | {
-                    'case-card'?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
+        'service-cards-block'?: T | ServiceCardsBlockSelect<T>;
+        caseCardsBlock?: T | CaseCardsBlockSelect<T>;
       };
   meta?:
     | T
@@ -330,6 +306,42 @@ export interface ButtonFieldSelect<T extends boolean = true> {
   label?: T;
   link?: T;
   color?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ServiceCardsBlock_select".
+ */
+export interface ServiceCardsBlockSelect<T extends boolean = true> {
+  title?: T;
+  serviceCards?:
+    | T
+    | {
+        serviceCard?:
+          | T
+          | {
+              image?: T;
+              title?: T;
+              button?: T | ButtonFieldSelect<T>;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CaseCardsBlock_select".
+ */
+export interface CaseCardsBlockSelect<T extends boolean = true> {
+  title?: T;
+  caseCards?:
+    | T
+    | {
+        case?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

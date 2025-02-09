@@ -14,9 +14,6 @@ export class BlockTransformer {
       case 'hero':
         return HeroBlockTransformer.fromDto(dto)
 
-      case 'caseCardsBlock':
-        return CasesBlockTransformer.fromDto(dto)
-
       default:
         return {
           blockType: 'unsupportedBlock',

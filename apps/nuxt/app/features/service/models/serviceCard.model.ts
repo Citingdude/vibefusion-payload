@@ -1,22 +1,19 @@
 import { z } from 'zod'
-import { buttonDtoSchema, buttonSchema } from '~/features/button/button.model'
-import { imageDtoSchema, imageSchema } from '~/features/image/image.model'
+import { ButtonDtoSchema, ButtonSchema } from '~/features/button/models/button.model'
+import { ImageDtoSchema, ImageSchema } from '~/features/image/models/image.model'
 
-export const serviceCardDtoSchema = z.object({
-  id: z.string(),
-  serviceCard: z.object({
-    image: imageDtoSchema,
-    title: z.string(),
-    button: buttonDtoSchema,
-  }),
-})
-
-export const serviceCardSchema = z.object({
-  id: z.string(),
-  image: imageSchema.optional(),
+export const ServiceCardDtoSchema = z.object({
+  image: ImageDtoSchema,
   title: z.string(),
-  button: buttonSchema.optional(),
+  button: ButtonDtoSchema,
 })
 
-export type ServiceCardDto = z.infer<typeof serviceCardDtoSchema>
-export type ServiceCard = z.infer<typeof serviceCardSchema>
+export const ServiceCardSchema = z.object({
+  id: z.string(),
+  image: ImageSchema.optional(),
+  title: z.string(),
+  button: ButtonSchema.optional(),
+})
+
+export type ServiceCardDto = z.infer<typeof ServiceCardDtoSchema>
+export type ServiceCard = z.infer<typeof ServiceCardSchema>

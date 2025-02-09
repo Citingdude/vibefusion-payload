@@ -1,4 +1,4 @@
-import type { ServicesBlock, ServicesBlockDto } from '../models/servicesBlock.model'
+import type { ServicesBlock, ServicesBlockDto } from '../models/serviceCardsBlock.model'
 import { ServiceCardTransformer } from '~/features/service/transformers/serviceCard.transformer'
 
 export class ServicesBlockTransformer {

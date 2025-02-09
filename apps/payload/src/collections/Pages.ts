@@ -1,6 +1,6 @@
-import { CaseCardsBlock } from '@/blocks/case/CaseCardsBlock'
-import { HeroBlock } from '@/blocks/content/HeroBlock'
-import { ServiceCardsBlock } from '@/blocks/service/ServiceCardsBlock'
+import { CaseCardsBlock } from '@/blocks/case/caseCards.block'
+import { HeroBlock } from '@/blocks/content/hero.block'
+import { ServiceCardsBlock } from '@/blocks/service/serviceCards.block'
 import type { CollectionConfig } from 'payload'
 
 export const Pages: CollectionConfig = {

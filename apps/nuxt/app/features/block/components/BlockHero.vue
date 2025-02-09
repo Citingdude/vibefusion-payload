@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { HeroBlock } from '@/features/block/types/heroBlock.type'
 import { animate, stagger } from 'motion'
+import type { HeroBlock } from '~/features/block/models/heroBlock.model'
 
 const props = defineProps<{
   block: HeroBlock
@@ -49,11 +49,11 @@ function useAnimation() {
           <AppButton
             v-for="button in props.block.buttons"
             :key="button.id"
-            :to="button.url"
+            :to="button.button.link"
             size="lg"
-            :color="button.color"
+            :color="button.button.color"
           >
-            {{ button.title }}
+            {{ button.button.label }}
           </AppButton>
         </AppButtonGroup>
       </div>

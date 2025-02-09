@@ -25,10 +25,12 @@ export const ButtonField: Field = {
   fields: [
     {
       type: 'text',
-      name: 'label'
+      name: 'label',
+      required: true
     },
     {
       type: 'text',
+      required: true,
       name: 'link'
     },
     {
@@ -37,7 +39,7 @@ export const ButtonField: Field = {
       required: true,
       options: buttonColorOptions,
       defaultValue: buttonColorOptions[0].value,
-      enumName: 'button-field-color'
+      enumName: 'buttonFieldColor'
     }
   ],
   interfaceName: 'ButtonField'

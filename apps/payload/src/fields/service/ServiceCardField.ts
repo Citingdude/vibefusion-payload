@@ -1,5 +1,5 @@
 import { Field } from "payload";
-import { ButtonField } from "../ButtonField";
+import { ButtonField } from "../button/button.field";
 
 export const ServiceCardField: Field = {
   type: 'group',

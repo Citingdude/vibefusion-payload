@@ -1,6 +1,6 @@
 import { Block } from "payload";
-import { ButtonField } from "@/fields/ButtonField";
 import { ImageField } from "@/fields/ImageField";
+import { ButtonArrayField } from "@/fields/button/buttonArray.field";
 
 export const HeroBlock: Block = {
   slug: 'hero',
@@ -15,12 +15,7 @@ export const HeroBlock: Block = {
       type: 'textarea',
       name: 'body',
     },
-    {
-      type: 'array',
-      name: 'buttons',
-      fields: [ButtonField],
-      maxRows: 2
-    },
+    ButtonArrayField,
     ImageField
   ]
 }

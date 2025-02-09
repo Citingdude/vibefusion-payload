@@ -1,10 +1,19 @@
 import { z } from 'zod'
-import { heroBlockDtoSchema } from './heroBlock.model'
-import { servicesBlockDtoSchema } from './servicesBlock.model'
+import { CaseCardsBlockDtoSchema, CaseCardsBlockSchema } from '~/features/block/models/caseCardsBlock.model'
+import { HeroBlockDtoSchema, HeroBlockSchema } from '~/features/block/models/heroBlock.model'
+import { ServiceCardsBlockSchema, ServiceCardsDtoBlockSchema } from '~/features/block/models/serviceCardsBlock.model'
 
-export const blockDtoSchema = z.discriminatedUnion('blockType', [
-  heroBlockDtoSchema,
-  servicesBlockDtoSchema,
+export const BlockDtoSchema = z.discriminatedUnion('blockType', [
+  HeroBlockDtoSchema,
+  ServiceCardsDtoBlockSchema,
+  CaseCardsBlockDtoSchema,
 ])
 
-export type BlockDto = z.infer<typeof blockDtoSchema>
+export const BlockSchema = z.discriminatedUnion('blockType', [
+  HeroBlockSchema,
+  ServiceCardsBlockSchema,
+  CaseCardsBlockSchema,
+])
+
+export type BlockDto = z.infer<typeof BlockDtoSchema>
+export type Block = z.infer<typeof BlockSchema>

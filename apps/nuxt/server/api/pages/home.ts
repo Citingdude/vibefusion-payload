@@ -1,7 +1,7 @@
-import type { Page } from '@payload-types'
-import type { PayloadCollection } from '~~/server/types/payload/payloadCollection.type'
 import { getPayloadFetch } from '~~/server/utils/payload/getPayloadFetch'
 import { getPayloadQuery } from '~~/server/utils/payload/getPayloadQuery'
+import type { CollectionDto } from '~/features/collection/models/collection.model'
+import type { PageDto } from '~/features/page/models/page.model'
 
 export default defineEventHandler(async () => {
   const fetch = getPayloadFetch()
@@ -11,7 +11,7 @@ export default defineEventHandler(async () => {
     },
   })
 
-  const response = await fetch<PayloadCollection<Page>>(`/pages${query}`)
+  const data = await fetch<CollectionDto<PageDto>>(`/pages${query}`)
 
-  return response.docs[0]
+  return data.docs[0]
 })

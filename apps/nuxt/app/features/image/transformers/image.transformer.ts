@@ -1,19 +1,10 @@
-import type { Media as ImageDto } from '@payload-types'
-import type { Image } from '~/features/image/types/image.type'
+import type { Image, ImageDto } from '~/features/image/models/image.model'
 
 export class ImageTransformer {
-  static fromDto(dto: ImageDto | number | undefined | null): Image | null {
-    if (!dto) {
-      return null
-    }
-
-    if (typeof dto === 'number') {
-      return null
-    }
-
+  static fromDto(dto: ImageDto): Image {
     return {
       alt: dto.alt,
-      src: dto.url || '',
+      src: dto.url,
     }
   }
 }

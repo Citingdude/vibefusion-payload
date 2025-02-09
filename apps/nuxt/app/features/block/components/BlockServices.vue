@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ServicesBlock } from '../models/servicesBlock.model'
+import type { ServicesBlock } from '../models/serviceCardsBlock.model'
 
 const props = defineProps<{
   block: ServicesBlock

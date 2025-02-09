@@ -1,5 +1,5 @@
-import type { Button } from '~/features/button/types/button.type'
-import type { Image } from '~/features/image/types/image.type'
+import type { Button } from '~/features/button/models/button.model'
+import type { Image } from '~/features/image/models/image.model'
 
 export interface HeroBlock {
   id: string

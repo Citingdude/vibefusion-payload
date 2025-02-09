@@ -1,10 +1,6 @@
-import type {
-  CaseCardsBlock as CaseCardsBlockDto,
-  HeroBlock as HeroBlockDto,
-  ServiceCardsBlock as ServiceCardsBlockDto,
-} from '@payload-types'
-import type { CasesBlock } from '~/features/block/types/casesBlock.type'
-import type { HeroBlock } from '~/features/block/types/heroBlock.type'
+import type { CaseCardsBlock, CaseCardsBlockDto } from '~/features/block/models/caseCardsBlock.model'
+import type { HeroBlock, HeroBlockDto } from '~/features/block/models/heroBlock.model'
+import type { ServiceCardsBlockDto } from '~/features/block/models/serviceCardsBlock.model'
 
 interface UnsupportedBlock {
   blockType: 'unsupportedBlock'
@@ -16,4 +12,4 @@ export type BlockDto = HeroBlockDto
 
 export type Block = HeroBlock
   | UnsupportedBlock
-  | CasesBlock
+  | CaseCardsBlock

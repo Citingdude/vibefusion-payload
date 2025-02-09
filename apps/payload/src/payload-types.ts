@@ -104,8 +104,8 @@ export interface HeroBlock {
  * via the `definition` "ButtonField".
  */
 export interface ButtonField {
-  label?: string | null;
-  link?: string | null;
+  label: string;
+  link: string;
   color: 'purple' | 'white' | 'transparent' | 'transparentWhite';
 }
 /**
@@ -145,7 +145,7 @@ export interface ServiceCardsBlock {
     | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'service-cards-block';
+  blockType: 'serviceCardsBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -268,7 +268,7 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         hero?: T | HeroBlockSelect<T>;
-        'service-cards-block'?: T | ServiceCardsBlockSelect<T>;
+        serviceCardsBlock?: T | ServiceCardsBlockSelect<T>;
         caseCardsBlock?: T | CaseCardsBlockSelect<T>;
       };
   meta?:

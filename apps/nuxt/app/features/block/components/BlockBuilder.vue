@@ -15,10 +15,10 @@ const props = defineProps<{
       v-if="block.blockType === 'hero'"
       :block="block"
     />
-    <BlockCases
-      v-else-if="block.blockType === 'casesBlock'"
+    <!-- <BlockCases
+      v-else-if="block.blockType === 'caseCardsBlock'"
       :block="block"
-    />
+    /> -->
     <BlockUnsupported v-else />
   </template>
 </template>

@@ -28,7 +28,7 @@ const props = defineProps<{
             :description="caseCard.case.description"
             :image="caseCard.case.image"
             :title="caseCard.case.title"
-            :slug="caseCard.case.title"
+            :slug="caseCard.case.slug"
             :image-order="index % 2 === 0 ? 'order-2' : 'order-1'"
             :content-order="index % 2 === 0 ? 'order-1' : 'order-2'"
           />

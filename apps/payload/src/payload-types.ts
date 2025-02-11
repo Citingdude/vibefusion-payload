@@ -169,6 +169,7 @@ export interface CaseCardsBlock {
  */
 export interface Case {
   id: number;
+  slug: string;
   title: string;
   image?: (number | null) | Media;
   description?: string | null;
@@ -381,6 +382,7 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "cases_select".
  */
 export interface CasesSelect<T extends boolean = true> {
+  slug?: T;
   title?: T;
   image?: T;
   description?: T;

@@ -1,7 +1,9 @@
 import { CaseCardsBlock } from '@/blocks/case/caseCards.block'
 import { HeroBlock } from '@/blocks/content/hero.block'
 import { ServiceCardsBlock } from '@/blocks/service/serviceCards.block'
+import { SlugField } from '@/fields/slug/slug.field'
 import type { CollectionConfig } from 'payload'
+import slugify from 'slugify'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -12,15 +14,7 @@ export const Pages: CollectionConfig = {
     useAsTitle: 'title',
   },
   fields: [
-    {
-      name: 'slug',
-      type: 'text',
-      unique: true,
-      required: true,
-      admin: {
-        position: 'sidebar'
-      }
-    },
+    SlugField,
     {
       name: 'title',
       type: 'text',

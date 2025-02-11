@@ -7,6 +7,7 @@ export interface CaseCardDto {
   description: string
   updatedAt: string
   createdAt: string
+  slug: string
 }
 
 export interface CaseCard {
@@ -14,4 +15,5 @@ export interface CaseCard {
   title: string
   image: Image | null
   description: string
+  slug: string
 }

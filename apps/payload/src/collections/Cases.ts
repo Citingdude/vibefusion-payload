@@ -1,4 +1,6 @@
-import type { CollectionConfig, Where } from 'payload'
+import { SlugField } from '@/fields/slug/slug.field'
+import type { CollectionConfig } from 'payload'
+import slugify from 'slugify'
 
 export const Cases: CollectionConfig = {
   slug: 'cases',
@@ -9,6 +11,7 @@ export const Cases: CollectionConfig = {
     useAsTitle: 'title',
   },
   fields: [
+    SlugField,
     {
       name: 'title',
       type: 'text',

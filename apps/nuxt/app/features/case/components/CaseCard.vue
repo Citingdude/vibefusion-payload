@@ -15,14 +15,18 @@ const props = defineProps<CaseCardProps>()
 
 <template>
   <div class="lg:grid lg:grid-cols-2 lg:items-center lg:gap-8">
-    <img
+    <div
       v-if="props.image"
-      class="mb-8 w-full h-auto rounded-br-3xl rounded-tl-3xl aspect-[3/4]"
+      class="bg-light-alt rounded-br-3xl rounded-tl-3xl"
       :class="props.imageOrder"
-      :src="props.image.src"
-      :alt="props.image.alt"
-      loading="lazy"
     >
+      <img
+        class="w-full h-auto object-contain rounded-br-3xl rounded-tl-3xl aspect-[5/4]"
+        :src="props.image.src"
+        :alt="props.image.alt"
+        loading="lazy"
+      >
+    </div>
 
     <div
       class="flex flex-col px-8"

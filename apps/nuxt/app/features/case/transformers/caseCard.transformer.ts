@@ -1,32 +1,15 @@
-import type { Case as CaseDto } from '@payload-types'
-import type { CaseCard } from '~/features/case/types/caseCard.type'
+import type { CaseCard, CaseCardDto } from '~/features/case/types/caseCard.type'
+import { ImageTransformer } from '~/features/image/transformers/image.transformer'
 
 export class CaseCardTransformer {
-  static fromDto(dto: CaseDto | number): CaseCard {
-    if (typeof dto === 'number') {
-      return {
-        description: '',
-        title: '',
-        id: '',
-        category: '',
-        image: {
-          alt: '',
-          src: '',
-        },
-        slug: '',
-      }
-    }
-
+  static fromDto(dto: CaseCardDto): CaseCard {
     return {
-      id: dto.id.toString(),
+      id: dto.id,
       title: dto.title,
-      description: dto.description || 'null',
-      category: '',
-      image: {
-        alt: '',
-        src: '',
-      },
-      slug: '',
+      description: dto.description,
+      image: dto.image
+        ? ImageTransformer.fromDto(dto.image)
+        : null,
     }
   }
 }

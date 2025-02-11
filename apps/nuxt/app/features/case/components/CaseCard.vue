@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { Image } from '~/features/image/image.model'
+import type { Image } from '~/features/image/types/image.type'
 
 export interface CaseCardProps {
   category?: string
   title: string
   description: string
-  image: Image
+  image: Image | null
   slug: string
   imageOrder: 'order-1' | 'order-2'
   contentOrder: 'order-1' | 'order-2'
@@ -16,6 +16,7 @@ const props = defineProps<CaseCardProps>()
 <template>
   <div class="lg:grid lg:grid-cols-2 lg:items-center lg:gap-8">
     <img
+      v-if="props.image"
       class="mb-8 w-full h-auto rounded-br-3xl rounded-tl-3xl aspect-[3/4]"
       :class="props.imageOrder"
       :src="props.image.src"

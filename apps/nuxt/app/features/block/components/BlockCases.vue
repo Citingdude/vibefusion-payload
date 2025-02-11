@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { CasesBlock } from '../models/casesBlock.model'
+import type { CaseCardsBlock } from '~/features/block/types/caseCardsBlock.type'
 import CaseCard from '~/features/case/components/CaseCard.vue'
 
 const props = defineProps<{
-  block: CasesBlock
+  block: CaseCardsBlock
 }>()
 </script>
 
@@ -25,11 +25,10 @@ const props = defineProps<{
           <CaseCard
             v-for="(caseCard, index) in props.block.cases"
             :key="caseCard.id"
-            :category="caseCard.category"
-            :description="caseCard.description"
-            :image="caseCard.image"
-            :title="caseCard.title"
-            :slug="caseCard.slug"
+            :description="caseCard.case.description"
+            :image="caseCard.case.image"
+            :title="caseCard.case.title"
+            :slug="caseCard.case.title"
             :image-order="index % 2 === 0 ? 'order-2' : 'order-1'"
             :content-order="index % 2 === 0 ? 'order-1' : 'order-2'"
           />

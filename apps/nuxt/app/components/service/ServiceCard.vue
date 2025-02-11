@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Button } from '~/features/button/button.model'
-import type { Image } from '~/features/image/image.model'
+import type { Button } from '~/features/button/types/button.type'
+import type { Image } from '~/features/image/types/image.type'
 
 const props = defineProps<{
   id: number

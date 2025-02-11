@@ -1,5 +1,4 @@
-import type { HeroBlock, HeroBlockDto } from '~/features/block/models/heroBlock.model'
-import { ButtonTransformer } from '~/features/button/transformers/button.transformer'
+import type { HeroBlock, HeroBlockDto } from '~/features/block/types/heroBlock.type'
 import { ButtonArrayItemTransformer } from '~/features/button/transformers/buttonArrayItem.transformer'
 import { ImageTransformer } from '~/features/image/transformers/image.transformer'
 
@@ -8,7 +7,9 @@ export class HeroBlockTransformer {
     return {
       body: dto.body,
       id: dto.id,
-      image: ImageTransformer.fromDto(dto.image),
+      image: dto.image
+        ? ImageTransformer.fromDto(dto.image)
+        : null,
       title: dto.title,
       blockType: dto.blockType,
       buttons: dto.buttons.map(ButtonArrayItemTransformer.fromDto),

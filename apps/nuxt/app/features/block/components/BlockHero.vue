@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { animate, stagger } from 'motion'
-import type { HeroBlock } from '~/features/block/models/heroBlock.model'
+import type { HeroBlock } from '~/features/block/types/heroBlock.type'
 
 const props = defineProps<{
   block: HeroBlock

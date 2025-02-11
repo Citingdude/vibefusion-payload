@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   alias: {
-    '@payload-types': fileURLToPath(new URL('../payload/src/payload-types', import.meta.url)),
+    '@blocks': fileURLToPath(new URL('./app/features/block/components', import.meta.url)),
   },
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },

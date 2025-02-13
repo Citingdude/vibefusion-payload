@@ -137,17 +137,41 @@ export interface ServiceCardsBlock {
   title?: string | null;
   serviceCards?:
     | {
-        serviceCard: {
-          image?: (number | null) | Media;
-          title?: string | null;
-          button: ButtonField;
-        };
+        serviceCard: ServiceCard;
         id?: string | null;
       }[]
     | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'serviceCardsBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ServiceCard".
+ */
+export interface ServiceCard {
+  icon?: (number | null) | Icon;
+  title?: string | null;
+  button: ButtonField;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "icons".
+ */
+export interface Icon {
+  id: number;
+  name: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -194,25 +218,6 @@ export interface User {
   loginAttempts?: number | null;
   lockUntil?: string | null;
   password?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "icons".
- */
-export interface Icon {
-  id: number;
-  name: string;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -342,17 +347,20 @@ export interface ServiceCardsBlockSelect<T extends boolean = true> {
   serviceCards?:
     | T
     | {
-        serviceCard?:
-          | T
-          | {
-              image?: T;
-              title?: T;
-              button?: T | ButtonFieldSelect<T>;
-            };
+        serviceCard?: T | ServiceCardSelect<T>;
         id?: T;
       };
   id?: T;
   blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ServiceCard_select".
+ */
+export interface ServiceCardSelect<T extends boolean = true> {
+  icon?: T;
+  title?: T;
+  button?: T | ButtonFieldSelect<T>;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

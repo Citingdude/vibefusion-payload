@@ -1,4 +1,4 @@
-import { ServiceCardField } from "@/fields/service/ServiceCardField";
+import { ServiceCard } from "@/fields/service/serviceCard.field";
 import { Block } from "payload";
 
 export const ServiceCardsBlock: Block = {
@@ -12,9 +12,9 @@ export const ServiceCardsBlock: Block = {
     {
       type: 'array',
       fields: [
-        ServiceCardField
+        ServiceCard
       ],
-      name: 'serviceCards'
+      name: 'serviceCards',
     }
   ]
 }

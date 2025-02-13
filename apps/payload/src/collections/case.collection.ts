@@ -2,7 +2,7 @@ import { SlugField } from '@/fields/slug/slug.field'
 import type { CollectionConfig } from 'payload'
 import slugify from 'slugify'
 
-export const Cases: CollectionConfig = {
+export const CaseCollection: CollectionConfig = {
   slug: 'cases',
   access: {
     read: () => true,

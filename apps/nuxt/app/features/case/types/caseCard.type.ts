@@ -14,6 +14,6 @@ export interface CaseCard {
   id: number
   title: string
   image: Image | null
-  description: string
+  description: string | null
   slug: string
 }

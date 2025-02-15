@@ -4,7 +4,7 @@ import type { Image } from '~/features/image/types/image.type'
 export interface CaseCardProps {
   category?: string
   title: string
-  description: string
+  description: string | null
   image: Image | null
   slug: string
   imageOrder: 'order-1' | 'order-2'

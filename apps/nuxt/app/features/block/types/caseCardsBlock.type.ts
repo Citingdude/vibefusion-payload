@@ -1,4 +1,5 @@
-import type { CaseCardArrayItem, CaseCardArrayItemDto } from '~/features/case/types/caseCardArrayItem.type'
+import type { CaseCard } from '~/features/case/types/caseCard.type'
+import type { CaseCardArrayItemDto } from '~/features/case/types/caseCardArrayItem.type'
 
 export interface CaseCardsBlockDto {
   id: string
@@ -8,8 +9,7 @@ export interface CaseCardsBlockDto {
 }
 
 export interface CaseCardsBlock {
-  id: string
-  title?: string
-  cases: CaseCardArrayItem[]
+  title: string | null
+  cases: CaseCard[]
   blockType: 'caseCards'
 }

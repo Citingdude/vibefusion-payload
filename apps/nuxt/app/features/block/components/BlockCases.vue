@@ -25,10 +25,10 @@ const props = defineProps<{
           <CaseCard
             v-for="(caseCard, index) in props.block.cases"
             :key="caseCard.id"
-            :description="caseCard.case.description"
-            :image="caseCard.case.image"
-            :title="caseCard.case.title"
-            :slug="caseCard.case.slug"
+            :description="caseCard.description"
+            :image="caseCard.image"
+            :title="caseCard.title"
+            :slug="caseCard.slug"
             :image-order="index % 2 === 0 ? 'order-2' : 'order-1'"
             :content-order="index % 2 === 0 ? 'order-1' : 'order-2'"
           />

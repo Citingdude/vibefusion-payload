@@ -47,13 +47,13 @@ function useAnimation() {
         <!-- Buttons -->
         <AppButtonGroup id="hero-buttons">
           <AppButton
-            v-for="button in props.block.buttons"
-            :key="button.id"
-            :to="button.button.link"
+            v-for="(button, index) in props.block.buttons"
+            :key="index"
+            :to="button.link"
             size="lg"
-            :color="button.button.color"
+            :color="button.color"
           >
-            {{ button.button.label }}
+            {{ button.label }}
           </AppButton>
         </AppButtonGroup>
       </div>

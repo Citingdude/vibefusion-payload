@@ -1,4 +1,5 @@
-import type { ButtonArrayItem, ButtonArrayItemDto } from '~/features/button/types/buttonArrayItem.type'
+import type { Button } from '~/features/button/types/button.type'
+import type { ButtonArrayItemDto } from '~/features/button/types/buttonArrayItem.type'
 import type { Image, ImageDto } from '~/features/image/types/image.type'
 
 export interface HeroBlockDto {
@@ -11,10 +12,10 @@ export interface HeroBlockDto {
 }
 
 export interface HeroBlock {
-  id: string
+  id: string | null
   title: string
   body: string | null
   image: Image | null
-  buttons: ButtonArrayItem[]
+  buttons: Button[]
   blockType: 'hero'
 }

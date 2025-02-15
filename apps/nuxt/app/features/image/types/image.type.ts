@@ -15,6 +15,6 @@ export interface ImageDto {
 }
 
 export interface Image {
-  src: string
+  src: string | undefined
   alt: string
 }

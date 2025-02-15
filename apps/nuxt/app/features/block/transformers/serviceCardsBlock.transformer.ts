@@ -1,4 +1,5 @@
-import type { ServiceCardsBlock, ServiceCardsBlockDto } from '~/features/block/types/serviceCardsBlock.type'
+import type { ServiceCardsBlock } from '~/features/block/types/serviceCardsBlock.type'
+import type { ServiceCardsBlock as ServiceCardsBlockDto } from '@payload-types'
 import { ServiceCardTransformer } from '~/features/service/transformers/serviceCard.transformer'
 
 export class ServiceCardsBlockTransformer {

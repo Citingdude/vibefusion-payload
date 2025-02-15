@@ -20,6 +20,9 @@ importers:
       '@fontsource/alegreya-sans':
         specifier: 5.1.2
         version: 5.1.2
+      '@payloadcms/live-preview':
+        specifier: 3.23.0
+        version: 3.23.0
       motion:
         specifier: 12.4.3
         version: 12.4.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -1816,6 +1819,9 @@ packages:
     peerDependencies:
       graphql: ^16.8.1
       payload: 3.23.0
+
+  '@payloadcms/live-preview@3.23.0':
+    resolution: {integrity: sha512-pHC8KCp2MCSHtHEU45vOVyZmjKSclSu55DZoZN0jiNWXpaUuj7P/O20And1qB3+rD1yvh67aZSIIdzTZ7psQZA==}
 
   '@payloadcms/next@3.23.0':
     resolution: {integrity: sha512-Ht1zSkuOkZ8Qeitwjy98Yr2oNN/hCCHrrKx0CWSLNwiUWC1O5vSN5Dx8WtnX3xRFFmX5UxvZ36j1ghSprkOZRg==}
@@ -9399,6 +9405,8 @@ snapshots:
       tsx: 4.19.2
     transitivePeerDependencies:
       - typescript
+
+  '@payloadcms/live-preview@3.23.0': {}
 
   '@payloadcms/next@3.23.0(@types/react@19.0.8)(graphql@16.10.0)(monaco-editor@0.52.2)(next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.23.0(graphql@16.10.0)(monaco-editor@0.52.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)':
     dependencies:

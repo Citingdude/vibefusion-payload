@@ -1,5 +1,5 @@
 import type { CollectionDto } from '~/features/collection/models/collection.model'
-import type { PageDto } from '~/features/page/models/page.model'
+import type { PageDto } from '~/features/page/types/page.type'
 import { getPayloadFetch } from '~~/server/utils/payload/getPayloadFetch'
 import { getPayloadQuery } from '~~/server/utils/payload/getPayloadQuery'
 

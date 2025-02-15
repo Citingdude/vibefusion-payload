@@ -5,14 +5,18 @@ import { BlockTransformer } from '~/features/block/transformers/block.transforme
 
 const { data: page } = useFetch('/api/pages/home')
 
+const { data } = useLivePreview({
+  initialData: page,
+})
+
 const blocks = computed<Block[]>(() => {
-  if (!page.value)
+  if (!data.value)
     return []
 
-  if (!page.value.content)
+  if (!data.value.content)
     return []
 
-  return page.value.content.map(BlockTransformer.fromDto)
+  return data.value.content.map(BlockTransformer.fromDto)
 })
 </script>
 

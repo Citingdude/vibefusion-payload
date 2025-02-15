@@ -1,6 +1,7 @@
 import type { Block, BlockDto } from '~/features/block/types/block.type'
 import { CaseCardsBlockTransformer } from '~/features/block/transformers/caseCardsBlock.transformer'
 import { HeroBlockTransformer } from '~/features/block/transformers/heroBlock.transformer'
+import { ServiceCardsBlockTransformer } from '~/features/block/transformers/serviceCardsBlock.transformer'
 
 export class BlockTransformer {
   static fromDto(dto: BlockDto): Block {
@@ -9,6 +10,8 @@ export class BlockTransformer {
         return HeroBlockTransformer.fromDto(dto)
       case 'caseCardsBlock':
         return CaseCardsBlockTransformer.fromDto(dto)
+      case 'serviceCardsBlock':
+        return ServiceCardsBlockTransformer.fromDto(dto)
       default:
         if (import.meta.client)
           console.warn('Unsupported block', dto)

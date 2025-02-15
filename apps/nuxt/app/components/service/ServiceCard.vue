@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { Button } from '~/features/button/types/button.type'
-import type { Image } from '~/features/image/types/image.type'
+import type { Icon } from '~/features/icon/types/icon.type'
 
 const props = defineProps<{
   id: number
-  image?: Image
-  title: string
+  icon: Icon | null
+  title: string | null
   button?: Button
   color: 'light' | 'dark'
 }>()
@@ -50,9 +50,9 @@ const getColor = computed<string>(() => {
   >
     <!-- Icon -->
     <img
-      v-if="props.image"
-      :src="props.image.src"
-      :alt="props.image.alt"
+      v-if="props.icon?.src"
+      :src="props.icon.src"
+      :alt="props.icon.name"
       class="aspect-square"
     >
 

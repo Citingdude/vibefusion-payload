@@ -8,11 +8,13 @@ const props = defineProps<{
 
 const BlockHero = defineAsyncComponent(() => import('@blocks/BlockHero.vue'))
 const BlockCases = defineAsyncComponent(() => import('@blocks/BlockCases.vue'))
+const ServiceCardsblock = defineAsyncComponent(() => import('~/features/block/components/BlockServiceCards.vue'))
 
 const blockComponents: Record<BlockType, Component | undefined> = {
+  unsupported: undefined,
   hero: BlockHero,
   caseCards: BlockCases,
-  unsupported: undefined,
+  serviceCardsBlock: ServiceCardsblock,
 }
 </script>
 

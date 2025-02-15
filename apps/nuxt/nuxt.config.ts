@@ -23,7 +23,6 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
-    '@nuxt/image',
   ],
   imports: {
     dirs: [

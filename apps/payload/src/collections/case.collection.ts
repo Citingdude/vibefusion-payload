@@ -1,6 +1,5 @@
-import { SlugField } from '@/fields/slug/slug.field'
 import type { CollectionConfig } from 'payload'
-import slugify from 'slugify'
+import { SlugField } from '@/fields/slug/slug.field'
 
 export const CaseCollection: CollectionConfig = {
   slug: 'cases',
@@ -23,8 +22,8 @@ export const CaseCollection: CollectionConfig = {
       type: 'upload',
       relationTo: 'media',
       admin: {
-        position: 'sidebar'
-      }
+        position: 'sidebar',
+      },
     },
     {
       name: 'description',

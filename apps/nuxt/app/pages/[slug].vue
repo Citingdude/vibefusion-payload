@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import type { Block } from '~/features/block/types/block.type'
 import BlockBuilder from '~/features/block/components/BlockBuilder.vue'
 import { BlockTransformer } from '~/features/block/transformers/block.transformer'
-import type { Block } from '~/features/block/types/block.type'
 
 const slug = useRoute().params.slug
 

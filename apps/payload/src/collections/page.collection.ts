@@ -1,8 +1,8 @@
+import type { CollectionConfig } from 'payload'
 import { CaseCardsBlock } from '@/blocks/case/caseCards.block'
 import { HeroBlock } from '@/blocks/content/hero.block'
 import { ServiceCardsBlock } from '@/blocks/service/serviceCards.block'
 import { SlugField } from '@/fields/slug/slug.field'
-import type { CollectionConfig } from 'payload'
 
 export const PageCollection: CollectionConfig = {
   slug: 'pages',
@@ -11,7 +11,8 @@ export const PageCollection: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'title',
-    group: 'Content'
+    group: 'Content',
+    defaultColumns: ['title', 'slug'],
   },
   fields: [
     SlugField,
@@ -27,6 +28,6 @@ export const PageCollection: CollectionConfig = {
         ServiceCardsBlock,
         CaseCardsBlock,
       ],
-    }
+    },
   ],
 }

@@ -10,6 +10,9 @@ const colorClass = computed(() => {
 
     case 'white':
       return 'fill-light-main'
+
+    default:
+      return ''
   }
 })
 </script>

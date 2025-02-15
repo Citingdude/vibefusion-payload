@@ -1,5 +1,5 @@
-import { Field } from "payload";
-import slugify from "slugify";
+import type { Field } from 'payload'
+import slugify from 'slugify'
 
 export const SlugField: Field = {
   name: 'slug',
@@ -10,13 +10,13 @@ export const SlugField: Field = {
     position: 'sidebar',
   },
   hooks: {
-  beforeChange: [
+    beforeChange: [
       ({ value }) => {
-      return slugify(value, {
+        return slugify(value, {
           lower: true,
-          trim: true
-      })
+          trim: true,
+        })
       },
     ],
-  }
+  },
 }

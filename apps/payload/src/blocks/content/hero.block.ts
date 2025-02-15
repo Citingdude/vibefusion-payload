@@ -1,6 +1,6 @@
-import { Block } from "payload";
-import { ImageField } from "@/fields/ImageField";
-import { ButtonArrayField } from "@/fields/button/buttonArray.field";
+import type { Block } from 'payload'
+import { ButtonArrayField } from '@/fields/button/buttonArray.field'
+import { ImageField } from '@/fields/ImageField'
 
 export const HeroBlock: Block = {
   slug: 'hero',
@@ -16,6 +16,6 @@ export const HeroBlock: Block = {
       name: 'body',
     },
     ButtonArrayField,
-    ImageField
-  ]
+    ImageField,
+  ],
 }

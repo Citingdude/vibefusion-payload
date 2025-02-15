@@ -1,14 +1,13 @@
-// storage-adapter-import-placeholder
-import { postgresAdapter } from '@payloadcms/db-postgres'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
-import path from 'path'
-import { buildConfig } from 'payload'
-import { fileURLToPath } from 'url'
-import sharp from 'sharp'
-import { seoPlugin } from '@payloadcms/plugin-seo';
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { collections } from '@/collections'
 import { UserCollection } from '@/collections/user.collection'
-
+// storage-adapter-import-placeholder
+import { postgresAdapter } from '@payloadcms/db-postgres'
+import { seoPlugin } from '@payloadcms/plugin-seo'
+import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { buildConfig } from 'payload'
+import sharp from 'sharp'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -20,7 +19,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: collections,
+  collections,
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -41,7 +40,7 @@ export default buildConfig({
       ],
       uploadsCollection: 'media',
       generateTitle: ({ doc }) => `${doc.title} | VibeFusion`,
-    })
+    }),
   ],
-  serverURL: 'http://localhost:4000'
+  serverURL: 'http://localhost:4000',
 })

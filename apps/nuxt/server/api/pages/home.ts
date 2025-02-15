@@ -1,7 +1,7 @@
-import { getPayloadFetch } from '~~/server/utils/payload/getPayloadFetch'
-import { getPayloadQuery } from '~~/server/utils/payload/getPayloadQuery'
 import type { CollectionDto } from '~/features/collection/models/collection.model'
 import type { PageDto } from '~/features/page/models/page.model'
+import { getPayloadFetch } from '~~/server/utils/payload/getPayloadFetch'
+import { getPayloadQuery } from '~~/server/utils/payload/getPayloadQuery'
 
 export default defineEventHandler(async () => {
   const fetch = getPayloadFetch()

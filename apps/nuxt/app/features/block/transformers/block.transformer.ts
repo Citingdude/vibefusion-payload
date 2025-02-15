@@ -1,6 +1,6 @@
+import type { Block, BlockDto } from '~/features/block/types/block.type'
 import { CaseCardsBlockTransformer } from '~/features/block/transformers/caseCardsBlock.transformer'
 import { HeroBlockTransformer } from '~/features/block/transformers/heroBlock.transformer'
-import type { Block, BlockDto } from '~/features/block/types/block.type'
 
 export class BlockTransformer {
   static fromDto(dto: BlockDto): Block {

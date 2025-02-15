@@ -1,9 +1,9 @@
-import { Field } from "payload";
+import type { Field } from 'payload'
 
 const buttonColorOptions = [
   {
     label: 'Purple',
-    value: 'purple'
+    value: 'purple',
   },
   {
     label: 'White',
@@ -15,8 +15,8 @@ const buttonColorOptions = [
   },
   {
     label: 'Transparent white',
-    value: 'transparentWhite'
-  }
+    value: 'transparentWhite',
+  },
 ]
 
 export const ButtonField: Field = {
@@ -26,12 +26,12 @@ export const ButtonField: Field = {
     {
       type: 'text',
       name: 'label',
-      required: true
+      required: true,
     },
     {
       type: 'text',
       required: true,
-      name: 'link'
+      name: 'link',
     },
     {
       type: 'select',
@@ -39,8 +39,8 @@ export const ButtonField: Field = {
       required: true,
       options: buttonColorOptions,
       defaultValue: buttonColorOptions[0].value,
-      enumName: 'buttonFieldColor'
-    }
+      enumName: 'buttonFieldColor',
+    },
   ],
-  interfaceName: 'ButtonField'
+  interfaceName: 'ButtonField',
 }

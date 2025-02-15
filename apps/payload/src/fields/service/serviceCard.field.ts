@@ -1,6 +1,6 @@
-import { ButtonField } from "@/fields/button/button.field";
-import { IconField } from "@/fields/icon/icon.field";
-import { Field } from "payload";
+import type { Field } from 'payload'
+import { ButtonField } from '@/fields/button/button.field'
+import { IconField } from '@/fields/icon/icon.field'
 
 export const ServiceCard: Field = {
   type: 'group',
@@ -13,5 +13,5 @@ export const ServiceCard: Field = {
       name: 'title',
     },
     ButtonField,
-  ]
+  ],
 }

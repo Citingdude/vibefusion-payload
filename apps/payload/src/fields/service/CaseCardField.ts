@@ -1,4 +1,4 @@
-import { Field, StaticLabel  } from "payload";
+import type { Field } from 'payload'
 
 export const CaseCardField: Field = {
   type: 'relationship',

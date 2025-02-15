@@ -17,6 +17,6 @@ export const IconCollection: CollectionConfig = {
     },
   ],
   upload: {
-    mimeTypes: ['image/svg+xml']
+    mimeTypes: ['image/svg+xml'],
   },
 }

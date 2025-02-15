@@ -1,7 +1,7 @@
-import { Field } from "payload";
+import type { Field } from 'payload'
 
 export const IconField: Field = {
-    type: 'upload',
-    name: 'icon',
-    relationTo: 'icons',
+  type: 'upload',
+  name: 'icon',
+  relationTo: 'icons',
 }

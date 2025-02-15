@@ -6,7 +6,7 @@ export const MediaCollection: CollectionConfig = {
     read: () => true,
   },
   admin: {
-    group: 'Media'
+    group: 'Media',
   },
   fields: [
     {

@@ -8,18 +8,18 @@ const props = defineProps<{
 
 const BlockHero = defineAsyncComponent(() => import('@blocks/BlockHero.vue'))
 const BlockCases = defineAsyncComponent(() => import('@blocks/BlockCases.vue'))
-const BlockUnsupported = defineAsyncComponent(() => import('@blocks/BlockUnsupported.vue'))
 
-const blockComponents: Record<BlockType, Component> = {
+const blockComponents: Record<BlockType, Component | undefined> = {
   hero: BlockHero,
   caseCards: BlockCases,
+  unsupported: undefined,
 }
 </script>
 
 <template>
   <template v-for="block in props.blocks" :key="block.id">
     <component
-      :is="blockComponents[block.blockType] || BlockUnsupported"
+      :is="blockComponents[block.blockType]"
       :block="block"
     />
   </template>

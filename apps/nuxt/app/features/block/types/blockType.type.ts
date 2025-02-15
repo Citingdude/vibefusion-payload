@@ -1,1 +1,1 @@
-export type BlockType = 'hero' | 'caseCards'
+export type BlockType = 'hero' | 'caseCards' | 'unsupported'

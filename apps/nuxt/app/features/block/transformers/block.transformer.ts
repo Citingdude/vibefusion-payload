@@ -9,6 +9,13 @@ export class BlockTransformer {
         return HeroBlockTransformer.fromDto(dto)
       case 'caseCardsBlock':
         return CaseCardsBlockTransformer.fromDto(dto)
+      default:
+        if (import.meta.client)
+          console.warn('Unsupported block', dto)
+
+        return {
+          blockType: 'unsupported',
+        }
     }
   }
 }

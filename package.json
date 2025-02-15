@@ -3,15 +3,5 @@
   "devDependencies": {
     "turbo": "2.4.0"
   },
-  "packageManager": "pnpm@10.2.1",
-  "pnpm": {
-    "overrides": {
-      "@types/react": "npm:types-react@19.0.0-rc.1",
-      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
-    }
-  },
-  "overrides": {
-    "@types/react": "npm:types-react@19.0.0-rc.1",
-    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
-  }
+  "packageManager": "pnpm@10.2.1"
 }

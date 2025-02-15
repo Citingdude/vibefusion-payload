@@ -16,26 +16,26 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@payloadcms/db-postgres": "3.22.0",
-    "@payloadcms/next": "3.22.0",
-    "@payloadcms/payload-cloud": "3.22.0",
-    "@payloadcms/plugin-seo": "3.22.0",
-    "@payloadcms/richtext-lexical": "3.22.0",
+    "@payloadcms/db-postgres": "3.23.0",
+    "@payloadcms/next": "3.23.0",
+    "@payloadcms/payload-cloud": "3.23.0",
+    "@payloadcms/plugin-seo": "3.23.0",
+    "@payloadcms/richtext-lexical": "3.23.0",
     "cross-env": "7.0.3",
     "defu": "6.1.4",
-    "next": "15.1.6",
-    "payload": "3.22.0",
+    "next": "15.1.7",
+    "payload": "3.23.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "sharp": "0.33.5",
     "slugify": "1.6.6"
   },
   "devDependencies": {
-    "@types/node": "22.13.1",
-    "@types/react": "npm:types-react@19.0.0-rc.1",
-    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
-    "eslint": "9.19.0",
-    "eslint-config-next": "15.1.6",
+    "@types/node": "22.13.4",
+    "@types/react": "19.0.8",
+    "@types/react-dom": "19.0.3",
+    "eslint": "9.20.1",
+    "eslint-config-next": "15.1.7",
     "typescript": "5.7.3"
   },
   "engines": {

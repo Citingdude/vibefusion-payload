@@ -21,6 +21,4 @@ useSeoMeta({
     <PageWebdesignRoadmap :page="page" />
     <PageWebdesignFaq :page="page" />
   </main>
-
-  <AppError v-else />
 </template>

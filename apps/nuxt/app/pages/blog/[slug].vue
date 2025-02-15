@@ -31,6 +31,4 @@ const { data: pageData } = await useApiFetch<PageData>('blogs', {
       </div>
     </section>
   </main>
-
-  <AppError v-else />
 </template>

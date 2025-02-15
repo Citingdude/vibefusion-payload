@@ -8,7 +8,7 @@
     [&_>_.router-link-active]:after:top-[80%]
     [&_>_.router-link-active]:after:translate-x-1/2
     [&_>_.router-link-active]:after:-rotate-90
-    [&_>_.router-link-active]:after:content-[url('~/assets/svg/arrow.svg')] [&_a]:relative"
+    [&_>_.router-link-active]:after:content-[url('/svg/arrow.svg')] [&_a]:relative"
   >
     <NuxtLink to="/">
       Home

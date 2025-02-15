@@ -15,6 +15,4 @@ const { data: project } = useFetch(`/api/cases/${slug}`)
       </div>
     </section>
   </main>
-
-  <AppError v-else />
 </template>

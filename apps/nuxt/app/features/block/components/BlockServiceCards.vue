@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ServiceCardsBlock } from '~/features/block/types/servicesCardBlock.type'
+import type { ServiceCardsBlock } from '~/features/block/types/serviceCardsBlock.type'
 
 const props = defineProps<{
   block: ServiceCardsBlock

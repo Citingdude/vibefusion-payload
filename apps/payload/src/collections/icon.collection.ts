@@ -6,7 +6,8 @@ export const IconCollection: CollectionConfig = {
     read: () => true,
   },
   admin: {
-    useAsTitle: 'name'
+    useAsTitle: 'name',
+    group: 'Media',
   },
   fields: [
     {

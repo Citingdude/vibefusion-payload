@@ -11,6 +11,7 @@ export const PageCollection: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'title',
+    group: 'Content'
   },
   fields: [
     SlugField,

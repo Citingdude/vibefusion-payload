@@ -9,6 +9,7 @@ export const CaseCollection: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'title',
+    group: 'Content',
   },
   fields: [
     SlugField,

@@ -37,10 +37,10 @@ export default buildConfig({
     seoPlugin({
       collections: [
         'pages',
+        'cases',
       ],
       uploadsCollection: 'media',
-      generateTitle: ({ doc }) => `Website.com — ${doc.title}`,
-      generateDescription: ({ doc }) => doc.title
+      generateTitle: ({ doc }) => `${doc.title} | VibeFusion`,
     })
   ],
   serverURL: 'http://localhost:4000'

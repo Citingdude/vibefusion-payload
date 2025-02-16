@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import type Case from '~/types/case/case.type'
+import type { CaseCard } from '~/features/case/types/caseCard.type'
 
-defineProps({
-  cases: {
-    type: Array as PropType<Case[]>,
-    required: true,
-  },
-})
+defineProps<{
+  cases: CaseCard[]
+}>()
 </script>
 
 <template>
@@ -24,10 +21,12 @@ defineProps({
       <!-- Cases -->
       <div>
         <CasesCard
-          v-for="(casePage, index) in cases" :key="casePage.id"
-          :badge-text="casePage.attributes.category.data.attributes.Title" :title="casePage.attributes.Title"
-          :summary="casePage.attributes.summary" :image-url="casePage.attributes.Image.data.attributes.url"
-          :image-alt="casePage.attributes.Image.data.attributes.name" :link="`/cases/${casePage.attributes.slug}`"
+          v-for="(casePage, index) in cases"
+          :key="casePage.id"
+          :title="casePage.title"
+          :summary="casePage.description"
+          :image="casePage.image"
+          :link="`/cases/${casePage.slug}`"
           :image-order="index % 2 === 0 ? 'order-2' : 'order-1'"
           :content-order="index % 2 === 0 ? 'order-1' : 'order-2'"
         />

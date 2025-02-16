@@ -68,13 +68,11 @@ const getBorders = computed(() => {
     <div class="flex justify-center">
       <AppButton
         v-if="props.button"
-        :type="props.button.type"
         size="md"
         :color="props.button.color"
-        :link="props.button.url"
-        :to="props.button.url"
+        :to="props.button.link"
       >
-        {{ button?.title }}
+        {{ props.button.label }}
       </AppButton>
     </div>
   </div>

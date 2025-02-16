@@ -21,7 +21,7 @@ defineProps({
       <div class="flex flex-col space-y-4 xl:flex-row xl:space-x-8 xl:space-y-0">
         <AppButton
           v-for="button in page.hero.buttons" :key="button.id" :type="button.type" :color="button.color"
-          :to="button.url" size="medium"
+          :to="button.url" size="md"
         >
           {{ button.title }}
         </AppButton>

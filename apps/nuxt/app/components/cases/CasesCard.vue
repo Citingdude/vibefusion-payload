@@ -1,26 +1,28 @@
 <script setup lang="ts">
+import type { Image } from '~/features/image/types/image.type'
+
 interface Props {
-  badgeText: string
+  badgeText?: string
   title: string
-  summary: string
-  imageUrl: string
-  imageAlt: string
+  summary: string | null
+  image: Image | null
   link: string
   imageOrder: 'order-1' | 'order-2'
   contentOrder: 'order-1' | 'order-2'
 }
-defineProps<Props>()
+const props = defineProps<Props>()
 </script>
 
 <template>
   <div class="lg:grid lg:grid-cols-2 lg:items-center lg:gap-8">
-    <NuxtImg
+    <img
+      v-if="props.image"
       class="mb-8 w-full rounded-br-3xl rounded-tl-3xl"
-      :class="imageOrder"
-      :src="imageUrl"
-      :alt="imageAlt"
+      :class="props.imageOrder"
+      :src="props.image.src"
+      :alt="props.image.alt"
       loading="lazy"
-    />
+    >
 
     <div class="flex flex-col px-8" :class="contentOrder">
       <CasesBadge v-if="badgeText">

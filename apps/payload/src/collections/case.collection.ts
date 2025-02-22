@@ -1,5 +1,5 @@
 import type { CollectionConfig } from 'payload'
-import { SlugField } from '@/fields/slug/slug.field'
+import { slugField } from '@/fields/slug/slug.field'
 
 export const CaseCollection: CollectionConfig = {
   slug: 'cases',
@@ -11,7 +11,9 @@ export const CaseCollection: CollectionConfig = {
     group: 'Content',
   },
   fields: [
-    SlugField,
+    ...slugField({
+      fallbackField: 'title',
+    }),
     {
       name: 'title',
       type: 'text',

@@ -3,7 +3,7 @@ import { CaseCardsBlock } from '@/blocks/case/caseCards.block'
 import { HeroBlock } from '@/blocks/content/hero.block'
 import { CtaBlock } from '@/blocks/cta/cta.block'
 import { ServiceCardsBlock } from '@/blocks/service/serviceCards.block'
-import { SlugField } from '@/fields/slug/slug.field'
+import { slugField } from '@/fields/slug/slug.field'
 
 export const PageCollection: CollectionConfig = {
   slug: 'pages',
@@ -16,7 +16,9 @@ export const PageCollection: CollectionConfig = {
     defaultColumns: ['title', 'slug'],
   },
   fields: [
-    SlugField,
+    ...slugField({
+      fallbackField: 'title',
+    }),
     {
       name: 'title',
       type: 'text',

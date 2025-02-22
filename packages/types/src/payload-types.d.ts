@@ -124,6 +124,7 @@ export interface UserAuthOperations {
 export interface Page {
   id: number;
   slug: string;
+  slugLock?: boolean | null;
   title?: string | null;
   content?: (HeroBlock | ServiceCardsBlock | CaseCardsBlock | CtaBlock)[] | null;
   meta?: {
@@ -250,6 +251,7 @@ export interface CaseCardsBlock {
 export interface Case {
   id: number;
   slug: string;
+  slugLock?: boolean | null;
   title: string;
   image?: (number | null) | Media;
   description?: string | null;
@@ -383,6 +385,7 @@ export interface PayloadMigration {
  */
 export interface PagesSelect<T extends boolean = true> {
   slug?: T;
+  slugLock?: T;
   title?: T;
   content?:
     | T
@@ -485,6 +488,7 @@ export interface CtaBlockSelect<T extends boolean = true> {
  */
 export interface CasesSelect<T extends boolean = true> {
   slug?: T;
+  slugLock?: T;
   title?: T;
   image?: T;
   description?: T;

@@ -26,6 +26,7 @@
     "@payloadcms/payload-cloud": "3.23.0",
     "@payloadcms/plugin-seo": "3.23.0",
     "@payloadcms/richtext-lexical": "3.23.0",
+    "@payloadcms/ui": "3.23.0",
     "cross-env": "7.0.3",
     "defu": "6.1.4",
     "next": "15.1.7",

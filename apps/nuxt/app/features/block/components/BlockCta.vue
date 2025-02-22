@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { CtaBlock } from '../models/ctaBlock.model'
+import type { CtaBlock } from '~/features/block/types/ctaBlock.type'
 
 const props = defineProps<{
   block: CtaBlock
@@ -28,7 +28,8 @@ const props = defineProps<{
 
         <!-- Body -->
         <div
-          class="mb-8 max-w-xl font-body text-base text-light-alt md:text-lg lg:text-xl" v-html="props.block.description"
+          class="mb-8 max-w-xl font-body text-base text-light-alt md:text-lg lg:text-xl"
+          v-html="props.block.body"
         />
 
         <!-- Button -->

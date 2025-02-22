@@ -125,7 +125,7 @@ export interface Page {
   id: number;
   slug: string;
   title?: string | null;
-  content?: (HeroBlock | ServiceCardsBlock | CaseCardsBlock)[] | null;
+  content?: (HeroBlock | ServiceCardsBlock | CaseCardsBlock | CtaBlock)[] | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -266,6 +266,33 @@ export interface Case {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CtaBlock".
+ */
+export interface CtaBlock {
+  title: string;
+  body: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  bodyHtml?: string | null;
+  button: ButtonField;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'ctaBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -363,6 +390,7 @@ export interface PagesSelect<T extends boolean = true> {
         hero?: T | HeroBlockSelect<T>;
         serviceCardsBlock?: T | ServiceCardsBlockSelect<T>;
         caseCardsBlock?: T | CaseCardsBlockSelect<T>;
+        ctaBlock?: T | CtaBlockSelect<T>;
       };
   meta?:
     | T
@@ -436,6 +464,18 @@ export interface CaseCardsBlockSelect<T extends boolean = true> {
         case?: T;
         id?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CtaBlock_select".
+ */
+export interface CtaBlockSelect<T extends boolean = true> {
+  title?: T;
+  body?: T;
+  bodyHtml?: T;
+  button?: T | ButtonFieldSelect<T>;
   id?: T;
   blockName?: T;
 }

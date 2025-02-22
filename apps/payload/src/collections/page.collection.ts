@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 import { CaseCardsBlock } from '@/blocks/case/caseCards.block'
 import { HeroBlock } from '@/blocks/content/hero.block'
+import { CtaBlock } from '@/blocks/cta/cta.block'
 import { ServiceCardsBlock } from '@/blocks/service/serviceCards.block'
 import { SlugField } from '@/fields/slug/slug.field'
 
@@ -27,6 +28,7 @@ export const PageCollection: CollectionConfig = {
         HeroBlock,
         ServiceCardsBlock,
         CaseCardsBlock,
+        CtaBlock,
       ],
     },
   ],

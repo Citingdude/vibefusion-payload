@@ -1,10 +1,6 @@
-import type { CaseCardsBlock as CaseCardsBlockDto, Case as CaseDto } from '@payload-types'
+import type { CaseCardsBlock as CaseCardsBlockDto } from '@payload-types'
 import type { CaseCardsBlock } from '~/features/block/types/caseCardsBlock.type'
 import { CaseCardTransformer } from '~/features/case/transformers/caseCard.transformer'
-
-function isCase(item: { case: number | CaseDto }): item is { case: CaseDto } {
-  return typeof item.case !== 'number'
-}
 
 export class CaseCardsBlockTransformer {
   static fromDto(dto: CaseCardsBlockDto): CaseCardsBlock {

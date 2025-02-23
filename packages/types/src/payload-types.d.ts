@@ -125,6 +125,7 @@ export interface Page {
   id: number;
   slug: string;
   slugLock?: boolean | null;
+  url?: string | null;
   title?: string | null;
   content?: (HeroBlock | ServiceCardsBlock | CaseCardsBlock | CtaBlock)[] | null;
   meta?: {
@@ -395,6 +396,7 @@ export interface PayloadMigration {
 export interface PagesSelect<T extends boolean = true> {
   slug?: T;
   slugLock?: T;
+  url?: T;
   title?: T;
   content?:
     | T

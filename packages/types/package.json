@@ -2,13 +2,6 @@
   "name": "@vibefusion/types",
   "type": "module",
   "exports": {
-    "./add": {
-      "types": "./src/add.ts",
-      "default": "./dist/add.js"
-    },
-    "./subtract": {
-      "types": "./src/subtract.ts",
-      "default": "./dist/subtract.js"
-    }
+    ".": "./src/payload-types.d.ts"
   }
 }

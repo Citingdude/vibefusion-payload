@@ -1,7 +1,7 @@
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { collections } from '@/collections'
-import { UserCollection } from '@/collections/user.collection'
+import { UserCollection } from '@/collections/user/user.collection'
 import { plugins } from '@/plugins/plugins'
 // storage-adapter-import-placeholder
 import { postgresAdapter } from '@payloadcms/db-postgres'

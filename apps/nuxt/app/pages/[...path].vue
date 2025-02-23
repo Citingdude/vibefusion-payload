@@ -3,13 +3,17 @@ import type { Block } from '~/features/block/types/block.type'
 import BlockBuilder from '~/features/block/components/BlockBuilder.vue'
 import { BlockTransformer } from '~/features/block/transformers/block.transformer'
 
-const slug = useRoute().params.slug
+const path = useRoute().path
 
-if (!slug) {
+if (!path) {
   throw createError('Page not found')
 }
 
-const { data: page } = useFetch(`/api/pages/${slug}`)
+const { data: page } = useFetch('/api/pages/page', {
+  query: {
+    path,
+  },
+})
 
 const blocks = computed<Block[]>(() => {
   if (!page.value)

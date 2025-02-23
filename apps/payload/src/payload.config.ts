@@ -2,9 +2,9 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { collections } from '@/collections'
 import { UserCollection } from '@/collections/user.collection'
+import { plugins } from '@/plugins/plugins'
 // storage-adapter-import-placeholder
 import { postgresAdapter } from '@payloadcms/db-postgres'
-import { seoPlugin } from '@payloadcms/plugin-seo'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
@@ -33,15 +33,6 @@ export default buildConfig({
     },
   }),
   sharp,
-  plugins: [
-    seoPlugin({
-      collections: [
-        'pages',
-        'cases',
-      ],
-      uploadsCollection: 'media',
-      generateTitle: ({ doc }) => `${doc.title} | VibeFusion`,
-    }),
-  ],
+  plugins,
   serverURL: 'http://localhost:4000',
 })

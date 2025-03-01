@@ -1,6 +1,6 @@
 import type { Block } from 'payload'
-import { ButtonArrayField } from '@/fields/button/buttonArray.field'
-import { ImageField } from '@/fields/ImageField'
+import { ButtonArrayField } from '../../fields/button/buttonArray.field'
+import { ImageField } from '../../fields/ImageField'
 
 export const HeroBlock: Block = {
   slug: 'hero',

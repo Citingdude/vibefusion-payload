@@ -1,5 +1,5 @@
 import type { Block } from 'payload'
-import { CaseCardField } from '@/fields/service/CaseCardField'
+import { CaseCardField } from '../../fields/service/CaseCardField'
 
 export const CaseCardsBlock: Block = {
   slug: 'caseCardsBlock',

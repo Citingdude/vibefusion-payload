@@ -1,10 +1,10 @@
 'use client'
 import type { TextFieldClientProps } from 'payload'
-import { formatSlug } from '@/utils/slug/formatSlug.util'
-
 import { Button, FieldLabel, TextInput, useField, useForm, useFormFields } from '@payloadcms/ui'
 
 import React, { useCallback, useEffect } from 'react'
+
+import { formatSlug } from '../../../utils/slug/formatSlug.util'
 import './index.scss'
 
 type SlugComponentProps = {

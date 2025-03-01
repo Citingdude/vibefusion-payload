@@ -1,9 +1,16 @@
 {
-  "name": "payload",
+  "name": "@repo/payload",
   "type": "module",
   "version": "1.0.0",
   "description": "A blank template to get started with Payload 3.0",
   "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
   "engines": {
     "node": "^18.20.2 || >=20.9.0"
   },

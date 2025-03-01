@@ -1,5 +1,6 @@
 import type { CheckboxField, TextField } from 'payload'
-import { formatSlugHook } from '@/fields/slug/hooks/formatSlug.hook'
+import { formatSlugHook } from '../../fields/slug/hooks/formatSlug.hook'
+import { ImageField } from '../../fields/ImageField'
 
 interface SlugFieldOptions {
   fallbackField: string
@@ -23,15 +24,6 @@ export function slugField(options: SlugFieldOptions): [TextField, CheckboxField]
     required: true,
     admin: {
       position: 'sidebar',
-      components: {
-        Field: {
-          path: '@/fields/slug/component/SlugComponent#SlugComponent',
-          clientProps: {
-            fieldToUse: options.fallbackField,
-            checkboxFieldPath: checkBoxField.name,
-          },
-        },
-      },
     },
     hooks: {
       beforeChange: [

@@ -1,8 +1,8 @@
-import { CaseCollection } from '@/collections/case/case.collection'
-import { IconCollection } from '@/collections/icon/icon.collection'
-import { MediaCollection } from '@/collections/media/media.collection'
-import { PageCollection } from '@/collections/page/page.collection'
-import { UserCollection } from '@/collections/user/user.collection'
+import { CaseCollection } from './case/case.collection'
+import { IconCollection } from './icon/icon.collection'
+import { MediaCollection } from './media/media.collection'
+import { PageCollection } from './page/page.collection'
+import { UserCollection } from './user/user.collection'
 
 export const collections = [
   PageCollection,

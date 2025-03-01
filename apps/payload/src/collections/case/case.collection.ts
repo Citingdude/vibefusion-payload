@@ -1,5 +1,5 @@
 import type { CollectionConfig } from 'payload'
-import { slugField } from '@/fields/slug/slug.field'
+import { slugField } from '../../fields/slug/slug.field'
 
 export const CaseCollection: CollectionConfig = {
   slug: 'cases',

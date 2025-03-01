@@ -1,5 +1,5 @@
 import type { FieldHook } from 'payload'
-import { formatSlug } from '@/utils/slug/formatSlug.util'
+import { formatSlug } from '../../../utils/slug/formatSlug.util'
 
 export function formatSlugHook(fallback: string): FieldHook {
   return ({ data, operation, value }) => {

@@ -1,10 +1,10 @@
 import type { CollectionConfig } from 'payload'
-import { CaseCardsBlock } from '@/blocks/case/caseCards.block'
-import { HeroBlock } from '@/blocks/content/hero.block'
-import { CtaBlock } from '@/blocks/cta/cta.block'
-import { ServiceCardsBlock } from '@/blocks/service/serviceCards.block'
-import { setUrlFromBreadcrumbsHook } from '@/collections/page/hooks/setUrlFromBreadcrumbs.hook'
-import { slugField } from '@/fields/slug/slug.field'
+import { CaseCardsBlock } from '../../blocks/case/caseCards.block'
+import { HeroBlock } from '../../blocks/content/hero.block'
+import { CtaBlock } from '../../blocks/cta/cta.block'
+import { ServiceCardsBlock } from '../../blocks/service/serviceCards.block'
+import { slugField } from '../../fields/slug/slug.field'
+import { setUrlFromBreadcrumbsHook } from './hooks/setUrlFromBreadcrumbs.hook'
 
 export const PageCollection: CollectionConfig = {
   slug: 'pages',

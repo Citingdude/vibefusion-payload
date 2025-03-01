@@ -14,7 +14,11 @@
     "paths": {
       "@payload-config": [
         "./src/payload.config.ts"
+      ],
+      "@payload/*": [
+        "./src/*"
       ]
+
     },
     "resolveJsonModule": true,
     "allowJs": true,

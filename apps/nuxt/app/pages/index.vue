@@ -4,7 +4,7 @@ import BlockBuilder from '~/features/block/components/BlockBuilder.vue'
 
 import { BlockTransformer } from '~/features/block/transformers/block.transformer'
 
-const { data: page } = await useFetch('/api/payload/test')
+const { data: page } = await useFetch('/api/payload/page/home')
 
 const { data } = useLivePreview({
   initialData: page,

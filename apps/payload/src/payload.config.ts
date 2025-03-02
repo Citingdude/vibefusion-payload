@@ -23,7 +23,7 @@ export default buildConfig({
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
-    outputFile: path.resolve('./src', 'payload-types.d.ts'),
+    outputFile: path.resolve('./src', 'payload-types.ts'),
   },
   cors: '*',
   db: postgresAdapter({

@@ -1,9 +1,19 @@
 <script setup lang="ts">
-import type { ServiceCardsBlock } from '~/features/block/types/serviceCardsBlock.type'
+import type { ServiceCardsBlock } from '@repo/payload'
+import type { ServiceCardProps } from '~/components/service/ServiceCard.vue'
+import { ServiceCardPropsTransformer } from '~/features/service/transformers/serviceCardProps.transformer'
 
 const props = defineProps<{
   block: ServiceCardsBlock
 }>()
+
+const services = computed<ServiceCardProps[]>(() => {
+  if (!props.block.serviceCardList) {
+    return []
+  }
+
+  return ServiceCardPropsTransformer.fromServiceCardList(props.block.serviceCardList)
+})
 </script>
 
 <template>
@@ -23,13 +33,12 @@ const props = defineProps<{
 
         <IconsLine />
       </div>
-
       <!-- Service cards -->
-      <div class="grid w-full max-w-5xl grid-cols-2 gap-8 lg:gap-12">
+      <div v-if="services.length" class="grid w-full max-w-5xl grid-cols-2 gap-8 lg:gap-12">
         <ServiceCard
-          v-for="(service, index) in props.block.serviceCards"
-          :id="index + 1"
+          v-for="(service, index) in services"
           :key="index"
+          :index="index"
           :icon="service.icon"
           :title="service.title"
           :button="service.button"

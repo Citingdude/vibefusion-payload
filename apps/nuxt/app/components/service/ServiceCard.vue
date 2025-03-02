@@ -2,26 +2,28 @@
 import type { Button } from '~/features/button/types/button.type'
 import type { Icon } from '~/features/icon/types/icon.type'
 
-const props = defineProps<{
-  id: number
+export interface ServiceCardProps {
+  index: number
   icon: Icon | null
   title: string | null
   button?: Button
   color: 'light' | 'dark'
-}>()
+}
+
+const props = defineProps<ServiceCardProps>()
 
 const getBorders = computed<string>(() => {
-  switch (props.id) {
-    case 1:
+  switch (props.index) {
+    case 0:
       return 'rounded-tl-3xl rounded-br-3xl'
+
+    case 1:
+      return 'rounded-tr-3xl rounded-bl-3xl'
 
     case 2:
       return 'rounded-tr-3xl rounded-bl-3xl'
 
     case 3:
-      return 'rounded-tr-3xl rounded-bl-3xl'
-
-    case 4:
       return 'rounded-tl-3xl rounded-br-3xl'
 
     default:

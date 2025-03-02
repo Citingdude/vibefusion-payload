@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { BlockDto } from '~/features/block/types/block.type'
-
 import type { BlockType } from '~/features/block/types/blockType.type'
 
 const props = defineProps<{
@@ -13,7 +12,6 @@ const ServiceCardsblock = defineAsyncComponent(() => import('~/features/block/co
 const CtaBlock = defineAsyncComponent(() => import('~/features/block/components/BlockCta.vue'))
 
 const blockComponents: Record<BlockType, Component | undefined> = {
-  unsupported: undefined,
   hero: BlockHero,
   caseCardsBlock: BlockCases,
   serviceCardsBlock: ServiceCardsblock,

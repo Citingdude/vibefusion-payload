@@ -7,6 +7,16 @@
  */
 
 /**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ServiceCardList".
+ */
+export type ServiceCardList =
+  | {
+      serviceCard: ServiceCard;
+      id?: string | null;
+    }[]
+  | null;
+/**
  * Supported timezones in IANA format.
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -200,12 +210,7 @@ export interface Media {
  */
 export interface ServiceCardsBlock {
   title?: string | null;
-  serviceCards?:
-    | {
-        serviceCard: ServiceCard;
-        id?: string | null;
-      }[]
-    | null;
+  serviceCardList?: ServiceCardList;
   id?: string | null;
   blockName?: string | null;
   blockType: 'serviceCardsBlock';
@@ -457,14 +462,17 @@ export interface ButtonFieldSelect<T extends boolean = true> {
  */
 export interface ServiceCardsBlockSelect<T extends boolean = true> {
   title?: T;
-  serviceCards?:
-    | T
-    | {
-        serviceCard?: T | ServiceCardSelect<T>;
-        id?: T;
-      };
+  serviceCardList?: T | ServiceCardListSelect<T>;
   id?: T;
   blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ServiceCardList_select".
+ */
+export interface ServiceCardListSelect<T extends boolean = true> {
+  serviceCard?: T | ServiceCardSelect<T>;
+  id?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

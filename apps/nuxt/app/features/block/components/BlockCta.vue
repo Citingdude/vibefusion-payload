@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import type { CtaBlock } from '~/features/block/types/ctaBlock.type'
+import type { CtaBlock } from '@repo/payload';
+
 
 const props = defineProps<{
   block: CtaBlock
@@ -16,7 +17,7 @@ const props = defineProps<{
         <!-- Heading -->
         <div class="mb-4 flex flex-col">
           <TextH2
-            class="mb-3 font-display text-3xl font-bold text-light-main md:text-4xl lg:text-5xl"
+            class="mb-3 font-display text-3xl font-bold text-light-main md:text-4xl lg:text-5xl max-w-xl"
           >
             {{ props.block.title }}
           </TextH2>
@@ -28,8 +29,9 @@ const props = defineProps<{
 
         <!-- Body -->
         <div
-          class="mb-8 max-w-xl font-body text-base text-light-alt md:text-lg lg:text-xl"
-          v-html="props.block.body"
+          v-if="props.block.bodyHtml"
+          class="mb-8 max-w-xl font-body text-base text-light-alt md:text-lg lg:text-xl prose prose-a:text-accent"
+          v-html="props.block.bodyHtml"
         />
 
         <!-- Button -->

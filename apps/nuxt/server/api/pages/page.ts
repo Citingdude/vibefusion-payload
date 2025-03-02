@@ -1,4 +1,4 @@
-import type { Page } from '@payload-types'
+import type { Page } from '@repo/payload'
 import type { CollectionDto } from '~/features/collection/models/collection.model'
 import { z } from 'zod'
 import { getPayloadFetch } from '~~/server/utils/payload/getPayloadFetch'

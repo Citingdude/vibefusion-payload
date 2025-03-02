@@ -3,7 +3,7 @@ import type {
   CtaBlock as CtaBlockDto,
   HeroBlock as HeroBlockDto,
   ServiceCardsBlock as ServiceCardsBlockDto,
-} from '@payload-types'
+} from '@repo/payload'
 
 import type { CaseCardsBlock } from '~/features/block/types/caseCardsBlock.type'
 import type { CtaBlock } from '~/features/block/types/ctaBlock.type'

@@ -1,4 +1,4 @@
-import type { HeroBlock as HeroBlockDto } from '@payload-types'
+import type { HeroBlock as HeroBlockDto } from '@repo/payload'
 import type { HeroBlock } from '~/features/block/types/heroBlock.type'
 import { ButtonTransformer } from '~/features/button/transformers/button.transformer'
 import { ImageTransformer } from '~/features/image/transformers/image.transformer'

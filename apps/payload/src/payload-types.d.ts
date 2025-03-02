@@ -124,8 +124,10 @@ export interface UserAuthOperations {
 export interface Page {
   id: number;
   slug: string;
+  slugLock?: boolean | null;
+  url?: string | null;
   title?: string | null;
-  content?: (HeroBlock | ServiceCardsBlock | CaseCardsBlock)[] | null;
+  content?: (HeroBlock | ServiceCardsBlock | CaseCardsBlock | CtaBlock)[] | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -134,6 +136,15 @@ export interface Page {
      */
     image?: (number | null) | Media;
   };
+  parent?: (number | null) | Page;
+  breadcrumbs?:
+    | {
+        doc?: (number | null) | Page;
+        url?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -250,6 +261,7 @@ export interface CaseCardsBlock {
 export interface Case {
   id: number;
   slug: string;
+  slugLock?: boolean | null;
   title: string;
   image?: (number | null) | Media;
   description?: string | null;
@@ -263,6 +275,33 @@ export interface Case {
   };
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CtaBlock".
+ */
+export interface CtaBlock {
+  title: string;
+  body: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  bodyHtml?: string | null;
+  button: ButtonField;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'ctaBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -356,6 +395,8 @@ export interface PayloadMigration {
  */
 export interface PagesSelect<T extends boolean = true> {
   slug?: T;
+  slugLock?: T;
+  url?: T;
   title?: T;
   content?:
     | T
@@ -363,6 +404,7 @@ export interface PagesSelect<T extends boolean = true> {
         hero?: T | HeroBlockSelect<T>;
         serviceCardsBlock?: T | ServiceCardsBlockSelect<T>;
         caseCardsBlock?: T | CaseCardsBlockSelect<T>;
+        ctaBlock?: T | CtaBlockSelect<T>;
       };
   meta?:
     | T
@@ -370,6 +412,15 @@ export interface PagesSelect<T extends boolean = true> {
         title?: T;
         description?: T;
         image?: T;
+      };
+  parent?: T;
+  breadcrumbs?:
+    | T
+    | {
+        doc?: T;
+        url?: T;
+        label?: T;
+        id?: T;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -441,10 +492,23 @@ export interface CaseCardsBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CtaBlock_select".
+ */
+export interface CtaBlockSelect<T extends boolean = true> {
+  title?: T;
+  body?: T;
+  bodyHtml?: T;
+  button?: T | ButtonFieldSelect<T>;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "cases_select".
  */
 export interface CasesSelect<T extends boolean = true> {
   slug?: T;
+  slugLock?: T;
   title?: T;
   image?: T;
   description?: T;

@@ -11,7 +11,6 @@ import { plugins } from './plugins/plugins'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
-const outputDir = path.resolve(dirname, '../../../packages/types/src')
 
 export default buildConfig({
   admin: {
@@ -24,7 +23,7 @@ export default buildConfig({
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
-    outputFile: path.resolve(outputDir, 'payload-types.d.ts'),
+    outputFile: path.resolve('./src', 'payload-types.d.ts'),
   },
   cors: '*',
   db: postgresAdapter({

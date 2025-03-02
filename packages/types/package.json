@@ -1,7 +1,0 @@
-{
-  "name": "@vibefusion/types",
-  "type": "module",
-  "exports": {
-    ".": "./src/payload-types.d.ts"
-  }
-}

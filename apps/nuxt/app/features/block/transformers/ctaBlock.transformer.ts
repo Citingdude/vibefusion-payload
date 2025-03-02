@@ -1,4 +1,4 @@
-import type { CtaBlock as CtaBlockDto } from '@payload-types'
+import type { CtaBlock as CtaBlockDto } from '@repo/payload'
 import type { CtaBlock } from '~/features/block/types/ctaBlock.type'
 import { ButtonTransformer } from '~/features/button/transformers/button.transformer'
 

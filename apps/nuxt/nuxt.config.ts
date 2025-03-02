@@ -4,7 +4,6 @@ import { fileURLToPath } from 'node:url'
 export default defineNuxtConfig({
   alias: {
     '@blocks': fileURLToPath(new URL('./app/features/block/components', import.meta.url)),
-    '@payload-types': fileURLToPath(new URL('../../packages/types/src/payload-types.d.ts', import.meta.url)),
     '@payload': fileURLToPath(new URL('./node_modules/@repo/payload/src', import.meta.url)),
   },
   compatibilityDate: '2024-04-03',

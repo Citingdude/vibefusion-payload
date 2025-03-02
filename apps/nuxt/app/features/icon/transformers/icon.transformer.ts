@@ -1,4 +1,4 @@
-import type { Icon as IconDto } from '@payload-types'
+import type { Icon as IconDto } from '@repo/payload'
 import type { Icon } from '~/features/icon/types/icon.type'
 
 export class IconTransformer {

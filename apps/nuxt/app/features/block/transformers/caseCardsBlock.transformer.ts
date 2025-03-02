@@ -1,4 +1,4 @@
-import type { CaseCardsBlock as CaseCardsBlockDto } from '@payload-types'
+import type { CaseCardsBlock as CaseCardsBlockDto } from '@repo/payload'
 import type { CaseCardsBlock } from '~/features/block/types/caseCardsBlock.type'
 import { CaseCardTransformer } from '~/features/case/transformers/caseCard.transformer'
 

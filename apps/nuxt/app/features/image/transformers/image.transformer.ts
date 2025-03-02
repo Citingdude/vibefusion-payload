@@ -1,4 +1,4 @@
-import type { Media as ImageDto } from '@payload-types'
+import type { Media as ImageDto } from '@repo/payload'
 import type { Image } from '~/features/image/types/image.type'
 
 export class ImageTransformer {

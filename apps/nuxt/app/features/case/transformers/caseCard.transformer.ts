@@ -1,4 +1,4 @@
-import type { Case as CaseCardDto } from '@payload-types'
+import type { Case as CaseCardDto } from '@repo/payload'
 import type { CaseCard } from '~/features/case/types/caseCard.type'
 import { ImageTransformer } from '~/features/image/transformers/image.transformer'
 

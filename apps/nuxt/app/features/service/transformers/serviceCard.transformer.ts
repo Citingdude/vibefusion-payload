@@ -1,4 +1,4 @@
-import type { ServiceCard as ServiceCardDto } from '@payload-types'
+import type { ServiceCard as ServiceCardDto } from '@repo/payload'
 import type { ServiceCard } from '~/features/service/types/serviceCard.type'
 import { ButtonTransformer } from '~/features/button/transformers/button.transformer'
 import { IconTransformer } from '~/features/icon/transformers/icon.transformer'

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { HeroBlock } from '@repo/payload'
 import { animate, stagger } from 'motion'
+import { ImageTransformer } from '~/features/image/transformers/image.transformer'
 
 const props = defineProps<{
   block: HeroBlock
@@ -31,6 +32,12 @@ function useAnimation() {
     ease: 'easeInOut',
   })
 }
+
+const image = computed(() => {
+  return props.block.image
+    ? ImageTransformer.fromDto(props.block.image)
+    : null
+})
 </script>
 
 <template>
@@ -58,11 +65,8 @@ function useAnimation() {
         </AppButtonGroup>
       </div>
 
-      <div v-if="props.block.image" class="anim-fade-in-right col-span-2 lg:col-span-6">
-        <PayloadImage
-          class="aspect-[140/53] w-full h-auto"
-          :image="props.block.image"
-        />
+      <div v-if="image" class="anim-fade-in-right col-span-2 lg:col-span-6">
+        <img class="aspect-[140/53] w-full h-auto" :src="image.src" :alt="image.alt">
       </div>
     </div>
   </AppLayoutSection>

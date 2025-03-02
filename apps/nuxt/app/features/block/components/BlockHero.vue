@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { HeroBlock } from '~/features/block/types/heroBlock.type'
+import type { HeroBlock } from '@repo/payload'
 import { animate, stagger } from 'motion'
 
 const props = defineProps<{
@@ -49,22 +49,20 @@ function useAnimation() {
           <AppButton
             v-for="(button, index) in props.block.buttons"
             :key="index"
-            :to="button.link"
+            :to="button.button.link"
             size="lg"
-            :color="button.color"
+            :color="button.button.color"
           >
-            {{ button.label }}
+            {{ button.button.label }}
           </AppButton>
         </AppButtonGroup>
       </div>
 
-      <div class="anim-fade-in-right col-span-2 lg:col-span-6">
-        <img
-          v-if="props.block.image"
-          :src="props.block.image.src"
-          :alt="props.block.image.alt"
+      <div v-if="props.block.image" class="anim-fade-in-right col-span-2 lg:col-span-6">
+        <PayloadImage
           class="aspect-[140/53] w-full h-auto"
-        >
+          :image="props.block.image"
+        />
       </div>
     </div>
   </AppLayoutSection>

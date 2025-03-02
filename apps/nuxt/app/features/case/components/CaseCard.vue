@@ -7,10 +7,18 @@ export interface CaseCardProps {
   description: string | null
   image: Image | null
   slug: string
-  imageOrder: 'order-1' | 'order-2'
-  contentOrder: 'order-1' | 'order-2'
+  index: number
 }
+
 const props = defineProps<CaseCardProps>()
+
+const imageOrderClass = computed(() => {
+  return props.index % 2 === 0 ? 'order-2' : 'order-1'
+})
+
+const contentOrderClass = computed(() => {
+  return props.index % 2 === 0 ? 'order-1' : 'order-2'
+})
 </script>
 
 <template>
@@ -18,7 +26,7 @@ const props = defineProps<CaseCardProps>()
     <div
       v-if="props.image"
       class="bg-light-alt rounded-br-3xl rounded-tl-3xl"
-      :class="props.imageOrder"
+      :class="[imageOrderClass]"
     >
       <img
         class="w-full h-auto object-contain rounded-br-3xl rounded-tl-3xl aspect-[5/4]"
@@ -30,7 +38,7 @@ const props = defineProps<CaseCardProps>()
 
     <div
       class="flex flex-col px-8"
-      :class="contentOrder"
+      :class="[contentOrderClass]"
     >
       <CasesBadge v-if="props.category">
         {{ props.category }}

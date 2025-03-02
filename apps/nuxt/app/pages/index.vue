@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import type { Block } from '~/features/block/types/block.type'
-import BlockBuilder from '~/features/block/components/BlockBuilder.vue'
+import type { BlockDto } from '~/features/block/types/block.type'
 
-import { BlockTransformer } from '~/features/block/transformers/block.transformer'
+import BlockRenderer from '~/features/block/components/BlockRenderer.vue'
 
 const { data: page } = await useFetch('/api/payload/page/home')
 
@@ -10,19 +9,19 @@ const { data } = useLivePreview({
   initialData: page,
 })
 
-const blocks = computed<Block[]>(() => {
+const blocks = computed<BlockDto[]>(() => {
   if (!data.value)
     return []
 
   if (!data.value.content)
     return []
 
-  return data.value.content.map(BlockTransformer.fromDto)
+  return data.value.content.map(block => jsonParse(block))
 })
 </script>
 
 <template>
   <main>
-    <BlockBuilder :blocks="blocks" />
+    <BlockRenderer :blocks="blocks" />
   </main>
 </template>

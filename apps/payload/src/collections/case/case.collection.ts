@@ -11,25 +11,39 @@ export const CaseCollection: CollectionConfig = {
     group: 'Content',
   },
   fields: [
-    ...slugField({
-      fallbackField: 'title',
-    }),
+    {
+      type: 'tabs',
+      tabs: [
+        {
+          name: 'content',
+          fields: [
+            {
+              name: 'image',
+              type: 'upload',
+              relationTo: 'media',
+              admin: {
+                position: 'sidebar',
+              },
+            },
+            {
+              name: 'description',
+              type: 'textarea',
+            },
+          ],
+        },
+      ],
+    },
     {
       name: 'title',
       type: 'text',
       required: true,
-    },
-    {
-      name: 'image',
-      type: 'upload',
-      relationTo: 'media',
       admin: {
         position: 'sidebar',
       },
     },
-    {
-      name: 'description',
-      type: 'textarea',
-    },
+    ...slugField({
+      fallbackField: 'title',
+    }),
+
   ],
 }

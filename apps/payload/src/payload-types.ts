@@ -98,8 +98,12 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    home: Home;
+  };
+  globalsSelect: {
+    home: HomeSelect<false> | HomeSelect<true>;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -133,10 +137,6 @@ export interface UserAuthOperations {
  */
 export interface Page {
   id: number;
-  slug: string;
-  slugLock?: boolean | null;
-  url?: string | null;
-  title?: string | null;
   content?: (HeroBlock | ServiceCardsBlock | CaseCardsBlock | CtaBlock)[] | null;
   meta?: {
     title?: string | null;
@@ -146,6 +146,10 @@ export interface Page {
      */
     image?: (number | null) | Media;
   };
+  slug: string;
+  slugLock?: boolean | null;
+  url?: string | null;
+  title?: string | null;
   parent?: (number | null) | Page;
   breadcrumbs?:
     | {
@@ -265,11 +269,10 @@ export interface CaseCardsBlock {
  */
 export interface Case {
   id: number;
-  slug: string;
-  slugLock?: boolean | null;
-  title: string;
-  image?: (number | null) | Media;
-  description?: string | null;
+  content?: {
+    image?: (number | null) | Media;
+    description?: string | null;
+  };
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -278,6 +281,9 @@ export interface Case {
      */
     image?: (number | null) | Media;
   };
+  title: string;
+  slug: string;
+  slugLock?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -399,10 +405,6 @@ export interface PayloadMigration {
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
-  slug?: T;
-  slugLock?: T;
-  url?: T;
-  title?: T;
   content?:
     | T
     | {
@@ -418,6 +420,10 @@ export interface PagesSelect<T extends boolean = true> {
         description?: T;
         image?: T;
       };
+  slug?: T;
+  slugLock?: T;
+  url?: T;
+  title?: T;
   parent?: T;
   breadcrumbs?:
     | T
@@ -515,11 +521,12 @@ export interface CtaBlockSelect<T extends boolean = true> {
  * via the `definition` "cases_select".
  */
 export interface CasesSelect<T extends boolean = true> {
-  slug?: T;
-  slugLock?: T;
-  title?: T;
-  image?: T;
-  description?: T;
+  content?:
+    | T
+    | {
+        image?: T;
+        description?: T;
+      };
   meta?:
     | T
     | {
@@ -527,6 +534,9 @@ export interface CasesSelect<T extends boolean = true> {
         description?: T;
         image?: T;
       };
+  title?: T;
+  slug?: T;
+  slugLock?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -612,6 +622,48 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home".
+ */
+export interface Home {
+  id: number;
+  content?: (HeroBlock | ServiceCardsBlock | CaseCardsBlock | CtaBlock)[] | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home_select".
+ */
+export interface HomeSelect<T extends boolean = true> {
+  content?:
+    | T
+    | {
+        hero?: T | HeroBlockSelect<T>;
+        serviceCardsBlock?: T | ServiceCardsBlockSelect<T>;
+        caseCardsBlock?: T | CaseCardsBlockSelect<T>;
+        ctaBlock?: T | CtaBlockSelect<T>;
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

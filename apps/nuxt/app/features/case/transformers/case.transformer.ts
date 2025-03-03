@@ -6,9 +6,9 @@ export class CaseTransformer {
   static toCaseCardProps(caseItem: Case, index: number): CaseCardProps {
     return {
       index,
-      description: caseItem.description || null,
-      image: caseItem.image
-        ? ImageTransformer.fromDto(caseItem.image)
+      description: caseItem.content?.description || null,
+      image: caseItem.content?.image
+        ? ImageTransformer.fromDto(caseItem.content.image)
         : null,
       slug: caseItem.slug,
       title: caseItem.title,

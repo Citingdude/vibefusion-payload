@@ -17,6 +17,26 @@ export const PageCollection: CollectionConfig = {
     defaultColumns: ['title', 'slug'],
   },
   fields: [
+    {
+      type: 'tabs',
+      tabs: [
+        {
+          label: 'Content',
+          fields: [
+            {
+              name: 'content',
+              type: 'blocks',
+              blocks: [
+                HeroBlock,
+                ServiceCardsBlock,
+                CaseCardsBlock,
+                CtaBlock,
+              ],
+            },
+          ],
+        },
+      ],
+    },
     ...slugField({
       fallbackField: 'title',
     }),
@@ -31,16 +51,9 @@ export const PageCollection: CollectionConfig = {
     {
       name: 'title',
       type: 'text',
-    },
-    {
-      name: 'content',
-      type: 'blocks',
-      blocks: [
-        HeroBlock,
-        ServiceCardsBlock,
-        CaseCardsBlock,
-        CtaBlock,
-      ],
+      admin: {
+        position: 'sidebar',
+      },
     },
   ],
   hooks: {

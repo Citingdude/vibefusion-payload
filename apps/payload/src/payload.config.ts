@@ -1,5 +1,6 @@
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { globals } from '@payload/globals/global'
 // storage-adapter-import-placeholder
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
@@ -19,6 +20,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
+  globals,
   collections,
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

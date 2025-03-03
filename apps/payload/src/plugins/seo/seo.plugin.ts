@@ -5,6 +5,10 @@ export default () => seoPlugin({
     'pages',
     'cases',
   ],
+  globals: [
+    'home',
+  ],
   uploadsCollection: 'media',
+  tabbedUI: true,
   generateTitle: ({ doc }) => `${doc.title} | VibeFusion`,
 })

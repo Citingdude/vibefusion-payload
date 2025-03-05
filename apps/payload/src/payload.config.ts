@@ -4,6 +4,7 @@ import { globals } from '@payload/globals/global'
 // storage-adapter-import-placeholder
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
+
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
 import { collections } from './collections'

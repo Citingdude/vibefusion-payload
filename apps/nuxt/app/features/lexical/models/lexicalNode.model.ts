@@ -3,6 +3,7 @@ import { lexicalHeadingNodeSchema } from '~/features/lexical/models/lexicalHeadi
 import { lexicalLinkNodeSchema } from '~/features/lexical/models/lexicalLinkNode.model'
 import { lexicalListNodeSchema } from '~/features/lexical/models/lexicalListNode.model'
 import { lexicalParagraphNodeSchema } from '~/features/lexical/models/lexicalParagraphNode.model'
+import { lexicalQuoteNodeSchema } from '~/features/lexical/models/lexicalQuoteNode.model'
 import { lexicalUploadNodeSchema } from '~/features/lexical/models/lexicalUploadNode.model'
 
 export const lexicalNodeSchema = z.union([
@@ -11,11 +12,7 @@ export const lexicalNodeSchema = z.union([
   lexicalListNodeSchema,
   lexicalUploadNodeSchema,
   lexicalHeadingNodeSchema,
+  lexicalQuoteNodeSchema,
 ])
 
-export const lexicalRootNodeSchema = z.object({
-  type: z.string(),
-  children: lexicalNodeSchema.array(),
-})
-
-export type LexicalRootNode = z.infer<typeof lexicalRootNodeSchema>
+export type LexicalNode = z.infer<typeof lexicalNodeSchema>

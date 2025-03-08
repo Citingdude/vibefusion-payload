@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { LexicalText } from '~/components/lexical/LexicalText.vue'
 import type { LexicalLinkNode } from '~/features/lexical/models/lexicalLinkNode.model'
 
 const props = defineProps<{

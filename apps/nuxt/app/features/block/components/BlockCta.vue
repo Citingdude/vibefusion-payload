@@ -26,7 +26,11 @@ const props = defineProps<{
           <IconsLine />
         </div>
 
-        <LexicalSerializer color="light" :root="props.block.body.root" />
+        <LexicalSerializer
+          v-if="props.block.content"
+          color="light"
+          :root="props.block.content"
+        />
 
         <!-- Button -->
         <AppButton

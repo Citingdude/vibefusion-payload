@@ -1,7 +1,7 @@
 <script setup lang="ts">
 export interface LexicalText {
   type: 'text'
-  text: string
+  text?: string
 }
 
 const props = defineProps<{

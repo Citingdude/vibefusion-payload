@@ -1,6 +1,6 @@
 import type { Block } from 'payload'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
-import { ButtonField } from '../../fields/button/button.field'
+import { ButtonField } from '@payload/fields/button/button.field'
+import { RichTextField } from '@payload/fields/richtext/richText.field'
 
 export const CtaBlock: Block = {
   slug: 'ctaBlock',
@@ -11,16 +11,9 @@ export const CtaBlock: Block = {
       required: true,
       name: 'title',
     },
-    {
-      type: 'richText',
-      required: true,
-      name: 'body',
-      editor: lexicalEditor({
-        features: ({ defaultFeatures }) => [
-          ...defaultFeatures,
-        ],
-      }),
-    },
+    RichTextField({
+      name: 'content',
+    }),
     ButtonField,
   ],
 }

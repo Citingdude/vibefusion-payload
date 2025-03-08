@@ -11,6 +11,7 @@ const props = defineProps<{
     <template v-for="(child, index) in props.node.children" :key="index">
       <LexicalText v-if="child.type === 'text'" :node="child" />
       <LexicalLink v-else-if="child.type === 'link'" :node="child" />
+      <LexicalLinebreak v-else-if="child.type === 'linebreak'" />
     </template>
   </p>
 </template>

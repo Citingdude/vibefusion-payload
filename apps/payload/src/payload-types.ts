@@ -294,7 +294,18 @@ export interface Case {
  */
 export interface CtaBlock {
   title: string;
-  body: {
+  content?: RichTextField;
+  button: ButtonField;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'ctaBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextField".
+ */
+export interface RichTextField {
+  richtext?: {
     root: {
       type: string;
       children: {
@@ -308,11 +319,7 @@ export interface CtaBlock {
       version: number;
     };
     [k: string]: unknown;
-  };
-  button: ButtonField;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'ctaBlock';
+  } | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -510,10 +517,17 @@ export interface CaseCardsBlockSelect<T extends boolean = true> {
  */
 export interface CtaBlockSelect<T extends boolean = true> {
   title?: T;
-  body?: T;
+  content?: T | RichTextFieldSelect<T>;
   button?: T | ButtonFieldSelect<T>;
   id?: T;
   blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextField_select".
+ */
+export interface RichTextFieldSelect<T extends boolean = true> {
+  richtext?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

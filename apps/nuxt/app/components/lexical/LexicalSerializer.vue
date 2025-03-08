@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { CtaBlock } from '@repo/payload'
+import type { RichTextField } from '@repo/payload'
 import type { LexicalRootNode } from '~/features/lexical/models/lexicalRootNode.model'
 import { lexicalRootNodeSchema } from '~/features/lexical/models/lexicalRootNode.model'
 
 const props = withDefaults(defineProps<{
-  root: CtaBlock['body']['root']
+  root: RichTextField
   color?: 'light' | 'dark'
 }>(), {
   color: 'light',
@@ -14,7 +14,7 @@ const validatedRoot = computed<LexicalRootNode>(() => {
   let result: LexicalRootNode | null = null
 
   try {
-    result = lexicalRootNodeSchema.parse(props.root)
+    result = lexicalRootNodeSchema.parse(props.root.richtext?.root)
 
     return result
   }
@@ -22,7 +22,7 @@ const validatedRoot = computed<LexicalRootNode>(() => {
     console.error(error)
   }
 
-  return props.root as unknown as LexicalRootNode
+  return props.root.richtext?.root as unknown as LexicalRootNode
 })
 </script>
 

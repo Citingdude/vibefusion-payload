@@ -309,7 +309,6 @@ export interface CtaBlock {
     };
     [k: string]: unknown;
   };
-  bodyHtml?: string | null;
   button: ButtonField;
   id?: string | null;
   blockName?: string | null;
@@ -512,7 +511,6 @@ export interface CaseCardsBlockSelect<T extends boolean = true> {
 export interface CtaBlockSelect<T extends boolean = true> {
   title?: T;
   body?: T;
-  bodyHtml?: T;
   button?: T | ButtonFieldSelect<T>;
   id?: T;
   blockName?: T;

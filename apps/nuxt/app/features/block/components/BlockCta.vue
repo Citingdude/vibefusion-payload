@@ -26,17 +26,7 @@ const props = defineProps<{
           <IconsLine />
         </div>
 
-        <!-- Body -->
-        <div
-          v-if="props.block.bodyHtml"
-          class="mb-8 max-w-xl font-body text-base text-light-alt md:text-lg lg:text-xl prose prose-a:text-accent"
-          v-html="props.block.bodyHtml"
-        />
-
-        <LexicalSerializer
-          class="text-light-alt"
-          :root="props.block.body.root"
-        />
+        <LexicalSerializer color="light" :root="props.block.body.root" />
 
         <!-- Button -->
         <AppButton

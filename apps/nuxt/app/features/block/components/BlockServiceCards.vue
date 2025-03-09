@@ -18,7 +18,7 @@ const services = computed<ServiceCardProps[]>(() => {
 
 <template>
   <section
-    id="onze-diensten"
+    :id="props.block.blockName || undefined"
     has-padding
     class="bg-light-alt py-20 md:py-32"
   >

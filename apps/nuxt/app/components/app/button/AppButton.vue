@@ -3,18 +3,20 @@ import type { RouteLocationRaw } from '#vue-router'
 import type { VariantProps } from 'tailwind-variants'
 import { tv } from 'tailwind-variants'
 
-const props = defineProps<ButtonProps>()
-
-interface ButtonProps {
-  color: ButtonStyle['color']
-  size: ButtonStyle['size']
-
+export interface ButtonProps {
+  color?: ButtonStyle['color']
+  size?: ButtonStyle['size']
   to?: RouteLocationRaw
   href?: string
   target?: '_blank' | '_parent' | '_self' | '_top'
   rel?: string
   button?: boolean
 }
+
+const props = withDefaults(defineProps<ButtonProps>(), {
+  size: 'md',
+  color: 'purple',
+})
 
 const buttonStyle = tv({
   base: 'w-full rounded-br-xl rounded-tl-xl text-center font-display font-bold transition hover:-translate-y-1 hover:shadow-xl sm:w-fit',

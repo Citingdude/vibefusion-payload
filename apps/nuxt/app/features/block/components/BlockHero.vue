@@ -2,6 +2,7 @@
 import type { HeroBlock } from '@repo/payload'
 import { animate, stagger } from 'motion'
 import TextHighlight from '~/components/text/TextHighlight.vue'
+import CmsLink from '~/features/cms/CmsLink.vue'
 import { ImageTransformer } from '~/features/image/transformers/image.transformer'
 
 const props = defineProps<{
@@ -56,17 +57,12 @@ const image = computed(() => {
             </p>
           </div>
 
-          <!-- Buttons -->
           <AppButtonGroup id="hero-buttons">
-            <AppButton
-              v-for="(button, index) in props.block.buttons"
-              :key="index"
-              :to="button.button.link"
-              size="lg"
-              :color="button.button.color"
-            >
-              {{ button.button.label }}
-            </AppButton>
+            <CmsLink
+              v-for="(link, index) in props.block.links" :key="index"
+              :link-field="link.link"
+              :color="index % 2 === 0 ? 'purple' : 'white'"
+            />
           </AppButtonGroup>
         </div>
 

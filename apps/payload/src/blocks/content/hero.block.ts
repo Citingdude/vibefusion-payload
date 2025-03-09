@@ -1,17 +1,12 @@
 import type { Block } from 'payload'
+import { ImageField } from '@payload/fields/ImageField'
+import { linkGroupField } from '@payload/fields/link/linkGroup.field'
 import { highlightTextField } from '@payload/fields/text/highlightText.field'
-import { ButtonArrayField } from '../../fields/button/buttonArray.field'
-import { ImageField } from '../../fields/ImageField'
 
 export const HeroBlock: Block = {
   slug: 'hero',
   interfaceName: 'HeroBlock',
   fields: [
-    {
-      type: 'text',
-      name: 'title',
-      required: true,
-    },
     highlightTextField({
       required: true,
     }),
@@ -19,7 +14,12 @@ export const HeroBlock: Block = {
       type: 'textarea',
       name: 'body',
     },
-    ButtonArrayField,
+    linkGroupField({
+      appearances: false,
+      overrides: {
+        maxRows: 2,
+      },
+    }),
     ImageField,
   ],
 }

@@ -8,6 +8,16 @@
 
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LinkGroupField".
+ */
+export type LinkGroupField =
+  | {
+      link: LinkField;
+      id?: string | null;
+    }[]
+  | null;
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "ServiceCardList".
  */
 export type ServiceCardList =
@@ -168,7 +178,6 @@ export interface Page {
  * via the `definition` "HeroBlock".
  */
 export interface HeroBlock {
-  title: string;
   highlightTitle: {
     title: {
       root: {
@@ -188,12 +197,7 @@ export interface HeroBlock {
     html?: string | null;
   };
   body?: string | null;
-  buttons?:
-    | {
-        button: ButtonField;
-        id?: string | null;
-      }[]
-    | null;
+  links?: LinkGroupField;
   image?: (number | null) | Media;
   id?: string | null;
   blockName?: string | null;
@@ -201,12 +205,46 @@ export interface HeroBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ButtonField".
+ * via the `definition` "LinkField".
  */
-export interface ButtonField {
+export interface LinkField {
+  type?: ('reference' | 'custom') | null;
+  newTab?: boolean | null;
+  reference?:
+    | ({
+        relationTo: 'pages';
+        value: number | Page;
+      } | null)
+    | ({
+        relationTo: 'cases';
+        value: number | Case;
+      } | null);
+  url?: string | null;
   label: string;
-  link: string;
-  color: 'purple' | 'white' | 'transparent' | 'transparentWhite';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "cases".
+ */
+export interface Case {
+  id: number;
+  content?: {
+    image?: (number | null) | Media;
+    description?: string | null;
+  };
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+  };
+  title: string;
+  slug: string;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -268,6 +306,15 @@ export interface Icon {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ButtonField".
+ */
+export interface ButtonField {
+  label: string;
+  link: string;
+  color: 'purple' | 'white' | 'transparent' | 'transparentWhite';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "CaseCardsBlock".
  */
 export interface CaseCardsBlock {
@@ -281,30 +328,6 @@ export interface CaseCardsBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'caseCardsBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "cases".
- */
-export interface Case {
-  id: number;
-  content?: {
-    image?: (number | null) | Media;
-    description?: string | null;
-  };
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (number | null) | Media;
-  };
-  title: string;
-  slug: string;
-  slugLock?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -466,7 +489,6 @@ export interface PagesSelect<T extends boolean = true> {
  * via the `definition` "HeroBlock_select".
  */
 export interface HeroBlockSelect<T extends boolean = true> {
-  title?: T;
   highlightTitle?:
     | T
     | {
@@ -474,24 +496,29 @@ export interface HeroBlockSelect<T extends boolean = true> {
         html?: T;
       };
   body?: T;
-  buttons?:
-    | T
-    | {
-        button?: T | ButtonFieldSelect<T>;
-        id?: T;
-      };
+  links?: T | LinkGroupFieldSelect<T>;
   image?: T;
   id?: T;
   blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ButtonField_select".
+ * via the `definition` "LinkGroupField_select".
  */
-export interface ButtonFieldSelect<T extends boolean = true> {
+export interface LinkGroupFieldSelect<T extends boolean = true> {
+  link?: T | LinkFieldSelect<T>;
+  id?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LinkField_select".
+ */
+export interface LinkFieldSelect<T extends boolean = true> {
+  type?: T;
+  newTab?: T;
+  reference?: T;
+  url?: T;
   label?: T;
-  link?: T;
-  color?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -519,6 +546,15 @@ export interface ServiceCardSelect<T extends boolean = true> {
   icon?: T;
   title?: T;
   button?: T | ButtonFieldSelect<T>;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ButtonField_select".
+ */
+export interface ButtonFieldSelect<T extends boolean = true> {
+  label?: T;
+  link?: T;
+  color?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

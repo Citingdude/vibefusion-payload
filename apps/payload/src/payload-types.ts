@@ -221,6 +221,10 @@ export interface LinkField {
       } | null);
   url?: string | null;
   label: string;
+  /**
+   * Choose how the link should be rendered.
+   */
+  appearance?: ('default' | 'outline') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -336,7 +340,7 @@ export interface CaseCardsBlock {
 export interface CtaBlock {
   title: string;
   content?: RichTextField;
-  button: ButtonField;
+  link: LinkField;
   id?: string | null;
   blockName?: string | null;
   blockType: 'ctaBlock';
@@ -519,6 +523,7 @@ export interface LinkFieldSelect<T extends boolean = true> {
   reference?: T;
   url?: T;
   label?: T;
+  appearance?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -578,7 +583,7 @@ export interface CaseCardsBlockSelect<T extends boolean = true> {
 export interface CtaBlockSelect<T extends boolean = true> {
   title?: T;
   content?: T | RichTextFieldSelect<T>;
-  button?: T | ButtonFieldSelect<T>;
+  link?: T | LinkFieldSelect<T>;
   id?: T;
   blockName?: T;
 }

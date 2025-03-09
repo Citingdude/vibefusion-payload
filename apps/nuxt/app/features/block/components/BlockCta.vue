@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { CtaBlock } from '@repo/payload'
+import CmsLink from '~/features/cms/CmsLink.vue'
 
 const props = defineProps<{
   block: CtaBlock
@@ -32,15 +33,10 @@ const props = defineProps<{
           :root="props.block.content"
         />
 
-        <!-- Button -->
-        <AppButton
-          type="internal"
-          :color="props.block.button.color"
-          :to="props.block.button.link"
-          size="md"
-        >
-          {{ props.block.button.label }}
-        </AppButton>
+        <CmsLink
+          :link-field="props.block.link"
+          color="transparentWhite"
+        />
       </div>
     </section>
   </AppLayoutSection>

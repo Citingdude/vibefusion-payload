@@ -11,7 +11,7 @@ const props = defineProps<{
     has-padding
     class="bg-dark-300"
   >
-    <section class="flex justify-center">
+    <section :id="props.block.blockName || undefined" class="flex justify-center">
       <div class="container flex flex-col">
         <!-- Heading -->
         <div class="mb-4 flex flex-col">

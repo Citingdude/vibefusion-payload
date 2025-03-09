@@ -20,7 +20,7 @@ const cases = computed<CaseCardProps[]>(() => {
 </script>
 
 <template>
-  <section id="cases" class="py-20 md:py-32">
+  <section :id="props.block.blockName || undefined" class="py-20 md:py-32">
     <div class="container">
       <div class="flex flex-col items-center justify-center">
         <!-- Section heading -->

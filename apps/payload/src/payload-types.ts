@@ -221,10 +221,6 @@ export interface LinkField {
       } | null);
   url?: string | null;
   label: string;
-  /**
-   * Choose how the link should be rendered.
-   */
-  appearance?: ('default' | 'outline') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -287,7 +283,7 @@ export interface ServiceCardsBlock {
 export interface ServiceCard {
   icon?: (number | null) | Icon;
   title?: string | null;
-  button: ButtonField;
+  link: LinkField;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -307,15 +303,6 @@ export interface Icon {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ButtonField".
- */
-export interface ButtonField {
-  label: string;
-  link: string;
-  color: 'purple' | 'white' | 'transparent' | 'transparentWhite';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -523,7 +510,6 @@ export interface LinkFieldSelect<T extends boolean = true> {
   reference?: T;
   url?: T;
   label?: T;
-  appearance?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -550,16 +536,7 @@ export interface ServiceCardListSelect<T extends boolean = true> {
 export interface ServiceCardSelect<T extends boolean = true> {
   icon?: T;
   title?: T;
-  button?: T | ButtonFieldSelect<T>;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ButtonField_select".
- */
-export interface ButtonFieldSelect<T extends boolean = true> {
-  label?: T;
-  link?: T;
-  color?: T;
+  link?: T | LinkFieldSelect<T>;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

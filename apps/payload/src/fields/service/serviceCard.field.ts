@@ -1,6 +1,6 @@
 import type { Field } from 'payload'
-import { ButtonField } from '../../fields/button/button.field'
-import { IconField } from '../../fields/icon/icon.field'
+import { IconField } from '@payload/fields/icon/icon.field'
+import { linkField } from '@payload/fields/link/link.field'
 
 export const ServiceCard: Field = {
   type: 'group',
@@ -12,6 +12,6 @@ export const ServiceCard: Field = {
       type: 'text',
       name: 'title',
     },
-    ButtonField,
+    linkField(),
   ],
 }

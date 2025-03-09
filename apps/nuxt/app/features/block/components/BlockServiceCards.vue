@@ -41,7 +41,7 @@ const services = computed<ServiceCardProps[]>(() => {
           :index="index"
           :icon="service.icon"
           :title="service.title"
-          :button="service.button"
+          :link="service.link"
           color="light"
         />
       </div>

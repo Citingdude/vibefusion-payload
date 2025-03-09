@@ -1,26 +1,13 @@
 import type { Field, GroupField } from 'payload'
+import { linkTypeField } from '@payload/fields/link/linkType.field'
 import { defu } from 'defu'
 
-export type LinkAppearances = 'default' | 'outline'
-
-export const appearanceOptions: Record<LinkAppearances, { label: string, value: string }> = {
-  default: {
-    label: 'Default',
-    value: 'default',
-  },
-  outline: {
-    label: 'Outline',
-    value: 'outline',
-  },
-}
-
 type LinkType = (options?: {
-  appearances?: LinkAppearances[] | false
   disableLabel?: boolean
   overrides?: Partial<GroupField>
 }) => Field
 
-export const linkField: LinkType = ({ appearances, disableLabel = false, overrides = {} } = {}) => {
+export const linkField: LinkType = ({ disableLabel = false, overrides = {} } = {}) => {
   const linkResult: GroupField = {
     name: 'link',
     type: 'group',
@@ -31,25 +18,7 @@ export const linkField: LinkType = ({ appearances, disableLabel = false, overrid
       {
         type: 'row',
         fields: [
-          {
-            name: 'type',
-            type: 'radio',
-            admin: {
-              layout: 'horizontal',
-              width: '50%',
-            },
-            defaultValue: 'reference',
-            options: [
-              {
-                label: 'Internal link',
-                value: 'reference',
-              },
-              {
-                label: 'Custom URL',
-                value: 'custom',
-              },
-            ],
-          },
+          linkTypeField(),
           {
             name: 'newTab',
             type: 'checkbox',
@@ -116,24 +85,6 @@ export const linkField: LinkType = ({ appearances, disableLabel = false, overrid
   }
   else {
     linkResult.fields = [...linkResult.fields, ...linkTypes]
-  }
-
-  if (appearances !== false) {
-    let appearanceOptionsToUse = [appearanceOptions.default, appearanceOptions.outline]
-
-    if (appearances) {
-      appearanceOptionsToUse = appearances.map(appearance => appearanceOptions[appearance])
-    }
-
-    linkResult.fields.push({
-      name: 'appearance',
-      type: 'select',
-      admin: {
-        description: 'Choose how the link should be rendered.',
-      },
-      defaultValue: 'default',
-      options: appearanceOptionsToUse,
-    })
   }
 
   return defu(linkResult, overrides)

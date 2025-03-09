@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import type { Button } from '~/features/button/types/button.type'
+import type { LinkField } from '@repo/payload'
 import type { Icon } from '~/features/icon/types/icon.type'
+import CmsLink from '~/features/cms/CmsLink.vue'
 
 export interface ServiceCardProps {
   index: number
   icon: Icon | null
   title: string | null
-  button?: Button
+  link?: LinkField
   color: 'light' | 'dark'
 }
 
@@ -64,13 +65,9 @@ const getColor = computed<string>(() => {
     </h3>
 
     <!-- Button -->
-    <AppButton
-      v-if="props.button"
-      :color="props.button.color"
-      :to="props.button.link"
-      size="md"
-    >
-      {{ props.button.label }}
-    </AppButton>
+    <CmsLink
+      v-if="props.link"
+      :link-field="props.link"
+    />
   </div>
 </template>

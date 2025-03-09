@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import type { Block } from '~/features/block/types/block.type'
-import BlockBuilder from '~/features/block/components/BlockBuilder.vue'
-import { BlockTransformer } from '~/features/block/transformers/block.transformer'
+import type { BlockDto } from '~/features/block/types/block.type'
+import BlockRenderer from '~/features/block/components/BlockRenderer.vue'
 
 const path = useRoute().path
 
@@ -9,25 +8,29 @@ if (!path) {
   throw createError('Page not found')
 }
 
-const { data: page } = useFetch('/api/pages/page', {
+const { data: page } = useFetch('/api/payload/page', {
   query: {
     path,
   },
 })
 
-const blocks = computed<Block[]>(() => {
-  if (!page.value)
+const { data } = useLivePreview({
+  initialData: page,
+})
+
+const blocks = computed<BlockDto[]>(() => {
+  if (!data.value)
     return []
 
-  if (!page.value.content)
+  if (!data.value.content)
     return []
 
-  return page.value.content.map(BlockTransformer.fromDto)
+  return data.value.content.map(block => jsonParse(block))
 })
 </script>
 
 <template>
   <main>
-    <BlockBuilder :blocks="blocks" />
+    <BlockRenderer :blocks="blocks" />
   </main>
 </template>

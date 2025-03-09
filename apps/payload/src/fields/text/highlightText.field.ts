@@ -1,5 +1,5 @@
 import type { GroupField } from 'payload'
-import { BoldFeature, FixedToolbarFeature, HeadingFeature, HTMLConverterFeature, InlineToolbarFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical'
+import { BoldFeature, FixedToolbarFeature, HTMLConverterFeature, InlineToolbarFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical'
 
 interface HighlightTextFieldOptions {
   name?: string
@@ -15,15 +15,18 @@ export function highlightTextField(options?: HighlightTextFieldOptions): GroupFi
         type: 'richText',
         name: 'title',
         required: options?.required,
+        admin: {
+
+        },
         editor: lexicalEditor({
+          admin: {
+            hideInsertParagraphAtEnd: true,
+          },
           features: () => [
             InlineToolbarFeature(),
             BoldFeature(),
             FixedToolbarFeature(),
             HTMLConverterFeature(),
-            HeadingFeature({
-              enabledHeadingSizes: ['h1'],
-            }),
           ],
         }),
       },

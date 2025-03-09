@@ -44,16 +44,17 @@ const image = computed(() => {
 <template>
   <section :id="props.block.blockName || undefined" class="pt-20 md:pt-32 lg:pb-40 xl:min-h-[90vh] flex flex-col justify-center">
     <div class="container">
-      <div class="grid grid-cols-2 items-center justify-center gap-12 lg:grid-cols-12">
-        <div class="anim-fade-in-left col-span-2 max-w-full items-center lg:col-span-6">
-          <!-- Heading -->
-          <TextHighlight v-if="props.block.highlightTitle.html">
-            <TextH1 id="hero-title" :html="props.block.highlightTitle.html" />
-          </TextHighlight>
+      <div class="grid grid-cols-2 items-center justify-center gap-32 lg:grid-cols-12">
+        <div class="anim-fade-in-left col-span-2 max-w-full lg:col-span-7 flex flex-col gap-16">
+          <div class="flex flex-col gap-8">
+            <TextHighlight v-if="props.block.highlightTitle.html">
+              <TextH1 id="hero-title" class="font-medium" :html="props.block.highlightTitle.html" />
+            </TextHighlight>
 
-          <p>
-            {{ props.block.body }}
-          </p>
+            <p v-if="props.block.body" class="text-2xl">
+              {{ props.block.body }}
+            </p>
+          </div>
 
           <!-- Buttons -->
           <AppButtonGroup id="hero-buttons">
@@ -69,8 +70,8 @@ const image = computed(() => {
           </AppButtonGroup>
         </div>
 
-        <div v-if="image" class="anim-fade-in-right col-span-2 lg:col-span-6">
-          <img class="aspect-[140/53] w-full h-auto" :src="image.src" :alt="image.alt">
+        <div v-if="image" class="anim-fade-in-right col-span-2 lg:col-span-5">
+          <img class="w-full h-auto object-cover" :src="image.src" :alt="image.alt">
         </div>
       </div>
     </div>

@@ -7,5 +7,6 @@ export default antfu({
   },
   ignores: [
     '**/payload-types.ts',
+    '**/importMap.js',
   ],
 })

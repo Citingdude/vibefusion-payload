@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { HeroBlock } from '@repo/payload'
 import { animate, stagger } from 'motion'
+import TextHighlight from '~/components/text/TextHighlight.vue'
 import { ImageTransformer } from '~/features/image/transformers/image.transformer'
 
 const props = defineProps<{
@@ -46,7 +47,9 @@ const image = computed(() => {
       <div class="grid grid-cols-2 items-center justify-center gap-12 lg:grid-cols-12">
         <div class="anim-fade-in-left col-span-2 max-w-full items-center lg:col-span-6">
           <!-- Heading -->
-          <TextH1 id="hero-title" :html="props.block.title" />
+          <TextHighlight v-if="props.block.highlightTitle.html">
+            <TextH1 id="hero-title" :html="props.block.highlightTitle.html" />
+          </TextHighlight>
 
           <p>
             {{ props.block.body }}

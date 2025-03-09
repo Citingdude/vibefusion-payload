@@ -169,6 +169,24 @@ export interface Page {
  */
 export interface HeroBlock {
   title: string;
+  highlightTitle: {
+    title: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+    html?: string | null;
+  };
   body?: string | null;
   buttons?:
     | {
@@ -449,6 +467,12 @@ export interface PagesSelect<T extends boolean = true> {
  */
 export interface HeroBlockSelect<T extends boolean = true> {
   title?: T;
+  highlightTitle?:
+    | T
+    | {
+        title?: T;
+        html?: T;
+      };
   body?: T;
   buttons?:
     | T

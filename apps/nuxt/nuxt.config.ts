@@ -24,6 +24,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
+    'reka-ui/nuxt',
   ],
   imports: {
     dirs: [

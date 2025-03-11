@@ -48,10 +48,6 @@
     "xml"
   ],
 
-  "tailwindCSS.experimental.classRegex": [
-    ["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ],
-
   "pair-diff.patterns": [
     {
       "source": "./fixtures/output/**/*.*",

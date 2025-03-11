@@ -18,6 +18,6 @@ const payloadImage = computed<Media | null>(() => {
   <img
     :src="payloadImage?.url || undefined"
     :alt="payloadImage?.alt"
-    class="aspect-[140/53] w-full h-auto"
+    class="aspect-140/53 w-full h-auto"
   >
 </template>

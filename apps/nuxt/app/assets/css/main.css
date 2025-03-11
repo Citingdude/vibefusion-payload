@@ -1,0 +1,75 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility container {
+  @apply m-auto px-8;
+}
+
+@theme {
+  --font-display: "Alegreya Variable", "serif";
+  --font-body: "Alegreya Sans", "sans-serif";
+
+  --color-accent: #6666CC;
+  --color-accent-light: #D3D3F0;
+  --color-accent-dark: #161642;
+
+  --color-light-main: #ffffff;
+  --color-light-alt: #F4F4FB;
+
+  --color-dark-400: #14141F;
+  --color-dark-300: #212133;
+  --color-dark-200: #2D2D47;
+  --color-dark-100: #3A3A5B;
+}
+
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-display;
+    }
+    
+    body {
+        @apply font-body;
+    }
+
+    p {
+        @apply max-w-prose;
+    }
+}
+
+.page-enter-active,
+.page-leave-active {
+    transition: all 0.2s ease-out;
+}
+
+.page-enter-from,
+.page-leave-to {
+    opacity: 0;
+    transform: translateY(1rem);
+}

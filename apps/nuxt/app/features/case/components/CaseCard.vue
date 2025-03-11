@@ -29,7 +29,7 @@ const contentOrderClass = computed(() => {
       :class="[imageOrderClass]"
     >
       <img
-        class="w-full h-auto object-contain rounded-br-3xl rounded-tl-3xl aspect-[5/4]"
+        class="w-full h-auto object-contain rounded-br-3xl rounded-tl-3xl aspect-5/4"
         :src="props.image.src"
         :alt="props.image.alt"
         loading="lazy"

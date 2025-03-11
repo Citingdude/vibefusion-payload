@@ -11,7 +11,7 @@ defineProps<{
     <NuxtLink :to="`/blog/${blog.attributes.slug}`" class="shadow-2xl">
       <!-- Image -->
       <img
-        class="aspect-[44/30] w-full rounded-tl-4xl"
+        class="aspect-44/30 w-full rounded-tl-4xl"
         :src="blog.attributes.image.data.attributes.url"
         :alt="blog.attributes.image.data.attributes.alternativeText || ''"
       >

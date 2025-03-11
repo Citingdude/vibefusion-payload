@@ -22,27 +22,3 @@ const { dropdownIsActive, toggleDropdown } = useDropdown(dropdownRef)
     </Transition>
   </div>
 </template>
-
-<style>
-.v-enter-from,
-.v-leave-to {
- @apply -translate-y-8 opacity-0;
-}
-
-.v-enter-active,
-.v-leave-active {
-  @apply transition duration-300 ease-in-out;
-}
-
-@keyframes fade-in-from-top {
-  from {
-    opacity: 0;
-    transform: translateY(-1rem);
-    scale: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-</style>

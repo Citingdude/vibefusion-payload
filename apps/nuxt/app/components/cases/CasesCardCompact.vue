@@ -21,7 +21,7 @@ defineProps({
   <div>
     <!-- Image -->
     <div>
-      <img class="aspect-[70/40] h-auto w-full rounded-tr-4xl object-cover" :src="imageUrl" alt="">
+      <img class="aspect-70/40 h-auto w-full rounded-tr-4xl object-cover" :src="imageUrl" alt="">
     </div>
 
     <!-- Content -->

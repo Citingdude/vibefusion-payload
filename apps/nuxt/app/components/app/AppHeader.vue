@@ -1,8 +1,42 @@
 <script setup lang="ts">
+import type { AppNavigationMenuItemProps } from '~/components/app/navigation/menu/AppNavigationMenu.vue'
+
 const route = useRoute()
 
 const mobileMenu = ref(false)
 const mobileMenuRef = ref<HTMLElement | null>(null)
+
+const menuItems = computed<AppNavigationMenuItemProps[]>(() => {
+  return [
+    {
+      type: 'link',
+      label: 'Home',
+      to: '/',
+    },
+    {
+      type: 'dropdown',
+      label: 'Diensten',
+      to: '/diensten',
+      subItems: [
+        {
+          type: 'link',
+          label: 'Webdesign',
+          to: '/webdesign',
+        },
+      ],
+    },
+    {
+      type: 'link',
+      label: 'Cases',
+      to: '/cases',
+    },
+    {
+      type: 'link',
+      label: 'Blog',
+      to: '/blog',
+    },
+  ]
+})
 
 function toggle() {
   mobileMenu.value = !mobileMenu.value
@@ -28,7 +62,10 @@ watch(() => route.path, () => {
         </NuxtLink>
       </div>
 
-      <AppNavigation />
+      <AppNavigationMenu
+        class="lg:col-span-6"
+        :items="menuItems"
+      />
 
       <div class="hidden justify-end lg:col-span-3 lg:flex">
         <AppButton type="internal" color="white" size="sm" to="/contact">

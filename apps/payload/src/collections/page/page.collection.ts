@@ -16,6 +16,13 @@ export const PageCollection: CollectionConfig = {
     group: 'Content',
     defaultColumns: ['title', 'slug'],
   },
+  defaultPopulate: {
+    slug: true,
+    title: true,
+    url: true,
+    parent: true,
+    pageType: true,
+  },
   fields: [
     {
       type: 'tabs',
@@ -37,6 +44,13 @@ export const PageCollection: CollectionConfig = {
         },
       ],
     },
+    {
+      name: 'title',
+      type: 'text',
+      admin: {
+        position: 'sidebar',
+      },
+    },
     ...slugField({
       fallbackField: 'title',
     }),
@@ -49,12 +63,21 @@ export const PageCollection: CollectionConfig = {
       },
     },
     {
-      name: 'title',
-      type: 'text',
+      type: 'select',
+      name: 'pageType',
+      enumName: 'page_type',
+      unique: true,
       admin: {
         position: 'sidebar',
       },
-    },
+      options: [
+        {
+          label: 'Home',
+          value: 'home'
+        }
+      ]
+    }
+
   ],
   hooks: {
     beforeChange: [

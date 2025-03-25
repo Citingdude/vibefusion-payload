@@ -112,12 +112,8 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  globals: {
-    home: Home;
-  };
-  globalsSelect: {
-    home: HomeSelect<false> | HomeSelect<true>;
-  };
+  globals: {};
+  globalsSelect: {};
   locale: null;
   user: User & {
     collection: 'users';
@@ -160,10 +156,11 @@ export interface Page {
      */
     image?: (number | null) | Media;
   };
+  title?: string | null;
   slug: string;
   slugLock?: boolean | null;
   url?: string | null;
-  title?: string | null;
+  pageType?: 'home' | null;
   parent?: (number | null) | Page;
   breadcrumbs?:
     | {
@@ -477,10 +474,11 @@ export interface PagesSelect<T extends boolean = true> {
         description?: T;
         image?: T;
       };
+  title?: T;
   slug?: T;
   slugLock?: T;
   url?: T;
-  title?: T;
+  pageType?: T;
   parent?: T;
   breadcrumbs?:
     | T
@@ -705,48 +703,6 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "home".
- */
-export interface Home {
-  id: number;
-  content?: (HeroBlock | ServiceCardsBlock | CaseCardsBlock | CtaBlock)[] | null;
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (number | null) | Media;
-  };
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "home_select".
- */
-export interface HomeSelect<T extends boolean = true> {
-  content?:
-    | T
-    | {
-        hero?: T | HeroBlockSelect<T>;
-        serviceCardsBlock?: T | ServiceCardsBlockSelect<T>;
-        caseCardsBlock?: T | CaseCardsBlockSelect<T>;
-        ctaBlock?: T | CtaBlockSelect<T>;
-      };
-  meta?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-        image?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

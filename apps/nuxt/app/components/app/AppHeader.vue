@@ -52,7 +52,7 @@ watch(() => route.path, () => {
 </script>
 
 <template>
-  <header class="shadow-2xl">
+  <header class="shadow-2xl shadow-accent-dark/10">
     <div
       class="container relative mx-auto grid grid-cols-12 items-center py-4 lg:gap-12 lg:py-6"
     >

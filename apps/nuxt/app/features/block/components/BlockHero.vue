@@ -43,7 +43,7 @@ const image = computed(() => {
 </script>
 
 <template>
-  <section :id="props.block.blockName || undefined" class="pt-20 md:pt-32 lg:pb-40 xl:min-h-[90vh] flex flex-col justify-center">
+  <section :id="props.block.blockName || undefined" class="pt-20 lg:pb-40 xl:min-h-[90vh] flex flex-col justify-center">
     <div class="container">
       <div class="grid grid-cols-2 items-center justify-center gap-32 lg:grid-cols-12">
         <div class="anim-fade-in-left col-span-2 max-w-full lg:col-span-7 flex flex-col gap-16">

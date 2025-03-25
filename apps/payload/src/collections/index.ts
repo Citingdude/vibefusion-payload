@@ -1,3 +1,4 @@
+import { seederCollection } from '@payload/collections/seeder/seeder.collection'
 import { CaseCollection } from './case/case.collection'
 import { IconCollection } from './icon/icon.collection'
 import { MediaCollection } from './media/media.collection'
@@ -10,4 +11,5 @@ export const collections = [
   MediaCollection,
   UserCollection,
   IconCollection,
+  seederCollection,
 ]

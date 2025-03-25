@@ -1,10 +1,10 @@
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { globals } from '@payload/globals/global'
-// storage-adapter-import-placeholder
+import { runSeeders } from '@payload/seeders/seeder'
 import { postgresAdapter } from '@payloadcms/db-postgres'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
 
+import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
 import { collections } from './collections'
@@ -38,4 +38,7 @@ export default buildConfig({
   sharp,
   plugins,
   serverURL: 'http://localhost:4000',
+  onInit(payload) {
+    runSeeders(payload)
+  },
 })

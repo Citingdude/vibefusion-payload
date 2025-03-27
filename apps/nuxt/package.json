@@ -15,32 +15,32 @@
     "typecheck": "npx nuxi typecheck"
   },
   "dependencies": {
-    "@fontsource-variable/alegreya": "5.1.2",
-    "@fontsource/alegreya-sans": "5.1.2",
+    "@fontsource-variable/alegreya": "5.2.5",
+    "@fontsource/alegreya-sans": "5.2.5",
     "@payloadcms/live-preview": "catalog:",
     "@payloadcms/richtext-lexical": "catalog:",
     "@repo/payload": "workspace:*",
-    "@tailwindcss/vite": "4.0.13",
-    "motion": "12.4.3",
-    "nuxt": "3.15.4",
+    "@tailwindcss/vite": "4.0.17",
+    "motion": "12.6.2",
+    "nuxt": "3.16.1",
     "payload": "catalog:",
     "qs": "6.14.0",
     "qs-esm": "7.0.2",
-    "reka-ui": "2.0.2",
+    "reka-ui": "2.1.1",
     "tailwind-variants": "1.0.0",
-    "tailwindcss": "4.0.13",
+    "tailwindcss": "4.0.17",
     "vue": "3.5.13",
     "vue-router": "4.5.0",
     "zod": "3.24.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "4.2.1",
+    "@antfu/eslint-config": "4.11.0",
     "@tailwindcss/typography": "0.5.16",
     "@types/qs": "6.9.18",
-    "@vueuse/core": "12.6.1",
-    "@vueuse/nuxt": "12.6.1",
-    "eslint": "9.20.1",
+    "@vueuse/core": "13.0.0",
+    "@vueuse/nuxt": "13.0.0",
+    "eslint": "9.23.0",
     "eslint-plugin-tailwindcss": "3.18.0",
-    "typescript": "5.7.3"
+    "typescript": "5.8.2"
   }
 }

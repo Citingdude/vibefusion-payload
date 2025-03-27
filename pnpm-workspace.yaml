@@ -3,12 +3,12 @@ packages:
   - "packages/*"
 
 catalog:
-  "payload": 3.29.0
-  "@payloadcms/live-preview": 3.29.0
-  "@payloadcms/db-postgres": 3.29.0
-  "@payloadcms/next": 3.29.0
-  "@payloadcms/payload-cloud": 3.29.0
-  "@payloadcms/plugin-nested-docs": 3.29.0
-  "@payloadcms/plugin-seo": 3.29.0
-  "@payloadcms/richtext-lexical": 3.29.0
-  "@payloadcms/ui": 3.29.0
+  "payload": 3.31.0
+  "@payloadcms/live-preview": 3.31.0
+  "@payloadcms/db-postgres": 3.31.0
+  "@payloadcms/next": 3.31.0
+  "@payloadcms/payload-cloud": 3.31.0
+  "@payloadcms/plugin-nested-docs": 3.31.0
+  "@payloadcms/plugin-seo": 3.31.0
+  "@payloadcms/richtext-lexical": 3.31.0
+  "@payloadcms/ui": 3.31.0

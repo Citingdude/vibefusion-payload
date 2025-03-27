@@ -15,6 +15,15 @@ export const PageCollection: CollectionConfig = {
     useAsTitle: 'title',
     group: 'Content',
     defaultColumns: ['title', 'slug'],
+    livePreview: {
+      url({ data }) {
+        if (data.slug === 'home') {
+          return 'http://localhost:3000'
+        }
+
+        return `http://localhost:3000/${data.slug}`
+      },
+    },
   },
   defaultPopulate: {
     slug: true,
@@ -73,10 +82,10 @@ export const PageCollection: CollectionConfig = {
       options: [
         {
           label: 'Home',
-          value: 'home'
-        }
-      ]
-    }
+          value: 'home',
+        },
+      ],
+    },
 
   ],
   hooks: {

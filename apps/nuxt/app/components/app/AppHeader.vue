@@ -63,7 +63,7 @@ watch(() => route.path, () => {
       </div>
 
       <AppNavigationMenu
-        class="lg:col-span-6"
+        class="hidden lg:flex lg:col-span-6"
         :items="menuItems"
       />
 

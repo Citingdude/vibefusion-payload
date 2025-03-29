@@ -38,7 +38,7 @@ export default buildConfig({
   sharp,
   plugins,
   serverURL: 'http://localhost:4000',
-  onInit(payload) {
-    runSeeders(payload)
+  async onInit(payload) {
+    await runSeeders(payload)
   },
 })

@@ -156,7 +156,7 @@ export interface Page {
      */
     image?: (number | null) | Media;
   };
-  title?: string | null;
+  title: string;
   slug: string;
   slugLock?: boolean | null;
   url?: string | null;
@@ -377,7 +377,6 @@ export interface User {
 export interface Seeder {
   id: number;
   slug: string;
-  hasSeederRun?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -668,7 +667,6 @@ export interface IconsSelect<T extends boolean = true> {
  */
 export interface SeedersSelect<T extends boolean = true> {
   slug?: T;
-  hasSeederRun?: T;
   updatedAt?: T;
   createdAt?: T;
 }

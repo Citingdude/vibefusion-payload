@@ -1,5 +1,5 @@
 {
-  "id": "4cb95aa0-4e30-469d-9e44-cf6adde95e49",
+  "id": "8c1c56ca-79b8-4d42-8db7-faa7b0cac5aa",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -1026,7 +1026,7 @@
           "name": "title",
           "type": "varchar",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "slug": {
           "name": "slug",
@@ -1966,13 +1966,6 @@
           "type": "varchar",
           "primaryKey": false,
           "notNull": true
-        },
-        "has_seeder_run": {
-          "name": "has_seeder_run",
-          "type": "boolean",
-          "primaryKey": false,
-          "notNull": false,
-          "default": false
         },
         "updated_at": {
           "name": "updated_at",

@@ -14,7 +14,7 @@ export const PageCollection: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     group: 'Content',
-    defaultColumns: ['title', 'slug'],
+    defaultColumns: ['title', 'slug', 'pageType'],
     livePreview: {
       url({ data }) {
         if (data.slug === 'home') {
@@ -56,6 +56,7 @@ export const PageCollection: CollectionConfig = {
     {
       name: 'title',
       type: 'text',
+      required: true,
       admin: {
         position: 'sidebar',
       },

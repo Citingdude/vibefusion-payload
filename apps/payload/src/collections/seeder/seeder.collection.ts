@@ -8,10 +8,5 @@ export const seederCollection: CollectionConfig = {
       type: 'text',
       required: true,
     },
-    {
-      name: 'hasSeederRun',
-      type: 'checkbox',
-      defaultValue: false,
-    },
   ],
 }

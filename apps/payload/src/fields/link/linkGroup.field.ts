@@ -1,22 +1,19 @@
 import type { ArrayField, Field } from 'payload'
-import type { LinkAppearances } from './link.field'
 
 import { defu } from 'defu'
 import { linkField } from './link.field'
 
 type LinkGroupType = (options?: {
-  appearances?: LinkAppearances[] | false
+  appearances?: false
   overrides?: Partial<ArrayField>
 }) => Field
 
-export const linkGroupField: LinkGroupType = ({ appearances, overrides = {} } = {}) => {
+export const linkGroupField: LinkGroupType = ({ overrides = {} } = {}) => {
   const generatedLinkGroup: Field = {
     name: 'links',
     type: 'array',
     fields: [
-      linkField({
-        appearances,
-      }),
+      linkField(),
     ],
     admin: {
       initCollapsed: true,

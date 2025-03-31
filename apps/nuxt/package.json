@@ -21,6 +21,7 @@
     "@payloadcms/richtext-lexical": "catalog:",
     "@repo/payload": "workspace:*",
     "@tailwindcss/vite": "4.0.17",
+    "@ts-rest/core": "3.52.1",
     "motion": "12.6.2",
     "nuxt": "3.16.1",
     "payload": "catalog:",

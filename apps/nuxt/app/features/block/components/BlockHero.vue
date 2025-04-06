@@ -71,7 +71,7 @@ const image = computed(() => {
           </AppButtonGroup>
         </div>
 
-        <!-- Colum, -->
+        <!-- Column -->
         <div v-if="image" class="anim-fade-in-right col-span-2 lg:col-span-2">
           <CmsImage
             class="w-full h-auto object-cover"

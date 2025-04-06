@@ -27,7 +27,7 @@ const props = defineProps<{
 const route = useRoute()
 
 function getActiveState(to: string): boolean {
-  return Boolean(route.path === to)
+  return Boolean(route.path.startsWith(to))
 }
 </script>
 

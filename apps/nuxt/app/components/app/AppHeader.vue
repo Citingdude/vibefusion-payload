@@ -20,8 +20,18 @@ const menuItems = computed<AppNavigationMenuItemProps[]>(() => {
       subItems: [
         {
           type: 'link',
-          label: 'Webdesign',
+          label: 'Website laten maken',
           to: '/webdesign',
+        },
+        {
+          type: 'link',
+          label: 'Webshop laten maken',
+          to: '/webshop',
+        },
+        {
+          type: 'link',
+          label: 'Branding',
+          to: '/branding',
         },
       ],
     },

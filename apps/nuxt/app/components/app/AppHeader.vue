@@ -74,12 +74,12 @@ watch(() => route.path, () => {
       </div>
 
       <!-- Hamburger -->
-      <div
+      <button
         class="col-span-4 flex items-center justify-end lg:hidden"
         @click="toggle()"
       >
         <AppHamburger />
-      </div>
+      </button>
 
       <AppNavigationMobile
         v-if="mobileMenu"

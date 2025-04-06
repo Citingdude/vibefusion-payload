@@ -9,22 +9,24 @@ const isOpen = ref(false)
 </script>
 
 <template>
-  <div class="cursor-pointer" @click="isOpen = !isOpen">
+  <div>
     <!-- Question -->
-    <div
-      class="flex items-center space-x-4 rounded-full p-4 transition hover:bg-dark-200"
-    >
-      <IconsArrow
-        class="min-w-max overflow-visible transition"
-        :class="{ 'rotate-90': isOpen }"
-      />
-
+    <button class="cursor-pointer" @click="isOpen = !isOpen">
       <h3
-        class="font-display text-lg font-semibold text-light-main sm:text-2xl lg:text-3xl"
+        class="flex items-center space-x-4 rounded-full p-4 transition duration-100 hover:bg-dark-200 active:scale-95"
       >
-        {{ question }}
+        <IconsArrow
+          class="min-w-max overflow-visible transition"
+          :class="{ 'rotate-90': isOpen }"
+        />
+
+        <span
+          class="font-display text-lg font-semibold text-light-main sm:text-2xl lg:text-3xl"
+        >
+          {{ question }}
+        </span>
       </h3>
-    </div>
+    </button>
 
     <!-- Answer -->
     <div v-if="isOpen">

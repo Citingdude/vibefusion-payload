@@ -2,6 +2,7 @@
 import type { HeroBlock } from '@repo/payload'
 import { animate, stagger } from 'motion'
 import TextHighlight from '~/components/text/TextHighlight.vue'
+import CmsImage from '~/features/cms/CmsImage.vue'
 import CmsLink from '~/features/cms/CmsLink.vue'
 import { ImageTransformer } from '~/features/image/transformers/image.transformer'
 
@@ -43,10 +44,14 @@ const image = computed(() => {
 </script>
 
 <template>
-  <section :id="props.block.blockName || undefined" class="pt-20 lg:pb-40 xl:min-h-[90vh] flex flex-col justify-center">
+  <section
+    :id="props.block.blockName || undefined"
+    class="pt-20 lg:pb-40 xl:min-h-[90vh] flex flex-col justify-center"
+  >
     <div class="container">
-      <div class="grid grid-cols-2 items-center justify-center gap-32 lg:grid-cols-12">
-        <div class="anim-fade-in-left col-span-2 max-w-full lg:col-span-7 flex flex-col gap-16">
+      <div class="grid grid-cols-2 items-center justify-center gap-32 lg:grid-cols-5">
+        <!-- Column -->
+        <div class="anim-fade-in-left col-span-2 max-w-full lg:col-span-3 flex flex-col gap-16">
           <div class="flex flex-col gap-8">
             <TextHighlight v-if="props.block.highlightTitle.html">
               <TextH1 id="hero-title" class="font-medium" :html="props.block.highlightTitle.html" />
@@ -66,8 +71,13 @@ const image = computed(() => {
           </AppButtonGroup>
         </div>
 
-        <div v-if="image" class="anim-fade-in-right col-span-2 lg:col-span-5">
-          <img class="w-full h-auto object-cover" :src="image.src" :alt="image.alt">
+        <!-- Column -->
+        <div v-if="image" class="anim-fade-in-right col-span-2 lg:col-span-2">
+          <CmsImage
+            class="w-full h-auto object-cover"
+            :src="image.src"
+            :alt="image.alt"
+          />
         </div>
       </div>
     </div>

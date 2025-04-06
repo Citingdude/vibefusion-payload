@@ -51,7 +51,7 @@ const getYear = computed(() => {
       </div>
 
       <div>
-        <a class="flex max-w-xs" href="/">
+        <a aria-label="Home" class="flex max-w-xs" href="/">
           <AppLogo color="white" />
         </a>
       </div>

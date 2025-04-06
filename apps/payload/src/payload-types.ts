@@ -147,7 +147,7 @@ export interface UserAuthOperations {
  */
 export interface Page {
   id: number;
-  content?: (HeroBlock | ServiceCardsBlock | CaseCardsBlock | CtaBlock | KpiBlock)[] | null;
+  content?: (HeroBlock | ServiceCardsBlock | CaseCardsBlock | CtaBlock | KpiBlock | FaqBlock)[] | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -380,6 +380,30 @@ export interface KpiCard {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FaqBlock".
+ */
+export interface FaqBlock {
+  title?: string | null;
+  faqItems?:
+    | {
+        faqItem: FaqItem;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'faqBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FaqItem".
+ */
+export interface FaqItem {
+  question: string;
+  answer?: RichTextField;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -491,6 +515,7 @@ export interface PagesSelect<T extends boolean = true> {
         caseCardsBlock?: T | CaseCardsBlockSelect<T>;
         ctaBlock?: T | CtaBlockSelect<T>;
         kpiBlock?: T | KpiBlockSelect<T>;
+        faqBlock?: T | FaqBlockSelect<T>;
       };
   meta?:
     | T
@@ -635,6 +660,29 @@ export interface KpiCardSelect<T extends boolean = true> {
   icon?: T;
   title?: T;
   body?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FaqBlock_select".
+ */
+export interface FaqBlockSelect<T extends boolean = true> {
+  title?: T;
+  faqItems?:
+    | T
+    | {
+        faqItem?: T | FaqItemSelect<T>;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FaqItem_select".
+ */
+export interface FaqItemSelect<T extends boolean = true> {
+  question?: T;
+  answer?: T | RichTextFieldSelect<T>;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

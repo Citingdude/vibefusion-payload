@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { FaqBlock } from '@payload/blocks/faq/faq.block'
 import { KpiBlock } from '@payload/blocks/kpi/kpi.block'
 import { CaseCardsBlock } from '../../blocks/case/caseCards.block'
 import { HeroBlock } from '../../blocks/content/hero.block'
@@ -49,6 +50,7 @@ export const PageCollection: CollectionConfig = {
                 CaseCardsBlock,
                 CtaBlock,
                 KpiBlock,
+                FaqBlock,
               ],
             },
           ],

@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import type { RichTextField } from '@repo/payload'
+
 interface Props {
   question: string
-  answer: string
+  answer: RichTextField | undefined
 }
-defineProps<Props>()
+const props = defineProps<Props>()
 
 const isOpen = ref(false)
 </script>
@@ -11,9 +13,12 @@ const isOpen = ref(false)
 <template>
   <div>
     <!-- Question -->
-    <button class="cursor-pointer" @click="isOpen = !isOpen">
+    <button
+      class="cursor-pointer rounded-full hover:bg-dark-200 active:scale-95 outline-accent focus-visible:outline-dashed"
+      @click="isOpen = !isOpen"
+    >
       <h3
-        class="flex items-center space-x-4 rounded-full p-4 transition duration-100 hover:bg-dark-200 active:scale-95"
+        class="flex items-center space-x-4 p-2 sm:p-4 transition duration-100"
       >
         <IconsArrow
           class="min-w-max overflow-visible transition"
@@ -30,7 +35,11 @@ const isOpen = ref(false)
 
     <!-- Answer -->
     <div v-if="isOpen">
-      <div class="max-w-3xl p-4 text-light-alt sm:text-lg" v-html="answer" />
+      <LexicalSerializer
+        v-if="props.answer"
+        class="max-w-3xl px-4 text-light-alt sm:text-xl"
+        :root="props.answer"
+      />
     </div>
   </div>
 </template>

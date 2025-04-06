@@ -7,7 +7,7 @@ const props = defineProps<{
 const { cmsBaseUrl } = useRuntimeConfig().public
 
 const imageSrc = computed<string>(() => {
-  return `${cmsBaseUrl}/${props.src}`
+  return `${cmsBaseUrl}${props.src}`
 })
 </script>
 

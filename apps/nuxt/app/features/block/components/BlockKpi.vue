@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { KpiBlock, KpiCard as KpiCardType } from '@repo/payload'
+import IconsLine from '~/components/icons/IconsLine.vue'
 import KpiCard from '~/features/kpi/components/KpiCard.vue'
 
 const props = defineProps<{

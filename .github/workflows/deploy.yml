@@ -24,10 +24,10 @@ jobs:
           version: 10
 
       - name: Install dependencies
-        run: pnpm install
+        run: turbo install
 
       - name: Build Nuxt & payload
-        run: pnpm run build
+        run: turbo build
 
       # - name: Build Payload app
       #   run: pnpm run build --filter=payload...

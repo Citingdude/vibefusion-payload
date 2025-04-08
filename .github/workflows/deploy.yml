@@ -35,7 +35,7 @@ jobs:
           tar czvf payload-build.tar.gz apps/payload/.next
 
       - name: List files
-        run: ls -l packages/payload/.next/
+        run: ls -l apps/payload/.next/
 
       - name: Deploy to Hetzner VPS
         uses: appleboy/scp-action@v0.1.7

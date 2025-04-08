@@ -24,18 +24,15 @@ jobs:
           version: 10
 
       - name: Install dependencies
-        run: turbo install
+        run: pnpm install
 
       - name: Build Nuxt & payload
-        run: turbo build
-
-      # - name: Build Payload app
-      #   run: pnpm run build --filter=payload...
+        run: npx turbo run build
 
       - name: Archive build artifacts
         run: |
           tar czvf nuxt-build.tar.gz apps/nuxt/.output
-          tar czvf payload-build.tar.gz apps/payload/build
+          tar czvf payload-build.tar.gz packages/payload/.next
 
       - name: Deploy to Hetzner VPS
         uses: appleboy/scp-action@v0.1.7

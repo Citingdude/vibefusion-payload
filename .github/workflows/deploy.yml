@@ -1,4 +1,4 @@
-name: Deploy to Hetzner VPS
+name: Build and Deploy to Hetzner VPS
 
 on:
   push:
@@ -6,54 +6,156 @@ on:
       - main
 
 jobs:
-  deploy:
+  build-and-deploy:
+    name: Build and Deploy
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Checkout Code
+        uses: actions/checkout@v4
         with:
-          node-version: '22'
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
         with:
           version: 10.6.5
+          run_install: false
 
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Build Nuxt & payload
-        run: npx turbo run build
-  
-      - name: Archive build artifacts
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
         run: |
-          tar czvf nuxt-build.tar.gz apps/nuxt/.output
-          tar czvf payload-build.tar.gz apps/payload/.next
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - name: List files
-        run: ls -l apps/payload/.next/
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
-      - name: Deploy to Hetzner VPS
-        uses: appleboy/scp-action@v0.1.7
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Cache Turborepo build outputs
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
+      - name: Build Applications with Turborepo
+        run: pnpm turbo run build
+
+      - name: Deploy to Hetzner VPS via SSH
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HETZNER_HOST }}
           username: ${{ secrets.HETZNER_USER }}
           key: ${{ secrets.HETZNER_SSH_KEY }}
-          source: nuxt-build.tar.gz payload-build.tar.gz
-          target: ~/deployments/
-
-      - name: Remote deployment script
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ secrets.HETZNER_HOST }}
-          username: ${{ secrets.HETZNER_USER }}
-          key: ${{ secrets.HETZNER_SSH_KEY }}
+          port: ${{ secrets.HETZNER_PORT || 22 }} 
           script: |
-            cd ~/deployments/
-            tar -xzf nuxt-build.tar.gz
-            tar -xzf payload-build.tar.gz
-            bash ~/deployments/deploy_script.sh
+            # --- Deployment Steps (Customize heavily based on your server setup!) ---
+
+            # Define deployment paths on the server (adjust these!)
+            export DEPLOY_PATH_NUXT="/var/www/my-nuxt-app"
+            export DEPLOY_PATH_PAYLOAD="/var/www/my-nextjs-payload-app" # Adjusted name for clarity
+            export RELEASE_TIMESTAMP=$(date '+%Y%m%d%H%M%S')
+            export RELEASE_PATH_NUXT="$DEPLOY_PATH_NUXT/releases/$RELEASE_TIMESTAMP"
+            export RELEASE_PATH_PAYLOAD="$DEPLOY_PATH_PAYLOAD/releases/$RELEASE_TIMESTAMP"
+            export CURRENT_SYMLINK_NUXT="$DEPLOY_PATH_NUXT/current"
+            export CURRENT_SYMLINK_PAYLOAD="$DEPLOY_PATH_PAYLOAD/current"
+            export SHARED_PATH_PAYLOAD="$DEPLOY_PATH_PAYLOAD/shared" # For persistent files like .env, uploads
+
+            echo "Starting deployment for commit ${{ github.sha }}..."
+
+            # 1. Create necessary directories if they don't exist
+            echo "Creating directories..."
+            mkdir -p $RELEASE_PATH_NUXT $RELEASE_PATH_PAYLOAD $SHARED_PATH_PAYLOAD/uploads
+            # Add other shared directories if needed (e.g., for .env)
+            # Example: mkdir -p $SHARED_PATH_PAYLOAD/config
+            # Example: touch $SHARED_PATH_PAYLOAD/config/.env # Create shared .env if it doesn't exist
+
+            # 2. Copy Nuxt build artifacts using rsync
+            echo "Deploying Nuxt app to $RELEASE_PATH_NUXT..."
+            rsync -avz --delete ./apps/nuxt/.output/ $RELEASE_PATH_NUXT/
+            echo "Nuxt files transferred."
+
+            # 3. Copy Next.js/Payload app files (excluding node_modules)
+            echo "Deploying Next.js/Payload app to $RELEASE_PATH_PAYLOAD..."
+            rsync -avz --delete --exclude 'node_modules' --exclude '.git' ./apps/payload/ $RELEASE_PATH_PAYLOAD/
+            # Ensure hidden files like .next are copied (implicit with -a in rsync)
+            echo "Next.js/Payload files transferred."
+
+            # --- Server-Side Operations ---
+
+            # 4. Install Production Dependencies for Next.js/Payload on Server
+            echo "Installing production dependencies for Next.js/Payload..."
+            cd $RELEASE_PATH_PAYLOAD || exit 1 # Exit if cd fails
+            # Ensure pnpm is installed globally on the server (`npm install -g pnpm` or similar)
+            pnpm install --prod --frozen-lockfile # Use --frozen-lockfile if pnpm-lock.yaml was copied
+            echo "Next.js/Payload dependencies installed."
+
+            # 5. Link Shared Files/Directories (e.g., .env, uploads) for Next.js/Payload
+            # This prevents overwriting persistent data on each deploy
+            echo "Linking shared resources for Next.js/Payload..."
+            # Example: Link persistent uploads directory (adjust path in your Payload config)
+            rm -rf $RELEASE_PATH_PAYLOAD/uploads # Remove potentially empty uploads dir copied from repo
+            ln -sfn $SHARED_PATH_PAYLOAD/uploads $RELEASE_PATH_PAYLOAD/public/uploads # Or wherever Payload expects uploads
+
+            # Example: Link shared .env file
+            # Ensure your Next.js/Payload app reads .env from the root
+            # Ensure the shared .env exists ($SHARED_PATH_PAYLOAD/.env) and is populated correctly
+            ln -sfn $SHARED_PATH_PAYLOAD/.env $RELEASE_PATH_PAYLOAD/.env
+
+            # 6. (Optional) Run Payload Migrations
+            # Ensure PAYLOAD_SECRET and DATABASE_URL are available (e.g., via linked .env)
+            echo "Running Payload migrations (if applicable)..."
+            # Adjust the command based on your package.json script or direct execution
+            pnpm payload migrate # Or: pnpm run migrate, or node dist/server.js migrate
+            echo "Payload migrations executed."
+
+            # 7. Atomically Switch Symlinks
+            echo "Linking new releases..."
+            ln -sfn $RELEASE_PATH_NUXT $CURRENT_SYMLINK_NUXT
+            ln -sfn $RELEASE_PATH_PAYLOAD $CURRENT_SYMLINK_PAYLOAD
+            echo "New releases linked."
+
+            # 8. Restart Applications (Adapt to your process manager: PM2/systemd)
+            echo "Restarting applications..."
+            # Ensure PM2/systemd is configured to watch the 'current' symlink directory or its specific entry points
+
+            # Example for PM2 (assuming an ecosystem file managing both)
+            # Make sure your PM2 ecosystem file uses the 'current' path, e.g.:
+            # script: /var/www/my-nuxt-app/current/server/index.mjs
+            # cwd: /var/www/my-nuxt-app/current
+            # script: /var/www/my-nextjs-payload-app/current/node_modules/.bin/next
+            # args: start -p <your_port>
+            # cwd: /var/www/my-nextjs-payload-app/current
+            pm2 reload ecosystem.config.js --env production # Or restart specific apps by name/id
+            # pm2 restart my-nuxt-app-name || echo "Nuxt app not found or failed to restart"
+            # pm2 restart my-nextjs-payload-app-name || echo "Next.js/Payload app not found or failed to restart"
+
+            # Example for systemd
+            # sudo systemctl restart my-nuxt-app.service
+            # sudo systemctl restart my-nextjs-payload-app.service
+
+            echo "Application restart commands executed."
+
+            # 9. (Optional) Cleanup Old Releases
+            # Keep the last N releases (e.g., 5)
+            echo "Cleaning up old releases..."
+            cd $DEPLOY_PATH_NUXT/releases && ls -t | tail -n +6 | xargs --no-run-if-empty rm -rf
+            cd $DEPLOY_PATH_PAYLOAD/releases && ls -t | tail -n +6 | xargs --no-run-if-empty rm -rf
+            echo "Old releases cleaned up."
+
+            echo "Deployment finished successfully!"

@@ -26,16 +26,16 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build Nuxt app
-        run: pnpm run build --filter=nuxt...
+      - name: Build Nuxt & payload
+        run: pnpm run build
 
-      - name: Build Payload app
-        run: pnpm run build --filter=payload...
+      # - name: Build Payload app
+      #   run: pnpm run build --filter=payload...
 
       - name: Archive build artifacts
         run: |
-          tar czvf nuxt-build.tar.gz packages/nuxt/.output
-          tar czvf payload-build.tar.gz packages/payload/build
+          tar czvf nuxt-build.tar.gz apps/nuxt/.output
+          tar czvf payload-build.tar.gz apps/payload/build
 
       - name: Deploy to Hetzner VPS
         uses: appleboy/scp-action@v0.1.7

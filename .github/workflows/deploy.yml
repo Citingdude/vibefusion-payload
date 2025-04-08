@@ -1,0 +1,59 @@
+name: Deploy to Hetzner VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Nuxt app
+        run: pnpm run build --filter=nuxt...
+
+      - name: Build Payload app
+        run: pnpm run build --filter=payload...
+
+      - name: Archive build artifacts
+        run: |
+          tar czvf nuxt-build.tar.gz packages/nuxt/.output
+          tar czvf payload-build.tar.gz packages/payload/build
+
+      - name: Deploy to Hetzner VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HETZNER_HOST }}
+          username: ${{ secrets.HETZNER_USER }}
+          key: ${{ secrets.HETZNER_SSH_KEY }}
+          source: nuxt-build.tar.gz payload-build.tar.gz
+          target: ~/deployments/
+
+      - name: Remote deployment script
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.HETZNER_HOST }}
+          username: ${{ secrets.HETZNER_USER }}
+          key: ${{ secrets.HETZNER_SSH_KEY }}
+          script: |
+            cd ~/deployments/
+            tar -xzf nuxt-build.tar.gz
+            tar -xzf payload-build.tar.gz
+            bash ~/deployments/deploy_script.sh

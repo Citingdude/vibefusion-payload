@@ -4,19 +4,17 @@ import {
   unsubscribe,
 } from '@payloadcms/live-preview'
 
-type DataType = Record<string, any>
-
 /**
  * Vue composable to implement Payload CMS Live Preview.
  *
  * {@link https://payloadcms.com/docs/live-preview/frontend View the documentation}
  */
-export function useLivePreview<T extends DataType>(props: {
+export function useLivePreview<T>(props: {
   initialData: Ref<T>
 }): {
-    isLoading: Ref<boolean>
-    data: Ref<T>
-  } {
+  isLoading: Ref<boolean>
+  data: Ref<T>
+} | null {
   const { initialData } = props
   const CMS_BASE_URL = 'http://localhost:4000'
 
@@ -37,7 +35,7 @@ export function useLivePreview<T extends DataType>(props: {
 
   onMounted(() => {
     subscription = subscribe({
-      callback: onChange,
+      callback: (data: any) => onChange(data),
       depth: 10,
       initialData: toRaw(initialData.value),
       serverURL: CMS_BASE_URL,

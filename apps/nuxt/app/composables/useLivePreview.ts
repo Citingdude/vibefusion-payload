@@ -3,12 +3,15 @@ import {
   subscribe,
   unsubscribe,
 } from '@payloadcms/live-preview'
+
+type DataType = Record<string, any>
+
 /**
  * Vue composable to implement Payload CMS Live Preview.
  *
  * {@link https://payloadcms.com/docs/live-preview/frontend View the documentation}
  */
-export function useLivePreview<T>(props: {
+export function useLivePreview<T extends DataType>(props: {
   initialData: Ref<T>
 }): {
     isLoading: Ref<boolean>

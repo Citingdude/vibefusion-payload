@@ -28,21 +28,16 @@ jobs:
       - name: 🧠 Lint Check
         run: pnpm turbo run lint
 
-      - name: 🧠 Type Check (Nuxt)
-        run: pnpm turbo run typecheck --filter=@repo/nuxt
+      - name: 🧠 Type Check
+        run: pnpm turbo run typecheck
 
-      - name: 🏗️ Build Nuxt App
-        run: pnpm turbo run build --filter=@repo/nuxt
-
-      - name: 🏗️ Build Payload App
-        run: pnpm turbo run build --filter=@repo/payload
-
-      - name: 🧪 Debug .output contents
-        run: ls -R apps/nuxt/.output
+      - name: 🏗️ Build Nuxt & Payload
+        run: pnpm turbo run build
 
       - name: 📤 Upload Nuxt .output Artifact
         uses: actions/upload-artifact@v4
         with:
+          include-hidden-files: true
           name: nuxt-artifact
           path: |
             apps/nuxt/.output/.output

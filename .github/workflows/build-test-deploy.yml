@@ -70,7 +70,6 @@ jobs:
           host: ${{ secrets.HETZNER_HOST }}
           username: ${{ secrets.HETZNER_USER }}
           password: ${{ secrets.HETZNER_PASSWORD }}
-          port: 22
           script: |
             # Navigate to the deployment directory
             cd ~/deployments

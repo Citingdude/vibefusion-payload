@@ -42,10 +42,10 @@ jobs:
           npx turbo run typecheck
 
       - name: Build Nuxt app
-        run: pnpm turbo run build --filter=apps/nuxt
+        run: pnpm turbo run build --filter=nuxt-app
 
       - name: Build Payload app
-        run: pnpm turbo run build --filter=apps/payload
+        run: pnpm turbo run build --filter=@repo/payload
 
       - uses: actions/upload-artifact@v4
         with:

@@ -43,3 +43,12 @@ jobs:
 
       - name: Build Applications with Turbo
         run: pnpm turbo run build
+
+      - name: Copy file to server 
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HETZNER_HOST }}
+          username: ${{ secrets.HETZNER_USER }}
+          key: ${{ secrets.HETZNER_SSH_KEY }}
+          source: "test.txt"
+          target: ~/deployments

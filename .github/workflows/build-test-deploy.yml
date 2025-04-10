@@ -64,5 +64,5 @@ jobs:
           host: ${{ secrets.HETZNER_HOST }}
           username: ${{ secrets.HETZNER_USER }}
           password: ${{ secrets.HETZNER_PASSWORD }}
-          source: distfiles/*
+          source: nuxt/*
           target: ~/deployments

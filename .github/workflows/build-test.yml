@@ -41,16 +41,11 @@ jobs:
           cd apps/nuxt
           npx turbo run typecheck
 
-      - name: Build Applications with Turbo
-        run: pnpm turbo run build
+      - name: Build Nuxt app
+        run: pnpm turbo run build --filter=apps/nuxt
 
-      - name: Wait for Nuxt .output to be ready
-        run: |
-          echo "Checking that apps/nuxt/.output exists and is not empty..."
-          if [ ! -d "apps/nuxt/.output" ] || [ -z "$(ls -A apps/nuxt/.output)" ]; then
-            echo "Directory does not exist or is empty"
-            exit 1
-          fi
+      - name: Build Payload app
+        run: pnpm turbo run build --filter=apps/payload
 
       - uses: actions/upload-artifact@v4
         with:

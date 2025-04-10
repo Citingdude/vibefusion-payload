@@ -57,6 +57,9 @@ jobs:
           name: artifact
           path: apps/nuxt/.output/
 
+      - name: Wait for artifact availability
+        run: sleep 10
+
       - uses: actions/download-artifact@v4
         with:
           name: artifact

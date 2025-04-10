@@ -71,8 +71,7 @@ jobs:
           username: ${{ secrets.HETZNER_USER }}
           password: ${{ secrets.HETZNER_PASSWORD }}
           script: |
-            # Navigate to the deployment directory
+            whoami
+            ls -al
             cd ~/deployments
-
-            # Stop the Nuxt app if it's running
-            pm2 reload vibefusion-payload-nuxt
+            ls

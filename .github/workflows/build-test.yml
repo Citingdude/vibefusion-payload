@@ -47,10 +47,15 @@ jobs:
       - name: Build Payload app
         run: pnpm turbo run build --filter=@repo/payload
 
+      - name: Check Nuxt .output contents
+        run: |
+          echo "Listing contents of apps/nuxt/.output"
+          ls -R apps/nuxt/.output || echo "Directory does not exist"
+
       - uses: actions/upload-artifact@v4
         with:
           name: artifact
-          path: apps/nuxt/.output/**
+          path: apps/nuxt/.output/
 
       - uses: actions/download-artifact@v4
         with:

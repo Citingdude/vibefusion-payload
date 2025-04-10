@@ -19,7 +19,7 @@ const colorClass = computed(() => {
 
 <template>
   <svg
-    class="rounded-md p-3 transition duration-200 ease-out hover:bg-accent/10"
+    class="rounded-md p-3 transition duration-200 ease-out hover:bg-accent/10 bg-accent/10"
     viewBox="0 0 502.7 54"
   >
     <path

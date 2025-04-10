@@ -63,3 +63,10 @@ jobs:
           password: ${{ secrets.HETZNER_PASSWORD }}
           source: nuxt/*
           target: ~/deployments
+
+      - name: Reload Nuxt with PM2
+        run: |
+          ssh ${{ secrets.HETZNER_USER }}@${{ secrets.HETZNER_HOST }} << 'EOF'
+            cd ~/deployments
+            pm2 reload vibefusion-payload-nuxt || true
+          EOF

@@ -65,8 +65,15 @@ jobs:
           target: ~/deployments
 
       - name: Reload Nuxt with PM2
-        run: |
-          ssh ${{ secrets.HETZNER_USER }}@${{ secrets.HETZNER_HOST }} << 'EOF'
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HETZNER_HOST }}
+          username: ${{ secrets.HETZNER_USER }}
+          password: ${{ secrets.HETZNER_PASSWORD }}
+          port: 22
+          script: |
+            # Navigate to the deployment directory
             cd ~/deployments
-            pm2 reload vibefusion-payload-nuxt || true
-          EOF
+
+            # Stop the Nuxt app if it's running
+            pm2 reload vibefusion-payload-nuxt

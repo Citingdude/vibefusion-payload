@@ -4,7 +4,7 @@
     "tasks": {
       "build": {
         "outputs": [
-            "app/nuxt/.output",
+            ".output/**",
             "dist/**", 
             ".next/**", 
             "!.next/cache/**"

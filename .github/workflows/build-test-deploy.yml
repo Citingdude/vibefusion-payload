@@ -44,7 +44,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: nuxt-artifact
-          path: apps/nuxt/.output/**/*
+          path: |
+            apps/nuxt/.output/.output
+            apps/nuxt/.output/**/*
 
   deploy:
     name: 🚀 Deploy to Hetzner

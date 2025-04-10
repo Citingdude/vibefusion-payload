@@ -49,6 +49,9 @@ jobs:
           name: artifact
           path: apps/nuxt/.output/
 
+      - name: Debug directory contents
+        run: ls -R apps/nuxt/.output/
+
       - uses: actions/download-artifact@v4
         with:
           name: artifact

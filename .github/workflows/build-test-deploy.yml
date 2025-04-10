@@ -1,0 +1,71 @@
+name: Test, Build & Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: 🏗️ Build Nuxt & Payload
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 🧰 Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 📦 Install pnpm
+        run: npm install -g pnpm
+
+      - name: 📦 Install Dependencies
+        run: pnpm install
+
+      - name: 🧠 Lint Check
+        run: pnpm turbo run lint
+
+      - name: 🧠 Type Check (Nuxt)
+        run: pnpm turbo run typecheck --filter=@repo/nuxt
+
+      - name: 🏗️ Build Nuxt App
+        run: pnpm turbo run build --filter=@repo/nuxt
+
+      - name: 🏗️ Build Payload App
+        run: pnpm turbo run build --filter=@repo/payload
+
+      - name: 🧪 Debug .output contents
+        run: ls -R apps/nuxt/.output
+
+      - name: 📤 Upload Nuxt .output Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuxt-artifact
+          path: apps/nuxt/.output/**/*
+
+  deploy:
+    name: 🚀 Deploy to Hetzner
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: 📥 Download Nuxt Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: nuxt-artifact
+          path: distfiles
+
+      - name: 🧪 Debug downloaded files
+        run: ls -R distfiles
+
+      - name: 📡 Deploy to Server via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HETZNER_HOST }}
+          username: ${{ secrets.HETZNER_USER }}
+          password: ${{ secrets.HETZNER_PASSWORD }}
+          source: distfiles/*
+          target: ~/deployments

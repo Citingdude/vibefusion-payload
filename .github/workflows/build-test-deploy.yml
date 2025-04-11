@@ -71,5 +71,6 @@ jobs:
           username: ${{ secrets.HETZNER_USER }}
           password: ${{ secrets.HETZNER_PASSWORD }}
           script: |
+            source /etc/profile
             cd ~/deployments
-            /home/glenn/.nvm/versions/node/v20.11.0/bin/pm2 reload vibefusion-payload-nuxt
+            pm2 reload vibefusion-payload-nuxt

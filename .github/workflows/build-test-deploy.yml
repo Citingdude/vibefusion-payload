@@ -71,5 +71,7 @@ jobs:
           username: ${{ secrets.HETZNER_USER }}
           password: ${{ secrets.HETZNER_PASSWORD }}
           script: |
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
             cd ~/deployments
             npx pm2 reload vibefusion-payload-nuxt

@@ -72,4 +72,4 @@ jobs:
           password: ${{ secrets.HETZNER_PASSWORD }}
           script: |
             cd ~/deployments
-            pm2 reload vibefusion-payload-nuxt
+            npx pm2 reload vibefusion-payload-nuxt

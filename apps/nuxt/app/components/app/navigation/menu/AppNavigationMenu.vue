@@ -5,7 +5,6 @@ import {
   NavigationMenuList,
   NavigationMenuRoot,
 } from 'reka-ui'
-import { ref } from 'vue'
 
 export interface AppNavigationMenuItemLink {
   type: 'link'
@@ -25,15 +24,20 @@ const props = defineProps<{
   items: AppNavigationMenuItemProps[]
 }>()
 
-const currentTrigger = ref('')
+const route = useRoute()
+
+function getActiveState(to: string): boolean {
+  return Boolean(route.path.startsWith(to))
+}
 </script>
 
 <template>
   <NavigationMenuRoot
-    v-model="currentTrigger"
     class="relative z-10 flex w-full justify-center"
+    :disable-hover-trigger="true"
+    :disable-pointer-leave-close="true"
   >
-    <NavigationMenuList class="center m-0 flex list-none rounded-lg bg-white p-1 shadow-sm border">
+    <NavigationMenuList class="flex list-none gap-6">
       <template v-for="(item, index) in props.items" :key="index">
         <AppNavigationMenuDropdown
           v-if="item.type === 'dropdown'"
@@ -43,30 +47,25 @@ const currentTrigger = ref('')
 
         <NavigationMenuItem v-else>
           <NavigationMenuLink
-            class="text-grass11 hover:bg-green3 focus:shadow-green7 block select-none
-            rounded-[4px] px-3 py-2 text-sm font-medium leading-none no-underline outline-none
-            focus:shadow-[0_0_0_2px]"
+            class="transition block select-none font-medium leading-none no-underline font-display text-lg relative group"
             as-child
           >
             <NuxtLink :to="item.to">
-              {{ item.label }}
+              <span>
+                {{ item.label }}
+
+                <span
+                  class="group-[router-link-exact-active]:bg-accent-dark size-2 bg-accent rounded-full opacity-0
+                    transition ease-in-out duration-300
+                    absolute right-1/2 bottom-0
+                    group-hover:opacity-100 group-hover:translate-y-3 translate-y-2"
+                  :class="{ 'opacity-100 translate-y-3': getActiveState(item.to) }"
+                />
+              </span>
             </NuxtLink>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </template>
     </NavigationMenuList>
-
-    <!-- <div class="absolute top-full left-0 flex w-full justify-center">
-      <NavigationMenuViewport
-        class="
-          data-[state=open]:animate-scaleIn
-          data-[state=closed]:animate-scaleOut
-          relative mt-[10px]
-          h-[var(--reka-navigation-menu-viewport-height)]
-          w-full origin-[top_center] overflow-hidden rounded-xl bg-white
-          transition-[width,_height] duration-300
-          sm:w-[var(--reka-navigation-menu-viewport-width)] border shadow-sm"
-      />
-    </div> -->
   </NavigationMenuRoot>
 </template>

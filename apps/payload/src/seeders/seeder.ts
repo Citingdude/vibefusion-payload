@@ -1,6 +1,6 @@
 import type { BasePayload } from 'payload'
-import { homePageSeeder } from '@payload/seeders/pages/homePage.seeder'
-import { adminUserSeeder } from '@payload/seeders/user/adminUser.seeder'
+import { homePageSeeder } from '../seeders/pages/homePage.seeder'
+import { adminUserSeeder } from '../seeders/user/adminUser.seeder'
 
 export interface Seeder {
   name: string
@@ -53,6 +53,10 @@ export function createSeeder(
 export async function runSeeders(payload: BasePayload): Promise<void> {
   for (let index = 0; index < seeders.length; index++) {
     const seeder = seeders[index]
+
+    if (!seeder) {
+      continue
+    }
 
     const canRun = await seeder.canRun(payload)
 

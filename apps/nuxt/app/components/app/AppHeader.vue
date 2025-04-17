@@ -20,8 +20,18 @@ const menuItems = computed<AppNavigationMenuItemProps[]>(() => {
       subItems: [
         {
           type: 'link',
-          label: 'Webdesign',
+          label: 'Website laten maken',
           to: '/webdesign',
+        },
+        {
+          type: 'link',
+          label: 'Webshop laten maken',
+          to: '/webshop',
+        },
+        {
+          type: 'link',
+          label: 'Branding',
+          to: '/branding',
         },
       ],
     },
@@ -74,12 +84,12 @@ watch(() => route.path, () => {
       </div>
 
       <!-- Hamburger -->
-      <div
+      <button
         class="col-span-4 flex items-center justify-end lg:hidden"
         @click="toggle()"
       >
         <AppHamburger />
-      </div>
+      </button>
 
       <AppNavigationMobile
         v-if="mobileMenu"

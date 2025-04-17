@@ -13,12 +13,10 @@ const props = defineProps<{
       <NuxtLink
         :to="props.to"
         class="
-        focus:shadow-[0_0_0_2px] focus:shadow-green7
-        hover:bg-mauve3
-        block select-none rounded-md p-3 text-sm leading-none no-underline outline-none
-        transition-colors"
+        block select-none rounded-md p-3 leading-none
+        transition hover:bg-light-alt active:scale-95"
       >
-        <span class="text-green12 mb-[5px] font-medium leading-[1.2]">
+        <span class="font-medium leading-[1.2]">
           {{ props.label }}
         </span>
       </NuxtLink>

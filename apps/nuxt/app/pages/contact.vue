@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import type { SelectOption } from '~/components/app/select/AppSelect.vue';
+import type { SelectOption } from '~/components/app/select/AppSelect.vue'
 
 const value = ref<string>()
 
 const options: SelectOption[] = [
   {
     label: 'Option',
-    value: 'value'
+    value: 'value',
   },
   {
     label: 'Option 2',
-    value: 'value2'
-  }
+    value: 'value2',
+  },
 ]
 </script>
 

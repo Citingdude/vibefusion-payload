@@ -20,6 +20,7 @@ export default defineNuxtConfig({
       apiBase: '',
       baseUrl: '',
       payloadApiBaseUrl: '',
+      cmsBaseUrl: '',
     },
   },
   modules: [

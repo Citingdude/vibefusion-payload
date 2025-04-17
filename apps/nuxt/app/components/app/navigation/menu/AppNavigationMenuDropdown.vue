@@ -11,10 +11,7 @@ const props = defineProps<{
   <NavigationMenuItem class="relative">
     <NavigationMenuTrigger
       class="group flex select-none items-center justify-between
-      gap-0.5 rounded-sm px-3 py-2
-      text-sm font-medium leading-none outline-none
-      focus:shadow-[0_0_0_2px] focus:shadow-green7
-      hover:bg-green3"
+      font-medium leading-none cursor-pointer font-display text-lg transition"
     >
       {{ props.label }}
 
@@ -23,12 +20,14 @@ const props = defineProps<{
 
     <NavigationMenuContent
       class="
-          animate-slideDownAndFade
-          data-[motion=from-start]:animate-enterFromLeft
-          data-[motion=from-end]:animate-enterFromRight
-          data-[motion=to-start]:animate-exitToLeft
-          data-[motion=to-end]:animate-exitToRight
-          absolute top-full left-0 w-full sm:w-max bg-light-alt rounded-b-lg"
+        animate-slideDownAndFade
+        data-[motion=from-start]:animate-enterFromLeft
+        data-[motion=from-end]:animate-enterFromRight
+        data-[motion=to-start]:animate-exitToLeft
+        data-[motion=to-end]:animate-exitToRight
+        absolute top-full left-0
+        w-full sm:w-max bg-white rounded-b-lg shadow-accent-dark/5  shadow-md
+        py-2 px-1 mt-1"
     >
       <ul class="flex flex-col w-full list-none">
         <AppNavigationMenuListItem

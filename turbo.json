@@ -4,9 +4,9 @@
     "tasks": {
       "build": {
         "outputs": [
-            "dist/**", 
-            ".next/**", 
-            "!.next/cache/**"
+            "apps/nuxt/.output/**",
+            "apps/payload/.next/**",
+            "!app/payload/.next/cache/**"
         ]
       },
       "dev": {

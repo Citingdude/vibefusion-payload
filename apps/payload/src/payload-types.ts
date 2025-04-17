@@ -147,7 +147,7 @@ export interface UserAuthOperations {
  */
 export interface Page {
   id: number;
-  content?: (HeroBlock | ServiceCardsBlock | CaseCardsBlock | CtaBlock)[] | null;
+  content?: (HeroBlock | ServiceCardsBlock | CaseCardsBlock | CtaBlock | KpiBlock)[] | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -355,6 +355,31 @@ export interface RichTextField {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "KpiBlock".
+ */
+export interface KpiBlock {
+  title?: string | null;
+  kpiCards?:
+    | {
+        kpiCard: KpiCard;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'kpiBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "KpiCard".
+ */
+export interface KpiCard {
+  icon?: (number | null) | Icon;
+  title: string;
+  body: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -465,6 +490,7 @@ export interface PagesSelect<T extends boolean = true> {
         serviceCardsBlock?: T | ServiceCardsBlockSelect<T>;
         caseCardsBlock?: T | CaseCardsBlockSelect<T>;
         ctaBlock?: T | CtaBlockSelect<T>;
+        kpiBlock?: T | KpiBlockSelect<T>;
       };
   meta?:
     | T
@@ -585,6 +611,30 @@ export interface CtaBlockSelect<T extends boolean = true> {
  */
 export interface RichTextFieldSelect<T extends boolean = true> {
   richtext?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "KpiBlock_select".
+ */
+export interface KpiBlockSelect<T extends boolean = true> {
+  title?: T;
+  kpiCards?:
+    | T
+    | {
+        kpiCard?: T | KpiCardSelect<T>;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "KpiCard_select".
+ */
+export interface KpiCardSelect<T extends boolean = true> {
+  icon?: T;
+  title?: T;
+  body?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

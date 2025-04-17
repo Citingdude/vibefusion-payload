@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "@repo/nuxt",
   "type": "module",
   "private": true,
   "packageManager": "pnpm@8.15.6+sha1.8105075ad0aa306138be128c017e9c41e28ecffa",
@@ -22,27 +22,29 @@
     "@payloadcms/live-preview": "catalog:",
     "@payloadcms/richtext-lexical": "catalog:",
     "@repo/payload": "workspace:*",
-    "@tailwindcss/vite": "4.0.17",
-    "motion": "12.6.2",
-    "nuxt": "3.16.1",
+    "@tailwindcss/vite": "4.1.3",
+    "@ts-rest/core": "3.52.1",
+    "motion": "12.6.3",
+    "nuxt": "3.16.2",
     "payload": "catalog:",
     "qs": "6.14.0",
     "qs-esm": "7.0.2",
-    "reka-ui": "2.1.1",
+    "reka-ui": "2.2.0",
     "tailwind-variants": "1.0.0",
-    "tailwindcss": "4.0.17",
+    "tailwindcss": "4.1.3",
     "vue": "3.5.13",
     "vue-router": "4.5.0",
-    "zod": "3.24.2"
+    "zod": "catalog:"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "4.11.0",
+    "@antfu/eslint-config": "catalog:",
     "@tailwindcss/typography": "0.5.16",
     "@types/qs": "6.9.18",
-    "@vueuse/core": "13.0.0",
-    "@vueuse/nuxt": "13.0.0",
-    "eslint": "9.23.0",
+    "@vueuse/core": "13.1.0",
+    "@vueuse/nuxt": "13.1.0",
+    "eslint": "catalog:",
     "eslint-plugin-tailwindcss": "3.18.0",
-    "typescript": "5.8.2"
+    "eslint-plugin-vuejs-accessibility": "2.4.1",
+    "typescript": "catalog:"
   }
 }

@@ -35,6 +35,7 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URI || '',
     },
   }),
+  serverURL: process.env.BASE_URL,
   sharp,
   plugins,
   async onInit(payload) {

@@ -40,7 +40,7 @@
     "@ts-rest/serverless": "3.52.1",
     "cross-env": "7.0.3",
     "defu": "6.1.4",
-    "next": "15.2.5",
+    "next": "15.3.1",
     "payload": "catalog:",
     "react": "19.1.0",
     "react-dom": "19.1.0",
@@ -50,11 +50,11 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:",
-    "@types/node": "22.14.0",
-    "@types/react": "19.1.0",
+    "@types/node": "22.14.1",
+    "@types/react": "19.1.2",
     "@types/react-dom": "19.1.2",
     "eslint": "catalog:",
-    "eslint-config-next": "15.2.5",
+    "eslint-config-next": "15.3.1",
     "typescript": "catalog:"
   }
 }

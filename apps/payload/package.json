@@ -26,8 +26,8 @@
     "ci": "payload migrate && pnpm build"
   },
   "dependencies": {
-    "@orpc/client": "0.51.0",
-    "@orpc/server": "0.51.0",
+    "@orpc/client": "catalog:",
+    "@orpc/server": "catalog:",
     "@payloadcms/db-postgres": "catalog:",
     "@payloadcms/next": "catalog:",
     "@payloadcms/payload-cloud": "catalog:",
@@ -42,11 +42,6 @@
     "defu": "6.1.4",
     "next": "15.2.5",
     "payload": "catalog:",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "sharp": "0.33.5",
-    "slugify": "1.6.6",
-    "zod": "3.24.2"
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "sharp": "0.34.1",

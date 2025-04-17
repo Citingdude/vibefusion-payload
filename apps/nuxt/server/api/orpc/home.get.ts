@@ -3,7 +3,7 @@ import { useOrpc } from '~/composables/useOrpc'
 export default defineEventHandler(async () => {
   const orpc = useOrpc()
 
-  const pages = await orpc.page.list()
+  const homePage = await orpc.page.home()
 
-  return pages
+  return homePage
 })

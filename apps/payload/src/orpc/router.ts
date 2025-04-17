@@ -2,6 +2,7 @@ import { os } from '@orpc/server'
 
 import { getPayload } from 'payload'
 import config from '../payload.config'
+import { pageRouter } from './routers/page/page.router'
 
 export const listPage = os
   .handler(async () => {
@@ -15,7 +16,5 @@ export const listPage = os
   })
 
 export const orpcRouter = os.router({
-  page: {
-    list: listPage,
-  },
+  page: pageRouter,
 })

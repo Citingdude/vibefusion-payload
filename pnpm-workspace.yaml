@@ -19,3 +19,6 @@ catalog:
   "@payloadcms/plugin-seo": 3.33.0
   "@payloadcms/richtext-lexical": 3.33.0
   "@payloadcms/ui": 3.33.0
+
+  "@orpc/client": "1.0.3"
+  "@orpc/server": "1.0.3"

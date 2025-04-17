@@ -17,8 +17,8 @@
   "dependencies": {
     "@fontsource-variable/alegreya": "5.2.5",
     "@fontsource/alegreya-sans": "5.2.5",
-    "@orpc/client": "0.51.0",
-    "@orpc/server": "0.51.0",
+    "@orpc/client": "catalog:",
+    "@orpc/server": "catalog:",
     "@payloadcms/live-preview": "catalog:",
     "@payloadcms/richtext-lexical": "catalog:",
     "@repo/payload": "workspace:*",

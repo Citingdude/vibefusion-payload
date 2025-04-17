@@ -34,6 +34,7 @@ export default defineNuxtConfig({
   },
   experimental: {
     typedPages: true,
+    payloadExtraction: true,
   },
   router: {
     options: {

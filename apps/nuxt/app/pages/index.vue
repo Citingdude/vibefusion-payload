@@ -3,7 +3,9 @@ import type { BlockDto } from '~/features/block/types/block.type'
 
 import BlockRenderer from '~/features/block/components/BlockRenderer.vue'
 
-const { data: page } = await useFetch('/api/tsrest/home')
+const { data: page } = await useFetch('/api/orpc/home', {
+  key: 'home',
+})
 
 const data = useLivePreview({
   initialData: page,
@@ -13,10 +15,11 @@ const blocks = computed<BlockDto[]>(() => {
   if (!data?.data.value)
     return []
 
-  if (!data.data.value.body?.content)
+  if (!data.data.value.content) {
     return []
+  }
 
-  return data.data.value.body.content.map(block => jsonParse(block))
+  return data.data.value.content.map(block => jsonParse(block))
 })
 </script>
 

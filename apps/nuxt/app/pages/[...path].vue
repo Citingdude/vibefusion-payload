@@ -8,7 +8,7 @@ if (!path) {
   throw createError('Page not found')
 }
 
-const { data: page } = useFetch('/api/tsrest/page', {
+const { data: page } = useFetch('/api/orpc/pages/find', {
   query: {
     path,
   },
@@ -22,10 +22,10 @@ const blocks = computed<BlockDto[]>(() => {
   if (!data?.data.value)
     return []
 
-  if (!data.data.value.body?.content)
+  if (!data.data.value?.content)
     return []
 
-  return data.data.value.body.content.map(block => jsonParse(block))
+  return data.data.value.content.map(block => jsonParse(block))
 })
 </script>
 

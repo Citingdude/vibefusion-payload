@@ -8,7 +8,7 @@ export const listPage = os
   .handler(async () => {
     const payload = await getPayload({ config })
 
-    const pages = payload.find({
+    const pages = await payload.find({
       collection: 'pages',
     })
 

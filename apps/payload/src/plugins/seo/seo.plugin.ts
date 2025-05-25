@@ -4,6 +4,7 @@ export default () => seoPlugin({
   collections: [
     'pages',
     'cases',
+    'blogs',
   ],
   globals: [
     'home',

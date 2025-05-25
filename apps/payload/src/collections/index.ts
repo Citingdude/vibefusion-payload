@@ -1,3 +1,4 @@
+import { blogCollection } from '@payload/collections/blog/blog.collection'
 import { seederCollection } from '@payload/collections/seeder/seeder.collection'
 import { CaseCollection } from './case/case.collection'
 import { IconCollection } from './icon/icon.collection'
@@ -12,4 +13,5 @@ export const collections = [
   UserCollection,
   IconCollection,
   seederCollection,
+  blogCollection,
 ]

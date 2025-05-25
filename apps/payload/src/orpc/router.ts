@@ -1,20 +1,9 @@
 import { os } from '@orpc/server'
 
-import { getPayload } from 'payload'
-import config from '../payload.config'
+import { blogRouter } from '@payload/orpc/routers/blog/blog.router'
 import { pageRouter } from './routers/page/page.router'
-
-export const listPage = os
-  .handler(async () => {
-    const payload = await getPayload({ config })
-
-    const pages = await payload.find({
-      collection: 'pages',
-    })
-
-    return pages
-  })
 
 export const orpcRouter = os.router({
   page: pageRouter,
+  blog: blogRouter,
 })

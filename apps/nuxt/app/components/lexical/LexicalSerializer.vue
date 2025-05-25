@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { RichTextField } from '@repo/payload'
 import type { LexicalNode } from '~/features/lexical/models/lexicalNode.model'
 import { lexicalNodeSchema } from '~/features/lexical/models/lexicalNode.model'
 
@@ -9,8 +8,21 @@ interface RichTextNode {
   version: number
 }
 
+interface LexicalRoot {
+  type: string
+  children: {
+    type: string
+    version: number
+    [k: string]: unknown
+  }[]
+  direction: ('ltr' | 'rtl') | null
+  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
+  indent: number
+  version: number
+}
+
 const props = withDefaults(defineProps<{
-  root: RichTextField
+  root: LexicalRoot
   color?: 'light' | 'dark'
 }>(), {
   color: 'light',
@@ -29,7 +41,7 @@ function validateNode(node: (RichTextNode)): LexicalNode | null {
 }
 
 const validatedNodes = computed<LexicalNode[]>(() => {
-  const nodes = props.root?.richtext?.root?.children
+  const nodes = props.root.children
 
   if (!nodes) {
     return []
@@ -45,10 +57,10 @@ const validatedNodes = computed<LexicalNode[]>(() => {
 
 <template>
   <div
-    class="prose prose-a:text-accent prose-xl"
+    class="prose prose-a:text-accent prose-xl marker:text-accent"
     :class="props.color === 'light'
       ? 'text-light-main prose-headings:text-light-main prose-blockquote:text-light-main prose-blockquote:border-accent prose-blockquote:bg-accent-light/10 prose-blockquote:rounded-r-lg'
-      : 'text-dark-400'"
+      : 'text-dark-300 prose-headings:text-dark-400 prose-blockquote:text-dark-400 prose-blockquote:border-accent prose-blockquote:bg-accent-light/10 prose-blockquote:rounded-r-lg'"
   >
     <template v-if="validatedNodes.length">
       <div v-for="(node, i) in validatedNodes" :key="i">

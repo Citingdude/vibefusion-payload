@@ -28,9 +28,9 @@ const props = defineProps<{
         </div>
 
         <LexicalSerializer
-          v-if="props.block.content"
+          v-if="props.block.content?.richtext?.root"
           color="light"
-          :root="props.block.content"
+          :root="props.block.content.richtext?.root"
         />
 
         <CmsLink

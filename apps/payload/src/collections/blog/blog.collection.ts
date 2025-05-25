@@ -30,6 +30,11 @@ export const blogCollection: CollectionConfig = {
   access: {
     read: () => true,
   },
+  defaultPopulate: {
+    slug: true,
+    title: true,
+    description: true,
+  },
   admin: {
     useAsTitle: 'title',
     group: 'Content',

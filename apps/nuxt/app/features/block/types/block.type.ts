@@ -1,4 +1,5 @@
 import type {
+  BlogCardsBlock as BlogCardsBlockDto,
   CaseCardsBlock as CaseCardsBlockDto,
   CtaBlock as CtaBlockDto,
   HeroBlock as HeroBlockDto,
@@ -6,4 +7,10 @@ import type {
   ServiceCardsBlock as ServiceCardsBlockDto,
 } from '@repo/payload'
 
-export type BlockDto = HeroBlockDto | CaseCardsBlockDto | ServiceCardsBlockDto | CtaBlockDto | KpiBlockDto
+export type BlockDto =
+  HeroBlockDto
+  | CaseCardsBlockDto
+  | ServiceCardsBlockDto
+  | CtaBlockDto
+  | KpiBlockDto
+  | BlogCardsBlockDto

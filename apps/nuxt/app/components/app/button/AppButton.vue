@@ -19,7 +19,10 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 })
 
 const buttonStyle = tv({
-  base: 'w-full rounded-br-xl rounded-tl-xl text-center font-display font-bold transition hover:-translate-y-1 hover:shadow-xl sm:w-fit',
+  base: `flex w-full rounded-br-xl rounded-tl-xl text-center font-display 
+  font-bold transition hover:-translate-y-1 hover:shadow-xl sm:w-fit
+  focus-visible:outline-dashed outline-accent outline-offset-4 
+  focus-visible:outline-2`,
   variants: {
     size: {
       sm: 'py-2 px-4 border text-base',

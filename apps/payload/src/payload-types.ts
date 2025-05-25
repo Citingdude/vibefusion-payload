@@ -149,7 +149,7 @@ export interface UserAuthOperations {
  */
 export interface Page {
   id: number;
-  content?: (HeroBlock | ServiceCardsBlock | CaseCardsBlock | CtaBlock | KpiBlock)[] | null;
+  content?: (HeroBlock | ServiceCardsBlock | CaseCardsBlock | CtaBlock | KpiBlock | BlogCardsBlock)[] | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -382,30 +382,19 @@ export interface KpiCard {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
+ * via the `definition` "BlogCardsBlock".
  */
-export interface User {
-  id: number;
-  updatedAt: string;
-  createdAt: string;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  password?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "seeders".
- */
-export interface Seeder {
-  id: number;
-  slug: string;
-  updatedAt: string;
-  createdAt: string;
+export interface BlogCardsBlock {
+  title?: string | null;
+  blogCards?:
+    | {
+        blog: number | Blog;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'blogCardsBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -440,6 +429,33 @@ export interface Blog {
      */
     image?: (number | null) | Media;
   };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users".
+ */
+export interface User {
+  id: number;
+  updatedAt: string;
+  createdAt: string;
+  email: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  password?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "seeders".
+ */
+export interface Seeder {
+  id: number;
+  slug: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -533,6 +549,7 @@ export interface PagesSelect<T extends boolean = true> {
         caseCardsBlock?: T | CaseCardsBlockSelect<T>;
         ctaBlock?: T | CtaBlockSelect<T>;
         kpiBlock?: T | KpiBlockSelect<T>;
+        blogCardsBlock?: T | BlogCardsBlockSelect<T>;
       };
   meta?:
     | T
@@ -677,6 +694,21 @@ export interface KpiCardSelect<T extends boolean = true> {
   icon?: T;
   title?: T;
   body?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogCardsBlock_select".
+ */
+export interface BlogCardsBlockSelect<T extends boolean = true> {
+  title?: T;
+  blogCards?:
+    | T
+    | {
+        blog?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

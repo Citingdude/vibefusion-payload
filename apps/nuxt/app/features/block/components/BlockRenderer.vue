@@ -11,6 +11,7 @@ const BlockCases = defineAsyncComponent(() => import('@blocks/BlockCases.vue'))
 const ServiceCardsblock = defineAsyncComponent(() => import('@blocks/BlockServiceCards.vue'))
 const CtaBlock = defineAsyncComponent(() => import('@blocks/BlockCta.vue'))
 const KpiBlock = defineAsyncComponent(() => import('@blocks/BlockKpi.vue'))
+const BlogCardsBlock = defineAsyncComponent(() => import('@blocks/BlockBlogCards.vue'))
 
 const blockComponents: Record<BlockType, Component | undefined> = {
   hero: BlockHero,
@@ -18,6 +19,7 @@ const blockComponents: Record<BlockType, Component | undefined> = {
   serviceCardsBlock: ServiceCardsblock,
   ctaBlock: CtaBlock,
   kpiBlock: KpiBlock,
+  blogCardsBlock: BlogCardsBlock,
 }
 </script>
 

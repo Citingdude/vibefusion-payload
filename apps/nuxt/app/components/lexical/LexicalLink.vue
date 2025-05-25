@@ -28,6 +28,7 @@ function getInternalLinkPath(relation: string, slug: string): string | undefined
     <a
       v-if="props.node.fields.linkType === 'custom'"
       :href="props.node.fields.url"
+      :target="props.node.fields.newTab ? '_blank' : undefined"
     >
       <LexicalText :node="child" />
     </a>

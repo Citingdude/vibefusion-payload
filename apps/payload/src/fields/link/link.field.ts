@@ -4,7 +4,7 @@ import { defu } from 'defu'
 
 type LinkType = (options?: {
   disableLabel?: boolean
-  overrides?: Partial<GroupField>
+  overrides?: GroupField
 }) => Field
 
 export const linkField: LinkType = ({ disableLabel = false, overrides = {} } = {}) => {

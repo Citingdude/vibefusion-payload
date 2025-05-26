@@ -31,4 +31,3 @@ export const PUT = handleRequest
 export const PATCH = handleRequest
 export const DELETE = handleRequest
 export const OPTIONS = handleRequest
-export const OPTION = handleRequest

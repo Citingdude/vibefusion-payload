@@ -38,7 +38,7 @@ const blogs = computed<BlogCardProps[]>(() => {
     has-padding
     class="bg-light-alt py-20 md:py-32"
   >
-    <div class="flex flex-col items-center justify-center">
+    <div class="container flex flex-col items-center justify-center">
       <div v-if="props.block.title" class="mb-16 flex flex-col items-center">
         <h2 class="mb-4 font-display text-4xl font-bold lg:text-5xl">
           {{ props.block.title }}
@@ -50,7 +50,7 @@ const blogs = computed<BlogCardProps[]>(() => {
       <!-- Blog cards -->
       <ul
         v-if="blogs.length"
-        class="grid w-full max-w-5xl grid-cols-2 gap-8 lg:gap-12"
+        class="grid w-full max-w-5xl sm:grid-cols-2 gap-8 lg:gap-12"
       >
         <li
           v-for="(blog, index) in blogs"

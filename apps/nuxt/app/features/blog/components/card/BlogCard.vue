@@ -11,11 +11,11 @@ const props = defineProps<BlogCardProps>()
 <template>
   <article
     class="rounded-tl-4xl rounded-br-4xl bg-dark-300
-    shadow-2xl shadow-accent-dark/10 p-8"
+    shadow-2xl shadow-accent-dark/10 p-8 lg:p-16"
   >
     <!-- Title -->
     <h2
-      class="font-display text-3xl font-medium
+      class="font-display text-2xl lg:text-3xl font-medium
         text-light-main line-clamp-3"
     >
       {{ props.title }}

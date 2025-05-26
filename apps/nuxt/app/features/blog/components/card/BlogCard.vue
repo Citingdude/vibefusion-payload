@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { BlogCategory } from '@repo/payload'
 import type { Image } from '~/features/image/types/image.type'
 
 export interface BlogCardProps {
@@ -6,6 +7,7 @@ export interface BlogCardProps {
   slug: string
   description?: string
   image?: Image
+  categories?: BlogCategory[]
 }
 
 const props = defineProps<BlogCardProps>()
@@ -24,6 +26,19 @@ const props = defineProps<BlogCardProps>()
     >
 
     <div class="p-6 lg:p-12">
+      <ul
+        v-if="props.categories?.length"
+        class="flex gap-2 mb-6 flex-wrap"
+      >
+        <li
+          v-for="category in props.categories"
+          :key="category.id"
+          class="flex"
+        >
+          <AppBadge :label="category.name" />
+        </li>
+      </ul>
+
       <!-- Title -->
       <h2
         class="font-display text-2xl lg:text-3xl font-medium

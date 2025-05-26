@@ -408,6 +408,7 @@ export interface Blog {
   description?: string | null;
   slug: string;
   slugLock?: boolean | null;
+  category?: (number | BlogCategory)[] | null;
   image?: (number | null) | Media;
   content?: {
     root: {
@@ -437,6 +438,18 @@ export interface Blog {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blogCategory".
+ */
+export interface BlogCategory {
+  id: number;
+  name: string;
+  slug: string;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -459,18 +472,6 @@ export interface User {
 export interface Seeder {
   id: number;
   slug: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "blogCategory".
- */
-export interface BlogCategory {
-  id: number;
-  name: string;
-  slug: string;
-  slugLock?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -822,6 +823,7 @@ export interface BlogsSelect<T extends boolean = true> {
   description?: T;
   slug?: T;
   slugLock?: T;
+  category?: T;
   image?: T;
   content?: T;
   meta?:

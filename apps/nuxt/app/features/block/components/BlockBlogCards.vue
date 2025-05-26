@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BlogCardsBlock, Media } from '@repo/payload'
+import type { BlogCardsBlock, BlogCategory, Media } from '@repo/payload'
 import type { BlogCardProps } from '~/features/blog/components/card/BlogCard.vue'
 import type { Image } from '~/features/image/types/image.type'
 import BlogCard from '~/features/blog/components/card/BlogCard.vue'
@@ -27,6 +27,24 @@ function getImage(image: number | Media | null | undefined): Image | undefined {
   }
 }
 
+function getCategories(categories: (number | BlogCategory)[] | null | undefined): BlogCategory[] {
+  const blogCategories: BlogCategory[] = []
+
+  if (!categories) {
+    return blogCategories
+  }
+
+  categories.forEach((category) => {
+    if (typeof category === 'number') {
+      return
+    }
+
+    blogCategories.push(category)
+  })
+
+  return blogCategories
+}
+
 const blogs = computed<BlogCardProps[]>(() => {
   const blogs: BlogCardProps[] = []
 
@@ -46,6 +64,7 @@ const blogs = computed<BlogCardProps[]>(() => {
       title: blog.title,
       description: blog.description || undefined,
       image: getImage(blog.image),
+      categories: getCategories(blog.category),
     })
   })
 
@@ -82,6 +101,7 @@ const blogs = computed<BlogCardProps[]>(() => {
             :title="blog.title"
             :description="blog.description"
             :image="blog.image"
+            :categories="blog.categories"
           />
         </li>
       </ul>

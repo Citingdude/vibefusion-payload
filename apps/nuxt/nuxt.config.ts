@@ -21,6 +21,7 @@ export default defineNuxtConfig({
       baseUrl: '',
       payloadApiBaseUrl: '',
       cmsBaseUrl: '',
+      orpcUrl: '',
     },
   },
   modules: [

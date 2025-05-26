@@ -5,8 +5,10 @@ import { orpcRouter } from '@payload/orpc/router'
 const handler = new RPCHandler(orpcRouter, {
   plugins: [
     new CORSPlugin({
-      origin: () => 'http://localhost:3000',
-      allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH', 'OPTION'],
+      origin: () => {
+        return '*'
+      },
+      allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH', 'OPTIONS'],
     }),
   ],
 })
@@ -28,3 +30,5 @@ export const POST = handleRequest
 export const PUT = handleRequest
 export const PATCH = handleRequest
 export const DELETE = handleRequest
+export const OPTIONS = handleRequest
+export const OPTION = handleRequest

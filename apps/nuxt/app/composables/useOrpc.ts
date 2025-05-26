@@ -3,17 +3,10 @@ import type { orpcRouter } from '@repo/payload'
 import { createORPCClient } from '@orpc/client'
 import { RPCLink } from '@orpc/client/fetch'
 
-function customFetch(input: RequestInfo, init?: RequestInit) {
-  return fetch(input, {
-    ...init,
-    credentials: 'include',
-  })
-}
-
 export function useOrpc() {
+  const { orpcUrl } = useRuntimeConfig().public
   const link = new RPCLink({
-    url: `http://localhost:4000/api/rpc`,
-    fetch: customFetch,
+    url: orpcUrl,
   })
 
   const client: RouterClient<typeof orpcRouter> = createORPCClient(link)

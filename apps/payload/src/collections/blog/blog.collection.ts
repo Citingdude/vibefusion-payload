@@ -43,7 +43,7 @@ export const blogCollection: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'title',
-    group: 'Content',
+    group: 'Blog',
     defaultColumns: [
       'title',
       'slug',

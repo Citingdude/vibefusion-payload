@@ -94,6 +94,7 @@ export interface Config {
     icons: Icon;
     seeders: Seeder;
     blogs: Blog;
+    blogCategory: BlogCategory;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -107,6 +108,7 @@ export interface Config {
     icons: IconsSelect<false> | IconsSelect<true>;
     seeders: SeedersSelect<false> | SeedersSelect<true>;
     blogs: BlogsSelect<false> | BlogsSelect<true>;
+    blogCategory: BlogCategorySelect<false> | BlogCategorySelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -462,6 +464,18 @@ export interface Seeder {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blogCategory".
+ */
+export interface BlogCategory {
+  id: number;
+  name: string;
+  slug: string;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -494,6 +508,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'blogs';
         value: number | Blog;
+      } | null)
+    | ({
+        relationTo: 'blogCategory';
+        value: number | BlogCategory;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -813,6 +831,17 @@ export interface BlogsSelect<T extends boolean = true> {
         description?: T;
         image?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blogCategory_select".
+ */
+export interface BlogCategorySelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  slugLock?: T;
   updatedAt?: T;
   createdAt?: T;
 }

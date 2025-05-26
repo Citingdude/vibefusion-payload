@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import type { Blog } from '@repo/payload'
+import { blogService } from '~/features/blog/services/blog.service'
 
 const route = useRoute()
 
 const slug = route.params.slug as string
 
-const { data: blog } = await useFetch<Blog>('/api/orpc/blog/find', {
-  params: {
-    slug,
-  },
-})
+const { data: blog } = await useAsyncData(
+  `blog-${slug}`,
+  () => blogService.getBySlug(slug),
+)
 </script>
 
 <template>

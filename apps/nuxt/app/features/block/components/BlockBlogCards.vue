@@ -1,11 +1,31 @@
 <script setup lang="ts">
-import type { BlogCardsBlock } from '@repo/payload'
+import type { BlogCardsBlock, Media } from '@repo/payload'
 import type { BlogCardProps } from '~/features/blog/components/card/BlogCard.vue'
+import type { Image } from '~/features/image/types/image.type'
 import BlogCard from '~/features/blog/components/card/BlogCard.vue'
 
 const props = defineProps<{
   block: BlogCardsBlock
 }>()
+
+function getImage(image: number | Media | null | undefined): Image | undefined {
+  if (!image) {
+    return undefined
+  }
+
+  if (typeof image === 'number') {
+    return undefined
+  }
+
+  if (!image.url) {
+    return undefined
+  }
+
+  return {
+    src: image.url,
+    alt: image.alt,
+  }
+}
 
 const blogs = computed<BlogCardProps[]>(() => {
   const blogs: BlogCardProps[] = []
@@ -25,6 +45,7 @@ const blogs = computed<BlogCardProps[]>(() => {
       slug: blog.slug,
       title: blog.title,
       description: blog.description || undefined,
+      image: getImage(blog.image),
     })
   })
 
@@ -60,6 +81,7 @@ const blogs = computed<BlogCardProps[]>(() => {
             :slug="blog.slug"
             :title="blog.title"
             :description="blog.description"
+            :image="blog.image"
           />
         </li>
       </ul>

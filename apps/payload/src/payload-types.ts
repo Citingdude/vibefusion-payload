@@ -406,6 +406,7 @@ export interface Blog {
   description?: string | null;
   slug: string;
   slugLock?: boolean | null;
+  image?: (number | null) | Media;
   content?: {
     root: {
       type: string;
@@ -803,6 +804,7 @@ export interface BlogsSelect<T extends boolean = true> {
   description?: T;
   slug?: T;
   slugLock?: T;
+  image?: T;
   content?: T;
   meta?:
     | T

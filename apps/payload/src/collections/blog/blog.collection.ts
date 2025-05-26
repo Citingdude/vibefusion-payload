@@ -23,6 +23,11 @@ export const blogCollection: CollectionConfig = {
       fallbackField: 'title',
     }),
     {
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
+    },
+    {
       name: 'content',
       type: 'richText',
     },
@@ -34,6 +39,7 @@ export const blogCollection: CollectionConfig = {
     slug: true,
     title: true,
     description: true,
+    image: true,
   },
   admin: {
     useAsTitle: 'title',

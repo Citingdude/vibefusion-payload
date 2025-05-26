@@ -8,7 +8,7 @@ if (!path) {
   throw createError('Page not found')
 }
 
-const { data: page } = useFetch('/api/orpc/pages/find', {
+const { data: page } = await useFetch('/api/orpc/pages/find', {
   query: {
     path,
   },

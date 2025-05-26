@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 
 const buttonStyle = tv({
   base: `flex w-full rounded-br-xl rounded-tl-xl text-center font-display 
-  font-bold sm:w-fit
+  font-bold sm:w-fit justify-center text-center
   transition-all ease-in-out duration-300
   focus-visible:outline-dashed outline-accent outline-offset-4 
   focus-visible:outline-2 

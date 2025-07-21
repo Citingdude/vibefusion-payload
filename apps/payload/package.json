@@ -26,35 +26,35 @@
     "ci": "payload migrate && pnpm build"
   },
   "dependencies": {
-    "@orpc/client": "catalog:",
-    "@orpc/server": "catalog:",
-    "@payloadcms/db-postgres": "catalog:",
-    "@payloadcms/next": "catalog:",
-    "@payloadcms/payload-cloud": "catalog:",
-    "@payloadcms/plugin-nested-docs": "catalog:",
-    "@payloadcms/plugin-seo": "catalog:",
-    "@payloadcms/richtext-lexical": "catalog:",
-    "@payloadcms/ui": "catalog:",
+    "@orpc/client": "catalog:orpc",
+    "@orpc/server": "catalog:orpc",
+    "@payloadcms/db-postgres": "catalog:payload",
+    "@payloadcms/next": "catalog:payload",
+    "@payloadcms/payload-cloud": "catalog:payload",
+    "@payloadcms/plugin-nested-docs": "catalog:payload",
+    "@payloadcms/plugin-seo": "catalog:payload",
+    "@payloadcms/richtext-lexical": "catalog:payload",
+    "@payloadcms/ui": "catalog:payload",
     "@ts-rest/core": "3.52.1",
     "@ts-rest/next": "3.52.1",
     "@ts-rest/serverless": "3.52.1",
     "cross-env": "7.0.3",
     "defu": "6.1.4",
     "next": "15.3.1",
-    "payload": "catalog:",
+    "payload": "catalog:payload",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "sharp": "0.34.1",
     "slugify": "1.6.6",
-    "zod": "catalog:"
+    "zod": "catalog:types"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "catalog:",
+    "@antfu/eslint-config": "catalog:lint",
     "@types/node": "22.14.1",
     "@types/react": "19.1.2",
     "@types/react-dom": "19.1.2",
-    "eslint": "catalog:",
-    "eslint-config-next": "15.3.1",
-    "typescript": "catalog:"
+    "eslint": "catalog:lint",
+    "eslint-config-next": "catalog:lint",
+    "typescript": "catalog:types"
   }
 }

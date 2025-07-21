@@ -1,24 +1,46 @@
 packages:
-  - "apps/*"
-  - "packages/*"
+  - apps/*
+  - packages/*
 
-catalog:
-  "typescript": "5.8.3"
+catalogs:
+  lint:
+    '@antfu/eslint-config': 4.12.0
+    eslint: 9.24.0
+    eslint-config-next: 15.3.1
+    eslint-plugin-tailwindcss: 3.18.0
+    eslint-plugin-vuejs-accessibility: 2.4.1
+  nuxt:
+    nuxt: 3.16.2
+  orpc:
+    '@orpc/client': 1.0.3
+    '@orpc/server': 1.0.3
+  payload:
+    '@payloadcms/db-postgres': 3.35.1
+    '@payloadcms/live-preview': 3.35.1
+    '@payloadcms/next': 3.35.1
+    '@payloadcms/payload-cloud': 3.35.1
+    '@payloadcms/plugin-nested-docs': 3.35.1
+    '@payloadcms/plugin-seo': 3.35.1
+    '@payloadcms/richtext-lexical': 3.35.1
+    '@payloadcms/ui': 3.35.1
+    payload: 3.35.1
+  types:
+    typescript: 5.8.3
+    zod: 3.24.3
+  ui:
+    '@fontsource-variable/alegreya': 5.2.5
+    '@fontsource/alegreya-sans': 5.2.5
+    '@tailwindcss/typography': 0.5.16
+    '@tailwindcss/vite': 4.1.4
+    motion: 12.7.4
+    reka-ui: 2.2.0
+    tailwind-variants: 1.0.0
+    tailwindcss: 4.1.4
+  vue:
+    '@vueuse/core': 13.1.0
+    '@vueuse/nuxt': 13.1.0
+    vue: 3.5.13
+    vue-router: 4.5.0
 
-  "zod": "3.24.3"
-
-  "eslint": "9.24.0"
-  "@antfu/eslint-config": "4.12.0"
-
-  "payload": 3.35.1
-  "@payloadcms/live-preview": 3.35.1
-  "@payloadcms/db-postgres": 3.35.1
-  "@payloadcms/next": 3.35.1
-  "@payloadcms/payload-cloud": 3.35.1
-  "@payloadcms/plugin-nested-docs": 3.35.1
-  "@payloadcms/plugin-seo": 3.35.1
-  "@payloadcms/richtext-lexical": 3.35.1
-  "@payloadcms/ui": 3.35.1
-
-  "@orpc/client": "1.0.3"
-  "@orpc/server": "1.0.3"
+onlyBuiltDependencies:
+  - esbuild

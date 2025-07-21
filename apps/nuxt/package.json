@@ -27,8 +27,6 @@
     "motion": "catalog:ui",
     "nuxt": "catalog:nuxt",
     "payload": "catalog:payload",
-    "qs": "6.14.0",
-    "qs-esm": "7.0.2",
     "reka-ui": "catalog:ui",
     "tailwind-variants": "catalog:ui",
     "tailwindcss": "catalog:ui",

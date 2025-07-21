@@ -15,15 +15,15 @@ catalogs:
     '@orpc/client': 1.0.3
     '@orpc/server': 1.0.3
   payload:
-    '@payloadcms/db-postgres': 3.35.1
-    '@payloadcms/live-preview': 3.35.1
-    '@payloadcms/next': 3.35.1
-    '@payloadcms/payload-cloud': 3.35.1
-    '@payloadcms/plugin-nested-docs': 3.35.1
-    '@payloadcms/plugin-seo': 3.35.1
-    '@payloadcms/richtext-lexical': 3.35.1
-    '@payloadcms/ui': 3.35.1
-    payload: 3.35.1
+    '@payloadcms/db-postgres': 3.48.0
+    '@payloadcms/live-preview': 3.48.0
+    '@payloadcms/next': 3.48.0
+    '@payloadcms/payload-cloud': 3.48.0
+    '@payloadcms/plugin-nested-docs': 3.48.0
+    '@payloadcms/plugin-seo': 3.48.0
+    '@payloadcms/richtext-lexical': 3.48.0
+    '@payloadcms/ui': 3.48.0
+    payload: 3.48.0
   types:
     typescript: 5.8.3
     zod: 3.24.3

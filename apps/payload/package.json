@@ -41,7 +41,7 @@
     "payload": "catalog:payload",
     "react": "catalog:next",
     "react-dom": "catalog:next",
-    "sharp": "0.34.1",
+    "sharp": "0.34.3",
     "slugify": "1.6.6",
     "zod": "catalog:types"
   },

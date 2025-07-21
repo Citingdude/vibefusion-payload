@@ -4,10 +4,10 @@ packages:
 
 catalogs:
   lint:
-    '@antfu/eslint-config': 4.12.0
-    eslint: 9.24.0
-    eslint-config-next: 15.3.1
-    eslint-plugin-tailwindcss: 3.18.0
+    '@antfu/eslint-config': 4.17.0
+    eslint: 9.31.0
+    eslint-config-next: 15.4.2
+    eslint-plugin-tailwindcss: 3.18.2
     eslint-plugin-vuejs-accessibility: 2.4.1
   nuxt:
     nuxt: 3.16.2

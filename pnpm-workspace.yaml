@@ -37,7 +37,7 @@ catalogs:
     '@ts-rest/serverless': 3.52.1
   types:
     typescript: 5.8.3
-    zod: 3.25.76
+    zod: 4.0.5
   ui:
     '@fontsource-variable/alegreya': 5.2.6
     '@fontsource/alegreya-sans': 5.2.6

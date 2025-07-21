@@ -36,7 +36,6 @@
   "devDependencies": {
     "@antfu/eslint-config": "catalog:lint",
     "@tailwindcss/typography": "catalog:ui",
-    "@types/qs": "6.9.18",
     "@vueuse/core": "catalog:vue",
     "@vueuse/nuxt": "catalog:vue",
     "eslint": "catalog:lint",

@@ -193,9 +193,6 @@ importers:
       '@tailwindcss/typography':
         specifier: catalog:ui
         version: 0.5.16(tailwindcss@4.1.11)
-      '@types/qs':
-        specifier: 6.9.18
-        version: 6.9.18
       '@vueuse/core':
         specifier: catalog:vue
         version: 13.5.0(vue@3.5.17(typescript@5.8.3))
@@ -2698,9 +2695,6 @@ packages:
 
   '@types/pg@8.10.2':
     resolution: {integrity: sha512-MKFs9P6nJ+LAeHLU3V0cODEOgyThJ3OAnmOlsZsxux6sfQs3HRXR5bBn7xG5DjckEFhTAxsXi7k7cd0pCMxpJw==}
-
-  '@types/qs@6.9.18':
-    resolution: {integrity: sha512-kK7dgTYDyGqS+e2Q4aK9X3D7q234CIZ1Bv0q/7Z5IwRDoADNU81xXJK/YVyLbLTZCoIwUoDoffFeF+p/eIklAA==}
 
   '@types/react-dom@19.1.6':
     resolution: {integrity: sha512-4hOiT/dwO8Ko0gV1m/TJZYk3y0KBnY9vzDh7W+DH17b2HFSOGgdj33dhihPeuy3l0q23+4e+hoXHV6hCC4dCXw==}
@@ -10615,8 +10609,6 @@ snapshots:
       '@types/node': 22.16.5
       pg-protocol: 1.8.0
       pg-types: 4.0.2
-
-  '@types/qs@6.9.18': {}
 
   '@types/react-dom@19.1.6(@types/react@19.1.8)':
     dependencies:

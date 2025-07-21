@@ -65,8 +65,8 @@ catalogs:
       specifier: 5.8.3
       version: 5.8.3
     zod:
-      specifier: 3.24.3
-      version: 3.24.3
+      specifier: 3.25.76
+      version: 3.25.76
   ui:
     '@fontsource-variable/alegreya':
       specifier: 5.2.5
@@ -142,7 +142,7 @@ importers:
         version: 4.1.4(vite@6.3.5(@types/node@22.14.1)(jiti@2.4.2)(lightningcss@1.29.2)(sass@1.77.4)(terser@5.39.0)(tsx@4.20.3)(yaml@2.8.0))
       '@ts-rest/core':
         specifier: 3.52.1
-        version: 3.52.1(@types/node@22.14.1)(zod@3.24.3)
+        version: 3.52.1(@types/node@22.14.1)(zod@3.25.76)
       motion:
         specifier: catalog:ui
         version: 12.7.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -175,7 +175,7 @@ importers:
         version: 4.5.0(vue@3.5.13(typescript@5.8.3))
       zod:
         specifier: catalog:types
-        version: 3.24.3
+        version: 3.25.76
     devDependencies:
       '@antfu/eslint-config':
         specifier: catalog:lint
@@ -236,13 +236,13 @@ importers:
         version: 3.48.0(@types/react@19.1.2)(monaco-editor@0.52.2)(next@15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(payload@3.48.0(graphql@16.10.0)(typescript@5.8.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)
       '@ts-rest/core':
         specifier: 3.52.1
-        version: 3.52.1(@types/node@22.14.1)(zod@3.24.3)
+        version: 3.52.1(@types/node@22.14.1)(zod@3.25.76)
       '@ts-rest/next':
         specifier: 3.52.1
-        version: 3.52.1(@ts-rest/core@3.52.1(@types/node@22.14.1)(zod@3.24.3))(next@15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(zod@3.24.3)
+        version: 3.52.1(@ts-rest/core@3.52.1(@types/node@22.14.1)(zod@3.25.76))(next@15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(zod@3.25.76)
       '@ts-rest/serverless':
         specifier: 3.52.1
-        version: 3.52.1(@ts-rest/core@3.52.1(@types/node@22.14.1)(zod@3.24.3))(next@15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(zod@3.24.3)
+        version: 3.52.1(@ts-rest/core@3.52.1(@types/node@22.14.1)(zod@3.25.76))(next@15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(zod@3.25.76)
       cross-env:
         specifier: 7.0.3
         version: 7.0.3
@@ -269,7 +269,7 @@ importers:
         version: 1.6.6
       zod:
         specifier: catalog:types
-        version: 3.24.3
+        version: 3.25.76
     devDependencies:
       '@antfu/eslint-config':
         specifier: catalog:lint
@@ -7393,8 +7393,8 @@ packages:
     resolution: {integrity: sha512-zK7YHHz4ZXpW89AHXUPbQVGKI7uvkd3hzusTdotCg1UxyaVtg0zFJSTfW/Dq5f7OBBVnq6cZIaC8Ti4hb6dtCA==}
     engines: {node: '>= 14'}
 
-  zod@3.24.3:
-    resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
+  zod@3.25.76:
+    resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -10256,25 +10256,25 @@ snapshots:
 
   '@trysound/sax@0.2.0': {}
 
-  '@ts-rest/core@3.52.1(@types/node@22.14.1)(zod@3.24.3)':
+  '@ts-rest/core@3.52.1(@types/node@22.14.1)(zod@3.25.76)':
     optionalDependencies:
       '@types/node': 22.14.1
-      zod: 3.24.3
+      zod: 3.25.76
 
-  '@ts-rest/next@3.52.1(@ts-rest/core@3.52.1(@types/node@22.14.1)(zod@3.24.3))(next@15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(zod@3.24.3)':
+  '@ts-rest/next@3.52.1(@ts-rest/core@3.52.1(@types/node@22.14.1)(zod@3.25.76))(next@15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(zod@3.25.76)':
     dependencies:
-      '@ts-rest/core': 3.52.1(@types/node@22.14.1)(zod@3.24.3)
+      '@ts-rest/core': 3.52.1(@types/node@22.14.1)(zod@3.25.76)
       next: 15.3.1(@babel/core@7.26.10)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4)
     optionalDependencies:
-      zod: 3.24.3
+      zod: 3.25.76
 
-  '@ts-rest/serverless@3.52.1(@ts-rest/core@3.52.1(@types/node@22.14.1)(zod@3.24.3))(next@15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(zod@3.24.3)':
+  '@ts-rest/serverless@3.52.1(@ts-rest/core@3.52.1(@types/node@22.14.1)(zod@3.25.76))(next@15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(zod@3.25.76)':
     dependencies:
-      '@ts-rest/core': 3.52.1(@types/node@22.14.1)(zod@3.24.3)
+      '@ts-rest/core': 3.52.1(@types/node@22.14.1)(zod@3.25.76)
       itty-router: 5.0.18
     optionalDependencies:
       next: 15.3.1(@babel/core@7.26.10)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4)
-      zod: 3.24.3
+      zod: 3.25.76
 
   '@tybys/wasm-util@0.9.0':
     dependencies:
@@ -15983,6 +15983,6 @@ snapshots:
       compress-commons: 6.0.2
       readable-stream: 4.7.0
 
-  zod@3.24.3: {}
+  zod@3.25.76: {}
 
   zwitch@2.0.4: {}

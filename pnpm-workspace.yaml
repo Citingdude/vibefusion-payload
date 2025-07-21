@@ -1,24 +1,60 @@
 packages:
-  - "apps/*"
-  - "packages/*"
+  - apps/*
+  - packages/*
 
-catalog:
-  "typescript": "5.8.3"
+catalogs:
+  lint:
+    '@antfu/eslint-config': 4.17.0
+    eslint: 9.31.0
+    eslint-config-next: 15.4.2
+    eslint-plugin-tailwindcss: 3.18.2
+    eslint-plugin-vuejs-accessibility: 2.4.1
+  next:
+    '@types/node': 22.16.5
+    '@types/react': 19.1.8
+    '@types/react-dom': 19.1.6
+    next: 15.4.2
+    react: 19.1.0
+    react-dom: 19.1.0
+  nuxt:
+    nuxt: 4.0.1
+  orpc:
+    '@orpc/client': 1.7.4
+    '@orpc/server': 1.7.4
+  payload:
+    '@payloadcms/db-postgres': 3.48.0
+    '@payloadcms/live-preview': 3.48.0
+    '@payloadcms/next': 3.48.0
+    '@payloadcms/payload-cloud': 3.48.0
+    '@payloadcms/plugin-nested-docs': 3.48.0
+    '@payloadcms/plugin-seo': 3.48.0
+    '@payloadcms/richtext-lexical': 3.48.0
+    '@payloadcms/ui': 3.48.0
+    payload: 3.48.0
+  tsrest:
+    '@ts-rest/core': 3.52.1
+    '@ts-rest/next': 3.52.1
+    '@ts-rest/serverless': 3.52.1
+  types:
+    typescript: 5.8.3
+    zod: 4.0.5
+  ui:
+    '@fontsource-variable/alegreya': 5.2.6
+    '@fontsource/alegreya-sans': 5.2.6
+    '@tailwindcss/typography': 0.5.16
+    '@tailwindcss/vite': 4.1.11
+    motion: 12.23.6
+    reka-ui: 2.3.2
+    tailwind-variants: 1.0.0
+    tailwindcss: 4.1.11
+  vue:
+    '@vueuse/core': 13.5.0
+    '@vueuse/nuxt': 13.5.0
+    vue: 3.5.17
+    vue-router: 4.5.1
 
-  "zod": "3.24.3"
-
-  "eslint": "9.24.0"
-  "@antfu/eslint-config": "4.12.0"
-
-  "payload": 3.35.1
-  "@payloadcms/live-preview": 3.35.1
-  "@payloadcms/db-postgres": 3.35.1
-  "@payloadcms/next": 3.35.1
-  "@payloadcms/payload-cloud": 3.35.1
-  "@payloadcms/plugin-nested-docs": 3.35.1
-  "@payloadcms/plugin-seo": 3.35.1
-  "@payloadcms/richtext-lexical": 3.35.1
-  "@payloadcms/ui": 3.35.1
-
-  "@orpc/client": "1.0.3"
-  "@orpc/server": "1.0.3"
+onlyBuiltDependencies:
+  - '@tailwindcss/oxide'
+  - esbuild
+  - sharp
+  - vue-demi

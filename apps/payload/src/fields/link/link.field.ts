@@ -1,6 +1,6 @@
 import type { Field, GroupField } from 'payload'
 import { linkTypeField } from '@payload/fields/link/linkType.field'
-import { defu } from 'defu'
+import { deepMerge } from 'payload'
 
 type LinkType = (options?: {
   disableLabel?: boolean
@@ -87,5 +87,5 @@ export const linkField: LinkType = ({ disableLabel = false, overrides = {} } = {
     linkResult.fields = [...linkResult.fields, ...linkTypes]
   }
 
-  return defu(linkResult, overrides)
+  return deepMerge(linkResult, overrides)
 }

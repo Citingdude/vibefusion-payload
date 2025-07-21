@@ -41,6 +41,17 @@ catalogs:
     '@vueuse/nuxt': 13.1.0
     vue: 3.5.13
     vue-router: 4.5.0
+  next:
+    "next": "15.3.1"
+    "react": "19.1.0"
+    "react-dom": "19.1.0"
+    "@types/react": "19.1.2"
+    "@types/react-dom": "19.1.2"
+    "@types/node": "22.14.1"
+  tsrest:
+    "@ts-rest/core": "3.52.1"
+    "@ts-rest/next": "3.52.1"
+    "@ts-rest/serverless": "3.52.1"
 
 onlyBuiltDependencies:
   - esbuild

@@ -23,7 +23,6 @@
     "@payloadcms/richtext-lexical": "catalog:payload",
     "@repo/payload": "workspace:*",
     "@tailwindcss/vite": "catalog:ui",
-    "@ts-rest/core": "catalog:tsrest",
     "motion": "catalog:ui",
     "nuxt": "catalog:nuxt",
     "payload": "catalog:payload",

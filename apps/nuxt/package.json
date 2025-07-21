@@ -2,7 +2,7 @@
   "name": "@repo/nuxt",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@8.15.6+sha1.8105075ad0aa306138be128c017e9c41e28ecffa",
+  "packageManager": "pnpm@10.13.1",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",

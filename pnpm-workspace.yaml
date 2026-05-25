@@ -38,6 +38,7 @@ catalogs:
   types:
     typescript: 5.8.3
     zod: 4.0.5
+    'vue-tsc': 3.3.1
   ui:
     '@fontsource-variable/alegreya': 5.2.6
     '@fontsource/alegreya-sans': 5.2.6

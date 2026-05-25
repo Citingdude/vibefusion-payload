@@ -41,6 +41,7 @@
     "eslint": "catalog:lint",
     "eslint-plugin-tailwindcss": "catalog:lint",
     "eslint-plugin-vuejs-accessibility": "catalog:lint",
-    "typescript": "catalog:types"
+    "typescript": "catalog:types",
+    "vue-tsc": "catalog:types"
   }
 }

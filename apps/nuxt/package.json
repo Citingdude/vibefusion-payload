@@ -2,7 +2,7 @@
   "name": "@repo/nuxt",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@11.5.0",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -27,6 +27,7 @@
     "nuxt": "catalog:nuxt",
     "payload": "catalog:payload",
     "reka-ui": "catalog:ui",
+    "tailwind-merge": "catalog:ui",
     "tailwind-variants": "catalog:ui",
     "tailwindcss": "catalog:ui",
     "vue": "catalog:vue",

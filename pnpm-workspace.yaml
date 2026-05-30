@@ -2,57 +2,75 @@ packages:
   - apps/*
   - packages/*
 
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
+  vue-demi: true
+
 catalogs:
   lint:
-    '@antfu/eslint-config': 4.17.0
-    eslint: 9.31.0
-    eslint-config-next: 15.4.2
-    eslint-plugin-tailwindcss: 3.18.2
-    eslint-plugin-vuejs-accessibility: 2.4.1
+    '@antfu/eslint-config': 9.0.0
+    eslint: 10.4.1
+    eslint-config-next: 16.2.6
+    eslint-plugin-tailwindcss: 3.18.3
+    eslint-plugin-vuejs-accessibility: 2.5.0
   next:
-    '@types/node': 22.16.5
-    '@types/react': 19.1.8
-    '@types/react-dom': 19.1.6
-    next: 15.4.2
-    react: 19.1.0
-    react-dom: 19.1.0
+    '@types/node': 24.12.4
+    '@types/react': 19.2.15
+    '@types/react-dom': 19.2.3
+    next: 16.2.6
+    react: 19.2.6
+    react-dom: 19.2.6
   nuxt:
-    nuxt: 4.0.1
+    nuxt: 4.4.6
   orpc:
-    '@orpc/client': 1.7.4
-    '@orpc/server': 1.7.4
+    '@orpc/client': 1.14.4
+    '@orpc/server': 1.14.4
   payload:
-    '@payloadcms/db-postgres': 3.48.0
-    '@payloadcms/live-preview': 3.48.0
-    '@payloadcms/next': 3.48.0
-    '@payloadcms/payload-cloud': 3.48.0
-    '@payloadcms/plugin-nested-docs': 3.48.0
-    '@payloadcms/plugin-seo': 3.48.0
-    '@payloadcms/richtext-lexical': 3.48.0
-    '@payloadcms/ui': 3.48.0
-    payload: 3.48.0
+    '@payloadcms/db-postgres': 3.85.0
+    '@payloadcms/live-preview': 3.85.0
+    '@payloadcms/next': 3.85.0
+    '@payloadcms/payload-cloud': 3.85.0
+    '@payloadcms/plugin-nested-docs': 3.85.0
+    '@payloadcms/plugin-seo': 3.85.0
+    '@payloadcms/richtext-lexical': 3.85.0
+    '@payloadcms/ui': 3.85.0
+    payload: 3.85.0
+    cross-env: 10.1.0
+    defu: 6.1.7
+    sharp: 0.34.5
+    slugify: 1.6.9
   tsrest:
     '@ts-rest/core': 3.52.1
     '@ts-rest/next': 3.52.1
     '@ts-rest/serverless': 3.52.1
   types:
-    typescript: 5.8.3
-    zod: 4.0.5
-    'vue-tsc': 3.3.1
+    typescript: 6.0.3
+    zod: 4.4.3
+    'vue-tsc': 3.3.3
   ui:
-    '@fontsource-variable/alegreya': 5.2.6
-    '@fontsource/alegreya-sans': 5.2.6
-    '@tailwindcss/typography': 0.5.16
-    '@tailwindcss/vite': 4.1.11
-    motion: 12.23.6
-    reka-ui: 2.3.2
-    tailwind-variants: 1.0.0
-    tailwindcss: 4.1.11
+    '@fontsource-variable/alegreya': 5.2.8
+    '@fontsource/alegreya-sans': 5.2.8
+    '@tailwindcss/typography': 0.5.19
+    '@tailwindcss/vite': 4.3.0
+    motion: 12.40.0
+    reka-ui: 2.9.8
+    tailwind-variants: 3.2.2
+    tailwind-merge: 3.6.0
+    tailwindcss: 4.3.0
   vue:
-    '@vueuse/core': 13.5.0
-    '@vueuse/nuxt': 13.5.0
-    vue: 3.5.17
-    vue-router: 4.5.1
+    '@vueuse/core': 14.3.0
+    '@vueuse/nuxt': 14.3.0
+    vue: 3.5.35
+    vue-router: 5.1.0
+
+minimumReleaseAgeExclude:
+  - '@eslint/plugin-kit@0.7.2'
+  - '@vue/language-core@3.3.3'
+  - eslint@10.4.1
+  - vue-tsc@3.3.3
 
 onlyBuiltDependencies:
   - '@tailwindcss/oxide'

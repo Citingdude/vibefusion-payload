@@ -35,14 +35,14 @@
     "@payloadcms/plugin-seo": "catalog:payload",
     "@payloadcms/richtext-lexical": "catalog:payload",
     "@payloadcms/ui": "catalog:payload",
-    "cross-env": "7.0.3",
-    "defu": "6.1.4",
+    "cross-env": "catalog:payload",
+    "defu": "catalog:payload",
     "next": "catalog:next",
     "payload": "catalog:payload",
     "react": "catalog:next",
     "react-dom": "catalog:next",
-    "sharp": "0.34.3",
-    "slugify": "1.6.6",
+    "sharp": "catalog:payload",
+    "slugify": "catalog:payload",
     "zod": "catalog:types"
   },
   "devDependencies": {

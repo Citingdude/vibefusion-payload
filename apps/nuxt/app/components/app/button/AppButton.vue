@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { RouteLocationRaw } from '#vue-router'
 import type { VariantProps } from 'tailwind-variants'
+import type { RouteLocationRaw } from '#vue-router'
 import { tv } from 'tailwind-variants'
 
 export interface ButtonProps {

@@ -1,0 +1,60 @@
+/* Local self-hosted Alegreya Sans fonts
+   Place WOFF2 files in /apps/nuxt/public/fonts/
+   Example filenames: alegreya-sans-300.woff2, alegreya-sans-400.woff2, etc.
+*/
+
+@font-face {
+  font-family: 'Alegreya Sans';
+  src: url('/fonts/alegreya-sans-300.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alegreya Sans';
+  src: url('/fonts/alegreya-sans-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alegreya Sans';
+  src: url('/fonts/alegreya-sans-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alegreya Sans';
+  src: url('/fonts/alegreya-sans-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alegreya Sans';
+  src: url('/fonts/alegreya-sans-800.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alegreya Sans';
+  src: url('/fonts/alegreya-sans-900.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ff-sans: 'Alegreya Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+html {
+  font-family: var(--ff-sans);
+}

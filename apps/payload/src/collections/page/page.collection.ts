@@ -18,11 +18,12 @@ export const PageCollection: CollectionConfig = {
     defaultColumns: ['title', 'slug', 'pageType'],
     livePreview: {
       url({ data }) {
+        const base = (process.env.FRONTEND_BASE_URL || process.env.BASE_URL || 'http://localhost:3000').replace(/\/$/, '')
         if (data.slug === 'home') {
-          return 'http://localhost:3000'
+          return base
         }
 
-        return `http://localhost:3000/${data.slug}`
+        return `${base}/${data.slug}`
       },
     },
   },

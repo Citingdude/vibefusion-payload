@@ -11,13 +11,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
-    head: {
-      link: [
-        { rel:
-          'preload', href: '/fonts/alegreya-sans-400.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
-        { rel: 'preload', href: '/fonts/alegreya-sans-700.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
-      ],
-    },
   },
   future: {
     compatibilityVersion: 4,
@@ -49,7 +42,10 @@ export default defineNuxtConfig({
     },
   },
   // Ensure fonts.css is loaded before main.css so font-face rules are available
-  css: ['~/assets/css/fonts.css', '~/assets/css/main.css'],
+  css: [
+    '~/assets/css/fonts.css',
+    '~/assets/css/main.css',
+  ],
   vite: {
     plugins: [
       tailwindcss(),

@@ -24,7 +24,7 @@
 }
 
 @theme {
-  --font-display: "Alegreya Variable", "serif";
+  --font-display: "Alegreya", "serif";
   --font-body: "Alegreya Sans", "sans-serif";
 
   --color-accent: #6666CC;

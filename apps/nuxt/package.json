@@ -15,8 +15,6 @@
     "typecheck": "npx nuxi typecheck"
   },
   "dependencies": {
-    "@fontsource-variable/alegreya": "catalog:ui",
-    "@fontsource/alegreya-sans": "catalog:ui",
     "@orpc/client": "catalog:orpc",
     "@orpc/server": "catalog:orpc",
     "@payloadcms/live-preview": "catalog:payload",

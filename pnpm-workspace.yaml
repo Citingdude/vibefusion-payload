@@ -51,8 +51,6 @@ catalogs:
     zod: 4.4.3
     'vue-tsc': 3.3.3
   ui:
-    '@fontsource-variable/alegreya': 5.2.8
-    '@fontsource/alegreya-sans': 5.2.8
     '@tailwindcss/typography': 0.5.19
     '@tailwindcss/vite': 4.3.0
     motion: 12.40.0
